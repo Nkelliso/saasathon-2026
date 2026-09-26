@@ -130,7 +130,7 @@ Everything to do with managing an organization:
 Adding / removing members by id.
 </org>
 
-TASK 0: Wire up EVERYTHING you need in the backend, when it comes to data, basic workflow, LLM flows.
+TASK 0: YOU ARE NOT WORKING ON BACKEND RIGHT NOW: Instead, you will wire up EVERYTHING you need in the backend, when it comes to data, basic workflow, LLM flows.
 REMINDER, DOESN'T NEED TO PROPERLY WORK. Smoke + mirrors are best.
 
 

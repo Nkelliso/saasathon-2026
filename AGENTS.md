@@ -98,6 +98,19 @@ data User:
 [Note: Feel free to update the database schema at any moment. It is highly adaptive. If you need something; just add it. Don't let this design get in your way.]
 <database_schema>
 
+<machine_assets>
+Machine assets live under `src/machines/<machine-id>/`, where `<machine-id>` is the normalized manufacturer/model slug (for example, `tormach-pcnc-1100`). Each machine directory contains:
+- `model.glb`: browser-ready 3D model
+- `manual.md`: Markdown conversion of official manufacturer documentation, including its source URL
+
+Current machine IDs:
+- `tormach-pcnc-1100`
+- `universal-robots-ur5e`
+- `abb-irb-120`
+
+Use these IDs consistently in application data and asset paths. Add future machine assets using the same directory structure and descriptive ID naming convention; do not use numeric or invented IDs.
+</machine_assets>
+
 
 <llms>
 For LLMs, we use openrouter, and we have an OPENROUTER_KEY defined in the `.env` file.
