@@ -6,9 +6,6 @@ export const metadata: Metadata = {
   description: "Access your Torque operations workspace.",
 };
 
-export default async function LoginPage(props: PageProps<"/login">) {
-  const { error } = await props.searchParams;
-  const initialError = Array.isArray(error) ? error[0] : error;
-
-  return <AuthForm mode="login" initialError={initialError} />;
+export default async function LoginPage() {
+  return <AuthForm />;
 }
