@@ -82,3 +82,46 @@ You have a CNC machine that is working
 
 
 
+
+
+## Tormach 1100MX demo
+
+Three fictional repairs for proposed machine `CNC-MX-01`, model `tormach-1100mx`. All tickets have kind `REPAIR`. Drafts only; nothing added to the database.
+
+### Demo question
+
+> The power drawbar clicks, but the tool won't release. The compressor says 120 psi. John fixed this last week, but he's off-site. What should I check first, and what fixed it last time?
+
+**The payoff:** Torque combines the manual's minimum 90 psi at the machine with John's repair history. A normal compressor reading can hide low pressure at the machine; the previous cause is a lead to check.
+
+### Ticket 1: Tool stuck — restricted air fitting
+
+**Date:** 2026-09-21
+
+**Description:** Tool would not release. Compressor read 120 psi, but pressure at the machine dropped from 94 to 72 psi during release. John replaced a restricted quick-connect on the Bay 03 air line. Pressure stayed above 90 psi and ten tool changes passed. Downtime: 38 minutes. Check machine-side pressure if this returns.
+
+**Summary:** Replacing the restricted air fitting restored tool release.
+
+**Source:** [Manual p. 269, §12.9.3](https://tormach.com/media/asset/u/m/um10586_1100mx_0626a.pdf#page=269): insufficient air pressure can prevent tool release.
+
+### Ticket 2: Chatter — chip on toolholder
+
+**Date:** 2026-09-23
+
+**Description:** Chatter started after loading holder H07, with no program changes. Found an aluminium chip on the holder's taper. Cleaning the holder and spindle contact surfaces restored the finish. Downtime: 22 minutes. H07 had been left on a dirty bench; store holders covered and inspect before loading.
+
+**Summary:** Removing a chip from the toolholder stopped the chatter.
+
+**Source:** [Manual p. 268, §12.9.2](https://tormach.com/media/asset/u/m/um10586_1100mx_0626a.pdf#page=268): chips on spindle/toolholder surfaces can cause chatter.
+
+### Ticket 3: Weak coolant — blocked pump impeller
+
+**Date:** 2026-09-25
+
+**Description:** Pump was running but coolant barely flowed. Tank level was normal. Found fine chips blocking the impeller and a full chip basket. Cleaning both restored flow. Downtime: 31 minutes. The previous shift had missed the tank basket; added it to the handover checklist.
+
+**Summary:** Clearing chips restored coolant flow without replacing the pump.
+
+**Source:** [Manual p. 244, §11.3.2](https://tormach.com/media/asset/u/m/um10586_1100mx_0626a.pdf#page=244): inspect the impeller for blockages and clean the chip strainer.
+
+All repairs assume proper power and air isolation before maintenance. The source manual is English.
