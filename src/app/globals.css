@@ -35,6 +35,21 @@ body {
   color: #000;
 }
 
+.auth-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-line) 42%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-line) 42%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 32px 32px;
+}
+
 .rotate-large-gear {
   animation: rotate 30s linear infinite;
 }
