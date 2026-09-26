@@ -1,5 +1,7 @@
 # Tormach 1100MX asset preparation
 
+Historical preparation record: manual statistics and hashes below precede [installation/programming exclusions](../manual-curation/README.md). The full original is archived; GLB statistics are unchanged.
+
 Prepared 2026-09-26. Asset ID: `tormach-1100mx`.
 
 ## Deliverables

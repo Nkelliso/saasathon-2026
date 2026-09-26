@@ -35,8 +35,11 @@ for (const id of ids.length ? ids : fs.readdirSync(root)) {
   const manual = fs.readFileSync(path.join(root, id, 'manual.md'), 'utf8');
   if (!/Source: \[https:\/\//.test(manual) || manual.length < 10000) throw new Error(`Missing manual content/source: ${id}`);
   const pages = [...manual.matchAll(/^## PDF Page (\d+)$/gm)].map(m => Number(m[1]));
-  if (pages.length && (pages.length < 20 || pages.some((p, i) => p !== i + 1))) throw new Error(`Missing PDF pages: ${id}`);
+  const curated = manual.includes('> Curated reference: installation/commissioning and programming documentation');
+  if (pages.length && (curated
+    ? pages.some((p, i) => p < 1 || (i > 0 && p <= pages[i - 1]))
+    : pages.length < 20 || pages.some((p, i) => p !== i + 1))) throw new Error(`Invalid PDF page sequence: ${id}`);
   console.log(JSON.stringify({id, bytes: bytes.length, meshes, triangles, dimensions,
-    pages: pages.length || 'legacy extraction', manualCharacters: manual.length,
+    pages: pages.length || 'legacy extraction', curated, manualCharacters: manual.length,
     sha256: crypto.createHash('sha256').update(bytes).digest('hex')}));
 }

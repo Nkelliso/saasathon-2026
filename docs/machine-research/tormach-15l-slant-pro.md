@@ -1,5 +1,7 @@
 # Tormach 15L Slant-PRO asset preparation
 
+Historical preparation record: manual statistics and hashes below precede [installation/programming exclusions](../manual-curation/README.md). The full original is archived; GLB statistics are unchanged.
+
 Machine ID: `tormach-15l-slant-pro`
 
 ## Delivered assets

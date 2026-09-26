@@ -2,7 +2,9 @@
 
 Verified against manufacturer downloads on 2026-09-26. These are five additional machines; the existing PCNC 1100, UR5e, and ABB IRB 120 assets are retained.
 
-All five have actual manufacturer CAD converted to standalone GLB and a substantial official manual converted to Markdown. All five selected manuals are **English**. The collection contains **1,351 PDF pages**. The mix supports milling, turning, routing, and plasma-cutting demos.
+All five have actual manufacturer CAD converted to standalone GLB and a substantial official manual converted to Markdown. All five selected manuals are **English**. The full source collection contains **1,351 PDF pages**. The mix supports milling, turning, routing, and plasma-cutting demos.
+
+**Later curation:** active `manual.md` files now exclude installation and programming documentation. The page counts, extraction checks, and original Markdown hashes in these preparation records describe the full originals, preserved in `docs/manual-archives/`. See [manual curation](manual-curation/README.md) for current sizes and exclusions.
 
 | Machine / asset folder | Type | Manual | CAD source |
 | --- | --- | --- | --- |

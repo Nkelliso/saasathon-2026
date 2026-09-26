@@ -1,5 +1,7 @@
 # Tormach 770MX MF asset report
 
+Historical preparation record: manual statistics and hashes below precede [installation/programming exclusions](../manual-curation/README.md). The full original is archived; GLB statistics are unchanged.
+
 Completed 2026-09-26. Owned production files: `src/machines/tormach-770mx/model.glb` and `src/machines/tormach-770mx/manual.md`. No application, catalog, or shared-script files changed.
 
 ## Sources and applicability

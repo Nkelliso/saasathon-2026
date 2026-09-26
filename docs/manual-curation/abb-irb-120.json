@@ -1,0 +1,84 @@
+{
+  "machine_id": "abb-irb-120",
+  "original_sha256": "ce714732acfc649e62469c25cd6421706810433233df2807b786a27314e0bc67",
+  "exclusions": [
+    {
+      "start_line": 43,
+      "end_line": 209,
+      "reason": "Remove full-source contents navigation to excluded installation procedures."
+    },
+    {
+      "start_line": 1280,
+      "end_line": 1295,
+      "reason": "Installation chapter introduction and initial installation commissioning preamble; preserve following protective-earth safety note."
+    },
+    {
+      "start_line": 1314,
+      "end_line": 1355,
+      "reason": "Unpacking and first-installation prerequisites/checklist (2.2.1); retain weight and operating/environment specifications."
+    },
+    {
+      "start_line": 1694,
+      "end_line": 1730,
+      "reason": "Brief first-installation procedure (2.3.1); preserve following test-run safety procedure."
+    },
+    {
+      "start_line": 1970,
+      "end_line": 1998,
+      "reason": "Initial base orientation and mounting-hole layout (2.3.5); retain attachment screw specification for maintenance."
+    },
+    {
+      "start_line": 2021,
+      "end_line": 2072,
+      "reason": "Initial orienting/securing and mounting-plate installation procedure plus accessory-fitting preamble; retain equipment damage/drilling warnings and load limits."
+    },
+    {
+      "start_line": 2100,
+      "end_line": 2137,
+      "reason": "Accessory fitting layouts on base, arm and mounting flange (2.3.6); retain fastener-quality requirement."
+    },
+    {
+      "start_line": 2150,
+      "end_line": 2188,
+      "reason": "Suspended/tilted installation setup introduction and base-coordinate mounting orientation (2.3.7); preserve incorrect-gravity operational hazard note."
+    },
+    {
+      "start_line": 2201,
+      "end_line": 2332,
+      "reason": "Gravity Alpha/Beta mounting-angle setup tables and RobotWare configuration for initial mounting (2.3.7)."
+    },
+    {
+      "start_line": 2435,
+      "end_line": 2442,
+      "reason": "Clean Room initial-installation headings; retain Clean Room construction and replacement-part constraints."
+    },
+    {
+      "start_line": 2465,
+      "end_line": 2468,
+      "reason": "Clean Room pre-commissioning cleaning instruction; retain warning against lifting by plastic covers."
+    },
+    {
+      "start_line": 2485,
+      "end_line": 2488,
+      "reason": "Initial robot-to-controller connection instruction; preserve cabling/connector specifications for maintenance."
+    },
+    {
+      "start_line": 7899,
+      "end_line": 7958,
+      "reason": "Remove original index containing stale installation navigation."
+    }
+  ],
+  "retained_scope": [
+    "Entire chapter 1 safety, including installation-related safety that applies to ongoing safe operation and service.",
+    "Chapter 2 maintenance dependencies: weight, environmental and working-range limits, tipping/ESD precautions, safe lifting, manual brake release, attachment fasteners, fitted load limits, mechanical stops, cable specifications and cold-start troubleshooting.",
+    "Post-maintenance/repair test runs in 2.3.2 and 2.8.",
+    "All chapter 3 maintenance, chapter 4 repair and refitting, chapter 5 calibration, chapter 6 decommissioning and chapters 7-9 service references/parts/circuit references."
+  ],
+  "review_notes": [
+    "Installation chapter is mixed-purpose: removing it wholesale would delete brake release, ESD precautions and post-repair checks required by retained repair procedures.",
+    "Retain Clean Room replacement constraints and mechanical-stop locations, not solely initial installation steps.",
+    "Retain all repair reinstallation/refitting procedures, including cable harness and motor/gearbox refitting.",
+    "Retain MoveAbsJ instructions in 5.7 because they check calibration/synchronization rather than teach robot programming.",
+    "Retain mounting-angle error consequences while removing mounting-angle setup instructions; safety chapter and load-limit warnings remain intact. Source text retained verbatim."
+  ]
+}

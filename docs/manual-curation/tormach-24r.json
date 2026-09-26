@@ -1,0 +1,140 @@
+{
+  "machine_id": "tormach-24r",
+  "original_sha256": "a1b74ca60a33c85eb98168de6037f79d1ee745810abd7bd1763b6f860a18256e",
+  "exclusions": [
+    {
+      "start_line": 52,
+      "end_line": 82,
+      "reason": "Delivery inspection before installation"
+    },
+    {
+      "start_line": 191,
+      "end_line": 1438,
+      "reason": "Original full contents references excluded chapters"
+    },
+    {
+      "start_line": 2244,
+      "end_line": 2254,
+      "reason": "Transformer provisioning for non-conforming sites"
+    },
+    {
+      "start_line": 2264,
+      "end_line": 4686,
+      "reason": "Chapter 4 initial machine and accessory installation, verification and controller commissioning"
+    },
+    {
+      "start_line": 4726,
+      "end_line": 4734,
+      "reason": "Vacuum accessory installation reference and hose mounting instructions"
+    },
+    {
+      "start_line": 4973,
+      "end_line": 4974,
+      "reason": "Stale conversational subsection contents entry"
+    },
+    {
+      "start_line": 5040,
+      "end_line": 5043,
+      "reason": "Conversational programming configuration reference"
+    },
+    {
+      "start_line": 5064,
+      "end_line": 5071,
+      "reason": "Conversational program creation interface"
+    },
+    {
+      "start_line": 5215,
+      "end_line": 5217,
+      "reason": "G-code editing keyboard shortcut"
+    },
+    {
+      "start_line": 5225,
+      "end_line": 5227,
+      "reason": "Conversational programming keyboard shortcut"
+    },
+    {
+      "start_line": 5379,
+      "end_line": 5380,
+      "reason": "Stale G-code editing contents entry"
+    },
+    {
+      "start_line": 5383,
+      "end_line": 5384,
+      "reason": "Stale conversational programming contents entry"
+    },
+    {
+      "start_line": 5472,
+      "end_line": 5508,
+      "reason": "G-code text and conversational editing instructions"
+    },
+    {
+      "start_line": 5513,
+      "end_line": 5575,
+      "reason": "G-code text and conversational editing instructions"
+    },
+    {
+      "start_line": 5782,
+      "end_line": 6708,
+      "reason": "Conversational program generation tutorials"
+    },
+    {
+      "start_line": 6732,
+      "end_line": 6734,
+      "reason": "Stale conversational feeds/speeds contents entry"
+    },
+    {
+      "start_line": 6983,
+      "end_line": 6990,
+      "reason": "Conversational programming feeds/speeds configuration"
+    },
+    {
+      "start_line": 7187,
+      "end_line": 7265,
+      "reason": "Camera G/M-code programming instructions and examples"
+    },
+    {
+      "start_line": 8403,
+      "end_line": 8404,
+      "reason": "Stale conversational feeds/speeds contents entry"
+    },
+    {
+      "start_line": 8492,
+      "end_line": 8553,
+      "reason": "Programming M00/M01 text/image messages and camera commands"
+    },
+    {
+      "start_line": 8914,
+      "end_line": 9006,
+      "reason": "Conversational feeds/speeds tutorial; tool-description reference below retained"
+    },
+    {
+      "start_line": 9011,
+      "end_line": 9034,
+      "reason": "Conversational feeds/speeds tutorial; tool-description reference below retained"
+    },
+    {
+      "start_line": 9264,
+      "end_line": 9295,
+      "reason": "G-code numbered parameters and G10 cycle-counter programming; ADMIN counter monitoring/reset retained"
+    },
+    {
+      "start_line": 10337,
+      "end_line": 13588,
+      "reason": "Chapter 9 programming including G/M codes, canned cycles and advanced programming"
+    }
+  ],
+  "retained_scope": [
+    "Manufacturer attribution, safety and machine specifications",
+    "Ongoing operating limits and machine controls",
+    "Maintenance, repairs and troubleshooting",
+    "Diagnostic commands, diagrams, parts lists and electrical reference"
+  ],
+  "review_notes": [
+    "Site electrical, environmental and clearance requirements retained for operating safety, including temperature/humidity and electrical-noise limits; initial installation and accessory mounting chapter excluded.",
+    "Firmware updates/rollback, operational settings, probing, tool measurement and tool mounting are retained as ongoing operation and maintenance.",
+    "Load/read/resume existing programs and runtime overrides are retained; programming authorship and tutorials are excluded.",
+    "ADMIN diagnostics, E-stop video recording and tool table descriptions retained.",
+    "Demo source pages 219, 227 and 228 retained verbatim.",
+    "Reviewed full chapter outlines and embedded programming sections. Original manufacturer text is unchanged outside recorded exclusions; partial-page labels are retained."
+  ]
+}

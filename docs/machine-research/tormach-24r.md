@@ -1,5 +1,7 @@
 # Tormach 24R asset preparation
 
+Historical preparation record: manual statistics and hashes below precede [installation/programming exclusions](../manual-curation/README.md). The full original is archived; GLB statistics are unchanged.
+
 Final assets: `src/machines/tormach-24r/model.glb` and `manual.md`.
 
 ## Provenance

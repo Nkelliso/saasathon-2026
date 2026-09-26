@@ -1,0 +1,79 @@
+{
+  "machine_id": "tormach-15l-slant-pro",
+  "original_sha256": "892f56fb45d45be411e09205a52a76763403d5d2c550fc6652bc68aa7d3df116",
+  "exclusions": [
+    {
+      "start_line": 305,
+      "end_line": 881,
+      "reason": "Original full contents references excluded chapters"
+    },
+    {
+      "start_line": 1002,
+      "end_line": 1004,
+      "reason": "Installation chapter heading; electrical and workplace safety limits below retained"
+    },
+    {
+      "start_line": 1014,
+      "end_line": 1016,
+      "reason": "Initial electrical connection installation directions"
+    },
+    {
+      "start_line": 1030,
+      "end_line": 1036,
+      "reason": "Non-conforming site commissioning and conversion instructions"
+    },
+    {
+      "start_line": 1053,
+      "end_line": 1509,
+      "reason": "Receiving, uncrating, initial machine assembly, add-on installation and controller commissioning"
+    },
+    {
+      "start_line": 1738,
+      "end_line": 2247,
+      "reason": "Chapter 4 first-part programming tutorial"
+    },
+    {
+      "start_line": 2577,
+      "end_line": 2578,
+      "reason": "G-code editing keyboard shortcut"
+    },
+    {
+      "start_line": 2581,
+      "end_line": 2581,
+      "reason": "G-code editing shortcut footnote"
+    },
+    {
+      "start_line": 2778,
+      "end_line": 2825,
+      "reason": "G-code text and conversational editing instructions"
+    },
+    {
+      "start_line": 2878,
+      "end_line": 2881,
+      "reason": "Conversational programming feeds and speeds configuration"
+    },
+    {
+      "start_line": 3169,
+      "end_line": 4106,
+      "reason": "Conversational programming screens and operation generation"
+    },
+    {
+      "start_line": 4180,
+      "end_line": 6249,
+      "reason": "Chapter 6 programming language, G/M codes, cycles and subroutines"
+    }
+  ],
+  "retained_scope": [
+    "Manufacturer attribution, safety and machine specifications",
+    "Ongoing operating limits and machine controls",
+    "Maintenance, repairs and troubleshooting",
+    "Diagnostic commands, diagrams, parts lists and electrical reference"
+  ],
+  "review_notes": [
+    "Electrical and workplace requirements on PDF pages 19-20 retained as ongoing operating and fault-diagnosis reference, not assembly procedures.",
+    "Whole first-part tutorial is excluded; normal referencing, workholding, tool offsets and operating controls remain in chapters 3 and 5.",
+    "Tool table descriptions, ADMIN settings backup/restore, spindle-direction wiring repair and all maintenance/troubleshooting remain.",
+    "Demo source pages 168, 173 and 176 retained verbatim.",
+    "Reviewed full chapter outlines and embedded programming sections. Original manufacturer text is unchanged outside recorded exclusions; partial-page labels are retained."
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "method": "Unicode characters after CRLF normalization, divided by 4; not tokenizer counts",
+  "before_characters": 3416908,
+  "after_characters": 1914402,
+  "reduction_percent": 44.0,
+  "estimated_tokens": 478600,
+  "manuals": [
+    {
+      "machine_id": "abb-irb-120",
+      "before_characters": 310896,
+      "after_characters": 277564,
+      "reduction_percent": 10.7,
+      "estimated_tokens": 69391
+    },
+    {
+      "machine_id": "tormach-1100mx",
+      "before_characters": 613646,
+      "after_characters": 283685,
+      "reduction_percent": 53.8,
+      "estimated_tokens": 70921
+    },
+    {
+      "machine_id": "tormach-1300pl",
+      "before_characters": 336602,
+      "after_characters": 178339,
+      "reduction_percent": 47.0,
+      "estimated_tokens": 44585
+    },
+    {
+      "machine_id": "tormach-15l-slant-pro",
+      "before_characters": 327765,
+      "after_characters": 142769,
+      "reduction_percent": 56.4,
+      "estimated_tokens": 35692
+    },
+    {
+      "machine_id": "tormach-24r",
+      "before_characters": 516729,
+      "after_characters": 272972,
+      "reduction_percent": 47.2,
+      "estimated_tokens": 68243
+    },
+    {
+      "machine_id": "tormach-770mx",
+      "before_characters": 603131,
+      "after_characters": 277686,
+      "reduction_percent": 54.0,
+      "estimated_tokens": 69422
+    },
+    {
+      "machine_id": "tormach-pcnc-1100",
+      "before_characters": 427338,
+      "after_characters": 239136,
+      "reduction_percent": 44.0,
+      "estimated_tokens": 59784
+    },
+    {
+      "machine_id": "universal-robots-ur5e",
+      "before_characters": 280801,
+      "after_characters": 242251,
+      "reduction_percent": 13.7,
+      "estimated_tokens": 60563
+    }
+  ]
+}
