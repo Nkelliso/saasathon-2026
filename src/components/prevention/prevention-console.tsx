@@ -4,7 +4,8 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { ChevronDown, X } from "lucide-react";
 import { AppShell } from "@/components/app-shell";
 import { machineModels } from "@/lib/machines";
-import { preventionPatterns, type PreventionPattern } from "@/lib/prevention-demo";
+import { getPreventionPatterns, type PreventionPattern } from "@/lib/prevention-demo";
+import { useDemoWorkspace } from "@/lib/demo-workspace";
 
 const importance = {
   High: { rank: 0, color: "text-fault", dot: "bg-fault" },
@@ -46,6 +47,8 @@ function ticketDate(date: string) {
 }
 
 export function PreventionConsole() {
+  const workspace = useDemoWorkspace();
+  const preventionPatterns = getPreventionPatterns(workspace.tickets);
   const rawReadIds = useSyncExternalStore(subscribeReadState, getReadState, () => "[]");
   const readIds = parseReadIds(rawReadIds);
   const [sort, setSort] = useState("importance");

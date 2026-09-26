@@ -23,13 +23,13 @@ export function DemoConsole() {
       </div>
       <div className="mt-6 flex flex-wrap items-center gap-5">
         <button disabled={!ready} onClick={reset} className="inline-flex h-11 items-center gap-2 rounded-md bg-accent px-4 text-sm font-medium text-black disabled:opacity-40"><RotateCcw className="size-4" strokeWidth={1.5} />Reset demo data</button>
-        <Link href="/machine/CNC-MX-01" className="inline-flex items-center gap-2 text-sm text-fg-muted hover:text-fg">Open demo machine <ArrowRight className="size-4" strokeWidth={1.5} /></Link>
+        <Link href="/machine/CNC-MX-03" className="inline-flex items-center gap-2 text-sm text-fg-muted hover:text-fg">Open demo machine <ArrowRight className="size-4" strokeWidth={1.5} /></Link>
       </div>
       <p role="status" className="mt-4 text-sm text-fg-muted">{message}</p>
       <section className="mt-8 rounded-lg border border-line bg-surface p-5">
-        <p className="font-mono text-xs text-accent">CNC-MX-01 · BAY 03</p>
+        <p className="font-mono text-xs text-accent">CNC-MX-03 · BAY 05</p>
         <p className="mt-3 text-sm leading-6">The tool won’t release, but the air pressure looks fine. 120 PSI. John fixed this last month, but he’s away. What should I check? The power drawbar clicks.</p>
-        <p className="mt-3 text-xs leading-5 text-fg-muted">The repair history includes John’s restricted air fitting, a contaminated toolholder, and a blocked coolant pump. CNC-MX-03 contains the lubrication warnings.</p>
+        <p className="mt-3 text-xs leading-5 text-fg-muted">This scenario uses a scripted fitting-replacement answer and John’s previous repair. Log a repair with “replaced the air fitting” to reveal a prevention report with two matching incidents.</p>
       </section>
     </main>
   </AppShell>;

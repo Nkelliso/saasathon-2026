@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
 import demo from "../.agent/diagnosis-tests/demo-data.js";
 import retrieval from "../.agent/diagnosis-tests/manual-retrieval.js";
+import prevention from "../.agent/diagnosis-tests/prevention-demo.js";
 const { createDemoWorkspace, migrateLegacyWorkspace, parseWorkspace, spoofedTickets } = demo;
 
 test("demo has 20 unique machines, 5 MX mills, assets for every model and valid ticket ownership", async () => {
@@ -54,4 +55,26 @@ test("MX diagnosis receives John's repair, all selected-machine tickets and no o
   assert.ok(tickets.some((s) => s.excerpt.includes("John replaced a restricted quick-connect")));
   assert.ok(tickets.every((s) => s.excerpt.includes("Machine: CNC-MX-01")));
   assert.ok(!tickets.some((s) => s.excerpt.includes("Table squealing")));
+});
+
+test("existing demo data gains John's MX-03 repair without losing saved tickets", () => {
+  const seed = createDemoWorkspace();
+  const saved = { ...seed.tickets[0], id: "user-saved-ticket" };
+  const old = { ...seed, tickets: [...seed.tickets.filter((ticket) => ticket.id !== demo.johnDemoRepair.id), saved] };
+  const upgraded = parseWorkspace(JSON.stringify(old));
+  assert.ok(upgraded.tickets.some((ticket) => ticket.id === demo.johnDemoRepair.id));
+  assert.ok(upgraded.tickets.some((ticket) => ticket.id === saved.id));
+  assert.deepEqual(parseWorkspace(JSON.stringify(upgraded)), upgraded);
+});
+
+test("the second fitting repair creates one prevention report with two matching incidents", () => {
+  const seed = createDemoWorkspace();
+  const fittingReports = (tickets) => prevention.getPreventionPatterns(tickets).filter((pattern) => pattern.id.startsWith("PRV-AIR-"));
+  assert.equal(fittingReports(seed.tickets).length, 0);
+  const repair = { ...demo.johnDemoRepair, id: "new-repair", title: "Tool release fixed", description: "tool didnt release, air pressure OK. solution was to replace the air fitting!", createdAt: "2026-09-27T09:00:00Z" };
+  const reports = fittingReports([...seed.tickets, repair]);
+  assert.equal(reports.length, 1);
+  assert.deepEqual(reports[0].incidents.map((incident) => incident.id), [repair.id, demo.johnDemoRepair.id]);
+  assert.equal(fittingReports([...seed.tickets, { ...repair, machinePk: "CNC-MX-01" }]).length, 0);
+  assert.equal(fittingReports([...seed.tickets, { ...repair, kind: "INFO" }]).length, 0);
 });

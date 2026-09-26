@@ -7,7 +7,8 @@ import { motion } from "motion/react";
 import { AppShell } from "@/components/app-shell";
 import { machineModels } from "@/lib/machines";
 import { useOrganizationMachines } from "@/lib/organization-machines";
-import { saveMachineTicket } from "@/lib/demo-workspace";
+import { saveMachineTicket, useDemoWorkspace } from "@/lib/demo-workspace";
+import { getPreventionPatterns } from "@/lib/prevention-demo";
 
 const kinds = {
   REPAIR: { label: "Repair", placeholder: "What went wrong, what fixed it, and how did you check it?" },
@@ -28,6 +29,8 @@ export function TicketConsole({ initialMachine = "" }: { initialMachine?: string
   const [description, setDescription] = useState("");
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
+  const workspace = useDemoWorkspace();
+  const repeatFitting = saved && machinePk === "CNC-MX-03" && getPreventionPatterns(workspace.tickets).some((pattern) => pattern.id.startsWith("PRV-AIR-"));
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -55,6 +58,7 @@ export function TicketConsole({ initialMachine = "" }: { initialMachine?: string
               <div className="flex items-center gap-3"><Check className="size-5 text-accent" strokeWidth={1.5} /><h2 className="text-lg font-semibold">Ticket saved</h2></div>
               <p className="mt-4 text-sm text-fg">{title}</p>
               <p className="mt-2 font-mono text-xs text-fg-muted">{machinePk} · {kinds[kind].label}</p>
+              {repeatFitting && <Link href="/prevention" className="mt-5 block rounded-md border border-line bg-surface-2 p-4 text-sm text-accent">2 matching incidents · New prevention report →</Link>}
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <Link href={`/machine/${encodeURIComponent(machinePk)}`} className="inline-flex h-10 items-center gap-2 rounded-md bg-accent px-4 text-sm font-medium text-black">View machine <ArrowRight className="size-4" strokeWidth={1.5} /></Link>
                 <button type="button" onClick={() => { setSaved(false); setTitle(""); setDescription(""); }} className="text-sm text-fg-muted hover:text-fg">Add another ticket</button>

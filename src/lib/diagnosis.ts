@@ -13,6 +13,17 @@ export type DiagnosisEvent =
   | { type: "done" }
   | { type: "error"; message: string };
 
+/** Only the opening, staged MX-03 scenario bypasses the LLM. Follow-ups use normal RAG. */
+export function scriptedDemoAnswer(request: DiagnosisRequest, sources: DiagnosisSource[]): string | undefined {
+  if (request.machine.pk !== "CNC-MX-03" || request.machine.modelId !== "tormach-1100mx" ||
+    request.messages.some((message) => message.role === "assistant")) return;
+  const question = request.messages.map((message) => message.text).join(" ").toLowerCase().replace(/[’']/g, "");
+  const stuckTool = /tool/.test(question) && /(?:wont|will not|doesnt|does not|not|stuck|cant|cannot).*releas|(?:releas.*(?:not|stuck))|tool.*stuck/.test(question);
+  if (!stuckTool || !/120\s*(?:psi|pounds)|air pressure (?:looks |is |seems )?(?:fine|ok|okay|normal)/.test(question) ||
+    !/drawbar/.test(question) || !/click/.test(question)) return;
+  return sources.find((source) => source.id === "D1" && source.kind === "local")?.excerpt.split(/Demo response:\r?\n/)[1]?.trim();
+}
+
 const record = (value: unknown): value is Record<string, unknown> => typeof value === "object" && value !== null;
 const string = (value: unknown, max: number): value is string => typeof value === "string" && value.length <= max;
 

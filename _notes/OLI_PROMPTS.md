@@ -55,15 +55,28 @@ OVERALL TASK:
 
 
 
+UX ISSUE:
+Currently, when solving an issue on machine-fix-screen, you gotta fill in the ticket-incident report manually.
+
+IDEA: Make it so there's a magic "Auto fill" button that fills in a ticket-incident report for you.
+Should be super super seamless. Uses existing LLM infra. Make sure to be EXTREMELY CONCISE, AND MAKE SURE MACHINE ID IS SET.
 
 
 
+
+
+
+
+BIG PROBLEM:
+We want to have our script be streamlined.
+But unfortunetely the llm keeps asking bad questions and stalling when we do our script.
+Here's the script:
 
 <OLI_DEMO_SCRIPT>
 DEMO SCRIPT:
 
 Consider that you are a factory manager, like Dwayne, working in Plastech.
-The blue CNC machine-2 has just stopped working.
+The CNC-MX-03 has just stopped working.
 
 Right now, the company is burning $10 every minute, because the machine isn't working!
 
@@ -97,7 +110,10 @@ Lets see what it's telling us:
 
 </OLI_DEMO_SCRIPT>
 
-
+YOUR TASK:
+Can you please just fudge the data for the script such that there's always a simple one-shot solution please?
+(You should edit the docs for the Tormach 1100MX please.)
+Additionally, please fudge make sure you add john's previous results into context too please.
 
 
 
