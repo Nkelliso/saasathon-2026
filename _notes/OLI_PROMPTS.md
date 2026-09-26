@@ -24,6 +24,17 @@ ONCE YOU HAVE FOUND 5 MACHINES TO USE, Spin up 5 fresh subagents with fresh cont
 
 
 
+TASK:
+We need to work out an excellent question or query to ask the model during the demo.
+FIRST JOB: Read through the Tormach 1100MX spec file.
+SECOND JOB: Find out 5 good fake `ticket`s to write that are plausible issues to have occured. (Might want to create subagent to scrape the web?)
+
+Go ahead and do this.
+For the ticket instances: Don't instantiate them directly; instead, write them into the bottom of the OLI_PROMPTS.md file please.
+
+
+
+
 
 
 TASK:
@@ -33,10 +44,18 @@ Companies should have many machines of different types to use.
 This script should be able to be ran easily such that it clears the database, and populates it with a bunch of test data robustly.
 This is exceptionally foolproof, and it means that we won't demo with bad data.
 
-YOUR TASK:
+OVERALL TASK:
 - create a (python?) script that can be ran to clear/populate the DB. (MAKE IT ROBUST.)
 - make it so it can be ran on the supabase instance, via backend key
+- It should populate it with about 20 machine-instances, including 5 instances of Tormach 1100 MX CNC machines.
+- ADDITIONALLY: Populate it with
 
+
+
+
+
+In the organization-tab, add a "Add Manual" button.
+This allows customers to add their own manuals. This skirts the legal liability for us, and our platform doesn't really need to change: Ingests the manuals exactly the same
 
 
 
@@ -44,7 +63,9 @@ YOUR TASK:
 
 
 TASK:
-
+Make it so in the model-view in threeJS, you can click on a part of the GLB model.
+This will zoom in with the camera, and put a little "target" or something on the model.
+This selects a part; and in the future it will inform the model about which part is 
 
 
 
