@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-surface">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-9 sm:flex-row sm:items-end sm:justify-between lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-16 sm:flex-row sm:items-end sm:justify-between lg:px-8">
         <div>
           <Link href="/" className="flex items-center gap-2.5">
             <Image src={logo} alt={""} className="h-12 w-48" />
@@ -17,10 +17,10 @@ export default function Footer() {
         </div>
         <div className="flex flex-col items-start gap-4 sm:items-end">
           <Link
-            href="/query"
+            href="/login"
             className="inline-flex items-center gap-2 text-sm text-fg-muted transition-colors hover:text-fg"
           >
-            Open diagnostics
+            Access workspace
             <ArrowUpRight className="size-3.5" strokeWidth={1.5} />
           </Link>
           <p className="text-sm text-fg-dim">© 2026 Torque</p>
