@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 import { AppShell } from "@/components/app-shell";
 import { machineModels } from "@/lib/machines";
 import { useOrganizationMachines } from "@/lib/organization-machines";
+import { saveMachineTicket } from "@/lib/demo-workspace";
 
 const kinds = {
   REPAIR: { label: "Repair", placeholder: "What went wrong, what fixed it, and how did you check it?" },
@@ -32,9 +33,8 @@ export function TicketConsole({ initialMachine = "" }: { initialMachine?: string
     event.preventDefault();
     if (!title.trim() || !description.trim() || !machinePk) return;
     try {
-      const existing = JSON.parse(localStorage.getItem("fieldnote-tickets") || "[]");
       const ticket = { id: crypto.randomUUID(), machinePk, kind, title: title.trim(), description: description.trim(), createdAt: new Date().toISOString() };
-      localStorage.setItem("fieldnote-tickets", JSON.stringify([ticket, ...(Array.isArray(existing) ? existing : [])]));
+      saveMachineTicket(ticket);
       setSaved(true);
       setError("");
     } catch {
@@ -88,7 +88,7 @@ export function TicketConsole({ initialMachine = "" }: { initialMachine?: string
               </label>
               <label className="block">
                 <span className={labelClass}>Details</span>
-                <textarea required value={description} onChange={(event) => setDescription(event.target.value)} rows={7} placeholder={kinds[kind].placeholder} className={`${inputClass} min-h-44 resize-y py-3 leading-6`} />
+                <textarea required maxLength={12000} value={description} onChange={(event) => setDescription(event.target.value)} rows={7} placeholder={kinds[kind].placeholder} className={`${inputClass} min-h-44 resize-y py-3 leading-6`} />
               </label>
               {error && <p role="alert" className="text-sm text-fg">{error}</p>}
               <div className="flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5">
