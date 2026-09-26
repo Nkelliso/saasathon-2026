@@ -3,7 +3,7 @@ import { OrganizationConsole } from "@/components/organization/organization-cons
 
 export const metadata: Metadata = {
   title: "Organization",
-  description: "Manage organization members.",
+  description: "Manage organization members, machine manuals and schematics.",
 };
 
 export default function OrgPage() {

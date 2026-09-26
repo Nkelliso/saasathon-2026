@@ -48,24 +48,11 @@ OVERALL TASK:
 - create a (python?) script that can be ran to clear/populate the DB. (MAKE IT ROBUST.)
 - make it so it can be ran on the supabase instance, via backend key
 - It should populate it with about 20 machine-instances, including 5 instances of Tormach 1100 MX CNC machines.
-- ADDITIONALLY: Populate it with `tickets` at the bottom 
+- ADDITIONALLY: Populate it with `tickets` at the bottom .
+- You MUST look at the `<SPOOFED_DATA>` stuff inside of OLI_PROMPTS.md. 
 
 
 
-
-
-In the organization-tab, add a "Add Manual" and "Add Schematics" button.
-This allows customers to add their own manuals. This skirts the legal liability for us, and our platform doesn't really need to change: Ingests the manuals exactly the same
-
-
-
-
-
-
-TASK:
-Make it so in the model-view in threeJS, you can click on a part of the GLB model.
-This will zoom in with the camera, and put a little "target" or something on the model.
-This selects a part; and in the future it will inform the model about which part is 
 
 
 
@@ -128,6 +115,7 @@ John fixed this last month, but he’s away. What should I check?"
 **The payoff:** Torque combines the manual's minimum 90 psi at the machine with John's repair history. A normal compressor reading can hide low pressure at the machine; the previous cause is a lead to check.
 
 
+<SPOOFED_DATA>
 
 <TICKET_EXAMPLES>
 ### Ticket 1: Tool stuck — restricted air fitting
@@ -177,3 +165,5 @@ All repairs assume proper power and air isolation before maintenance. The source
 
 **Demo line:** "Torque spotted a possible training mistake: skipped lubrication. It flags it before the machine suffers major damage."
 </PREVENTION_EXAMPLE>
+
+</SPOOFED_DATA>
