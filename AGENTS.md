@@ -82,7 +82,9 @@ data Ticket:
     // the `kind` represents what the ticket was for. Repair = something broke, was fixed. info = random information placed about the machine. When user creates a machine, they are prompted to put in starter-info. An event is something that happens: eg worker notices that the green-light started beeping funny.
     machinePK: PK-reference
     date: DATE
-    string: user-description, describes issue
+    ticket_description: user-description, describes issue
+    llm_summary: concise llm-summary
+    ticket_title: even more concise 1-line title for ticket
 
 data Machine:
     userSuppliedId: PK  (should reference the name of it in the factory)
@@ -95,6 +97,13 @@ data User:
 
 [Note: Feel free to update the database schema at any moment. It is highly adaptive. If you need something; just add it. Don't let this design get in your way.]
 <database_schema>
+
+
+<llms>
+For LLMs, we use openrouter, and we have an OPENROUTER_KEY defined in the `.env` file.
+
+(Use a weak model to start with; doesn't need to be perfect, our examples for the pitch will be cherry picked.)
+</llms>
 
 </tech_stack>
 
