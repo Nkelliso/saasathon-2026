@@ -129,7 +129,7 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
     <AppShell>
       <main className="grid min-h-dvh lg:grid-cols-2">
         <section className="contents min-w-0 border-line lg:order-2 lg:block lg:border-l" aria-label="Machine and recent tickets">
-          <div className="relative h-[290px] border-b border-line sm:h-[390px] lg:h-[54vh] lg:min-h-[350px]">
+          <div className="relative h-[290px] border-b border-line h-[550px] sm:h-[390px] lg:h-[54vh] lg:min-h-[350px]">
             <MachineModelViewer modelId={machine.modelId} className="absolute inset-0 h-full w-full" showGizmo={false} autoRotate />
             <div className="absolute left-4 top-5 w-80 max-w-[calc(100%-2rem)] sm:left-6 sm:max-w-[calc(100%-3rem)]">
               <label htmlFor="active-machine" className="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-accent">Select machine</label>
