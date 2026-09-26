@@ -58,12 +58,16 @@ OVERALL TASK:
 
 
 
+BIG PROBLEM:
+We want to have our script be streamlined.
+But unfortunetely the clanker keeps giving bad info.
+Here's the script:
 
 <OLI_DEMO_SCRIPT>
 DEMO SCRIPT:
 
 Consider that you are a factory manager, like Dwayne, working in Plastech.
-The blue CNC machine-2 has just stopped working.
+The CNC-MX-03 has just stopped working.
 
 Right now, the company is burning $10 every minute, because the machine isn't working!
 
@@ -97,7 +101,10 @@ Lets see what it's telling us:
 
 </OLI_DEMO_SCRIPT>
 
-
+YOUR TASK:
+Can you please just fudge the data for the script such that there's always a simple one-shot solution please?
+(You should edit the docs for the Tormach 1100MX please.)
+Additionally, please fudge john's results too please.
 
 
 
