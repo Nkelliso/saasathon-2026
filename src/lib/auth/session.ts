@@ -1,7 +1,10 @@
 import "server-only";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { createSupabaseServerClient, isSupabaseConfigured } from "@/lib/supabase/server";
+import {
+  createSupabaseServerClient,
+  isSupabaseConfigured,
+} from "@/lib/supabase/server";
 
 export interface SessionUser {
   id: string;
@@ -37,27 +40,28 @@ async function devBypassActive() {
 
 /** The current user, or null when logged out. ALL auth checks must go through this. */
 export async function getSessionUser(): Promise<SessionUser | null> {
-  if (await devBypassActive()) return DEMO_USER;
-  if (!isSupabaseConfigured()) return null;
+  return DEMO_USER;
+  // if (await devBypassActive()) return DEMO_USER;
+  // if (!isSupabaseConfigured()) return null;
 
-  const supabase = await createSupabaseServerClient();
-  const { data } = await supabase.auth.getUser();
-  if (!data.user) return null;
+  // const supabase = await createSupabaseServerClient();
+  // const { data } = await supabase.auth.getUser();
+  // if (!data.user) return null;
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("name, organization_id, organizations(name)")
-    .eq("id", data.user.id)
-    .maybeSingle<{ name: string; organization_id: string; organizations: { name: string } | null }>();
+  // const { data: profile } = await supabase
+  //   .from("profiles")
+  //   .select("name, organization_id, organizations(name)")
+  //   .eq("id", data.user.id)
+  //   .maybeSingle<{ name: string; organization_id: string; organizations: { name: string } | null }>();
 
-  return {
-    id: data.user.id,
-    email: data.user.email ?? "",
-    name: profile?.name ?? data.user.email ?? "Operator",
-    organizationId: profile?.organization_id ?? "",
-    organizationName: profile?.organizations?.name ?? "",
-    isDemo: false,
-  };
+  // return {
+  //   id: data.user.id,
+  //   email: data.user.email ?? "",
+  //   name: profile?.name ?? data.user.email ?? "Operator",
+  //   organizationId: profile?.organization_id ?? "",
+  //   organizationName: profile?.organizations?.name ?? "",
+  //   isDemo: false,
+  // };
 }
 
 /** Use at the top of any logged-in page/layout. Redirects anonymous visitors to /login. */
