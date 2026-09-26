@@ -3,39 +3,40 @@ import Link from "next/link";
 
 const plans = [
   {
-    name: "Line",
+    name: "Basic",
     price: "Free",
-    detail: "per month · 1 machine",
-    description: "A focused starting point for the machine your operation cannot afford to lose.",
+    detail: "1 machine",
+    description:
+      "A focused starting point for the machine your operation cannot afford to lose.",
     features: [
       "One critical machine",
       "Machine technical library",
-      "50 facility knowledge entries",
+      "Unlimited knowledge entries",
     ],
   },
   {
-    name: "Plant",
+    name: "Pro",
     price: "$249",
-    detail: "per month · up to 50 machines",
+    detail: "per month · single-site coverage",
     description:
       "For teams that need the complete operations memory on every shift.",
     features: [
-      "Up to 50 machines",
+      "Unlimited machines",
       "Unlimited facility knowledge",
-      "Priority source ingestion",
+      "Priority support",
     ],
     featured: true,
   },
   {
-    name: "Network",
+    name: "Enterprise",
     price: "$499",
     detail: "per month · multi-site coverage",
     description:
       "For operations teams standardizing knowledge across facilities.",
     features: [
-      "Unlimited machines",
-      "Multi-site controls",
-      "Dedicated onboarding",
+      "Cross-site knowledge sharing",
+      "Unlimited facility knowledge",
+      "Priority support",
     ],
   },
 ];
@@ -47,15 +48,15 @@ export default function PricingSection() {
       className="mx-auto max-w-6xl px-5 py-24 lg:px-8 lg:py-32"
     >
       <div className="max-w-2xl">
-        <p className="font-mono text-xs uppercase tracking-[0.15em] text-accent">
-          // Deployment options
-        </p>
+        <span className="bg-orange-900 text-orange-300 rounded-full text-sm px-2">
+          Plans & Pricing
+        </span>
         <h2 className="mt-5 text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
-          Start with the line that hurts most to stop.
+          Safeguard your production line from preventable downtime
         </h2>
         <p className="mt-5 text-sm leading-7 text-fg-muted">
-          Put Torque on the critical asset first. Expand coverage as your
-          operating record proves its value across the plant.
+          Protect your production line's uptime with Torque. Expand coverage as
+          your operating record proves its value across the plant.
         </p>
       </div>
 
@@ -66,13 +67,13 @@ export default function PricingSection() {
               key={name}
               className={`flex min-h-[440px] flex-col rounded-lg border p-6 ${featured ? "border-accent bg-surface" : "border-line bg-surface"}`}
             >
-              <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.14em]">
+              <div className="flex items-center justify-between text-sm">
                 <span className={featured ? "text-accent" : "text-fg-muted"}>
                   {name}
                 </span>
                 {featured && <span className="text-accent">Recommended</span>}
               </div>
-              <p className="mt-8 font-mono text-4xl font-medium tracking-tight tabular-nums text-fg">
+              <p className="mt-8 text-4xl font-medium tracking-tight tabular-nums text-fg">
                 {price}
               </p>
               <p className="mt-2 text-xs text-fg-muted">{detail}</p>
@@ -98,10 +99,10 @@ export default function PricingSection() {
                 className={`mt-auto inline-flex items-center justify-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium transition-[filter,box-shadow,border-color] ${featured ? "bg-accent text-black hover:brightness-110 hover:shadow-[0_0_20px_rgba(255,107,26,0.22)]" : "border border-line bg-surface-2 text-fg hover:border-line-strong"}`}
               >
                 {featured
-                  ? "Access Plant"
-                  : name === "Line"
-                    ? "Access Line"
-                    : "Plan your rollout"}
+                  ? "Access Demo"
+                  : name === "Basic"
+                    ? "Try it"
+                    : "Access Demo"}
                 <ArrowRight className="size-4" strokeWidth={1.5} />
               </Link>
             </article>

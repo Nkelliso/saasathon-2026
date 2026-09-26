@@ -14,7 +14,7 @@ const HeroMachineModelViewer = dynamic(
 );
 
 const heroModels: MachineModelId[] = [
-  "tormach-1300pl",
+  // "tormach-1300pl",
   "abb-irb-120",
   // "universal-robots-ur5e",
   "tormach-pcnc-1100",
@@ -24,7 +24,7 @@ const heroModels: MachineModelId[] = [
   "tormach-770mx",
 ];
 
-const transition = { duration: 1, ease: [0.16, 1, 0.3, 1] as const };
+const transition = { duration: 2, ease: [0.16, 1, 0.3, 1] as const };
 const cycleInterval = 8500;
 
 type HeroModelCarouselProps = {

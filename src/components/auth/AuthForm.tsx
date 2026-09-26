@@ -9,8 +9,8 @@ import "../landing-page/Hero.css";
 
 export default function AuthForm() {
   const copy = {
-    eyebrow: "// secure access",
-    title: "Welcome back, User.",
+    // eyebrow: "// secure access",
+    title: "Welcome back, Guest.",
     description:
       "Sign in to your facility knowledge base and pick up where the last repair ended.",
     submit: "Enter workspace",
@@ -37,9 +37,11 @@ export default function AuthForm() {
             <Image alt="" src={logo} className="h-14 w-44" />
           </Link>
 
-          <p className="font-mono text-xs uppercase tracking-[0.15em] text-accent">
-            [ Operations intelligence ]
-          </p>
+          <div>
+            <span className="bg-orange-900 text-orange-300 rounded-full text-sm px-2">
+              Organisation Dashboard
+            </span>
+          </div>
           <h1 className="mt-4 text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
             {copy.title}
           </h1>

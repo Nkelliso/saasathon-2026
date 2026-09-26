@@ -1,4 +1,5 @@
 import ContentBlock from "@/components/landing-page/ContentBlock";
+import { CTABanner } from "@/components/landing-page/CTABanner";
 import FaqSection from "@/components/landing-page/FaqSection";
 import Footer from "@/components/landing-page/Footer";
 import Header from "@/components/landing-page/Header";
@@ -13,10 +14,10 @@ export default function Page() {
       <Header />
       <Hero />
       <StatsBanner />
-      <RoiSection />
       <ContentBlock />
       <PricingSection />
       <FaqSection />
+      <CTABanner />
       <Footer />
     </>
   );

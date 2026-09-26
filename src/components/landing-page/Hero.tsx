@@ -24,25 +24,26 @@ export default function Hero() {
             </span>
           </div>
           <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-fg sm:text-5xl lg:text-6xl lg:leading-[0.98]">
-            Unplanned downtime <span className="text-fg-muted">costs.</span>
+            Unplanned downtime <span className="text-fg-muted">costs</span>
           </h1>
           <p className="mt-7 max-w-xl text-base leading-7 text-fg-muted sm:text-md">
-            Instant machine diagnosis from service records, manufacturer
-            manuals, and the knowledge your team builds on the floor.
+            Torque keeps your machinery operational with instant machine
+            diagnosis from service records, manufacturer manuals, and the
+            knowledge your team builds on the floor.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link
               href="/login"
               className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-black transition-[filter,box-shadow] hover:brightness-110 hover:shadow-[0_0_24px_rgba(255,107,26,0.25)]"
             >
-              See how it works
+              See it in action
               <ArrowRight className="size-4" strokeWidth={1.5} />
             </Link>
             <Link
-              href="/login"
+              href="#pricing"
               className="inline-flex items-center gap-2 rounded-md border border-line bg-surface px-4 py-2.5 text-sm text-fg transition-colors hover:border-line-strong"
             >
-              Log in
+              View pricing
             </Link>
           </div>
         </motion.div>

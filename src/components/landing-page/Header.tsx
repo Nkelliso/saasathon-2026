@@ -4,7 +4,7 @@ import logo from "@/assets/logo.svg";
 import { ArrowUpRight } from "lucide-react";
 
 const navigation = [
-  { label: "Why Torque", href: "#roi" },
+  { label: "Home", href: "#" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -37,17 +37,17 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link
+          {/* <Link
             href="/login"
             className="hidden px-3 py-2 text-sm text-fg-muted transition-colors hover:text-fg sm:inline-flex"
           >
             Log in
-          </Link>
+          </Link> */}
           <Link
-            href="/query"
+            href="/login"
             className="inline-flex items-center gap-2 rounded-md bg-accent px-3.5 py-2 text-sm font-medium text-black transition-[filter,box-shadow] hover:brightness-110 hover:shadow-[0_0_20px_rgba(255,107,26,0.22)]"
           >
-            Open workspace
+            Try it today
             <ArrowUpRight className="size-3.5" strokeWidth={1.5} />
           </Link>
         </div>
