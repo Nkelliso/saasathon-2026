@@ -27,6 +27,24 @@ export type PreventionPattern = {
 
 export const preventionPatterns: PreventionPattern[] = [
   {
+    id: "PRV-004",
+    createdAt: "2026-09-26T11:00:00Z",
+    importance: "High",
+    machinePk: "CNC-MX-03",
+    modelId: "tormach-1100mx",
+    title: "Missed lubrication could cause major damage",
+    category: "Lubrication & training",
+    summary: "Two reports on CNC-MX-03 mention skipped manual lubrication and recurring table squealing. The machine is held for maintenance review before further operation.",
+    hypothesis: "Operators may be mistaking the manual oiler for an automatic system. Skipped lubrication could damage slideways and ball screws; maintenance must also rule out an oil-system fault.",
+    action: "Arrange urgent maintenance review before further operation. Verify oil delivery and inspect for damage, then add the correct lubrication routine to operator training and the shift checklist.",
+    owner: "Maintenance + shift lead",
+    checklist: ["Verify the installed lubrication configuration and its manufacturer procedure.", "Have qualified maintenance verify oil delivery and inspect for damage before clearing the machine.", "For the manual-oiler version, include startup and four-operating-hour lubrication in training and handover, following manufacturer guidance."],
+    incidents: [
+      { id: "demo-mx-table-squeal", date: "Sep 24 · 10:30", title: "Table squealing again", note: "Table squealing again; restarted and kept running. Shift lead subsequently held the machine for maintenance review.", downtimeMinutes: 0 },
+      { id: "demo-mx-missed-oiler", date: "Sep 22 · 07:15", title: "Startup lubrication missed", note: "Didn’t pump the oiler — thought it was automatic.", downtimeMinutes: 0 },
+    ],
+  },
+  {
     id: "PRV-001",
     createdAt: "2026-09-26T08:30:00Z",
     importance: "High",
