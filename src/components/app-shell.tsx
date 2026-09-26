@@ -10,7 +10,7 @@ const navigation = [
   { label: "Prevention", href: "/prevention", icon: ShieldCheck },
   { label: "Add ticket", href: "/ticket", icon: FilePlus2 },
   { label: "Add machine", href: "/add_machine", icon: Plus },
-  { label: "Organization", href: "/org", icon: Building2 },
+  { label: "Organisation", href: "/org", icon: Building2 },
 ];
 
 export function AppShell({ children }: { children: ReactNode }) {
