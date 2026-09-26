@@ -60,7 +60,7 @@ OVERALL TASK:
 
 BIG PROBLEM:
 We want to have our script be streamlined.
-But unfortunetely the clanker keeps giving bad info.
+But unfortunetely the llm keeps asking bad questions and stalling when we do our script.
 Here's the script:
 
 <OLI_DEMO_SCRIPT>
@@ -104,7 +104,7 @@ Lets see what it's telling us:
 YOUR TASK:
 Can you please just fudge the data for the script such that there's always a simple one-shot solution please?
 (You should edit the docs for the Tormach 1100MX please.)
-Additionally, please fudge john's results too please.
+Additionally, please fudge make sure you add john's previous results into context too please.
 
 
 
