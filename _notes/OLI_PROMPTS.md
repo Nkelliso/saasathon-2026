@@ -54,7 +54,7 @@ OVERALL TASK:
 
 
 
-In the organization-tab, add a "Add Manual" button.
+In the organization-tab, add a "Add Manual" and "Add Schematics" button.
 This allows customers to add their own manuals. This skirts the legal liability for us, and our platform doesn't really need to change: Ingests the manuals exactly the same
 
 
@@ -76,7 +76,26 @@ This selects a part; and in the future it will inform the model about which part
 DEMO SCRIPT:
 
 Consider that you are a factory manager, like Dwayne, working in Plastech.
-You have a CNC machine that is working 
+The blue CNC machine-2 has just stopped working.
+
+Right now, the company is burning $10 every minute, because the machine isn't working!
+
+"The tool won't release, but the air pressure looks fine. 120 PSI.
+John fixed this last month, but he’s away. What should I check?
+The Power drawbar clicks."
+
+And I'm gonna just click on where the exact issue is.
+Heeree we go.
+
+And lets get our result:
+Okay, great. Lets do XYZ. (beep boop beep boop.)
+
+Okay fantastic! It's now fixed. 
+Now is when we log our issue:
+
+
+tool didnt release, air pressure OK. 
+solution was to 
 
 </DEMO_SCRIPT>
 
@@ -90,10 +109,16 @@ Three fictional repairs for proposed machine `CNC-MX-01`, model `tormach-1100mx`
 
 ### Demo question
 
-> The power drawbar clicks, but the tool won't release. The compressor says 120 psi. John fixed this last week, but he's off-site. What should I check first, and what fixed it last time?
+"The tool won't release, but the air pressure looks fine. 120 PSI.
+John fixed this last month, but he’s away. What should I check?"
+
+
 
 **The payoff:** Torque combines the manual's minimum 90 psi at the machine with John's repair history. A normal compressor reading can hide low pressure at the machine; the previous cause is a lead to check.
 
+
+
+<TICKET_EXAMPLES>
 ### Ticket 1: Tool stuck — restricted air fitting
 
 **Date:** 2026-09-21
@@ -125,3 +150,6 @@ Three fictional repairs for proposed machine `CNC-MX-01`, model `tormach-1100mx`
 **Source:** [Manual p. 244, §11.3.2](https://tormach.com/media/asset/u/m/um10586_1100mx_0626a.pdf#page=244): inspect the impeller for blockages and clean the chip strainer.
 
 All repairs assume proper power and air isolation before maintenance. The source manual is English.
+
+</TICKET_EXAMPLES>
+
