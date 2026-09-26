@@ -72,7 +72,7 @@ This selects a part; and in the future it will inform the model about which part
 
 
 
-<DEMO_SCRIPT>
+<OLI_DEMO_SCRIPT>
 DEMO SCRIPT:
 
 Consider that you are a factory manager, like Dwayne, working in Plastech.
@@ -94,10 +94,21 @@ Okay fantastic! It's now fixed.
 Now is when we log our issue:
 
 
+NEW TICKET LOG:
 tool didnt release, air pressure OK. 
-solution was to 
+solution was to replace the air fitting!
 
-</DEMO_SCRIPT>
+
+Now interestingly, once we have logged this, we notice that there's a notification in our "Preventions" table!
+
+It's telling us that there's a common theme with this exact machine, 2 repeat incidents.
+Lets see what it's telling us:
+
+
+(Read prevention report.)
+
+
+</OLI_DEMO_SCRIPT>
 
 
 
