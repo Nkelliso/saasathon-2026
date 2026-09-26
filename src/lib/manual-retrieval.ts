@@ -47,9 +47,9 @@ export async function retrieveSources(request: DiagnosisRequest): Promise<Diagno
     url: manual.url, excerpt: chunk.excerpt,
   }));
   if (machine.notes?.trim()) sources.push({ id: "N1", kind: "local", title: `${machine.pk} · site notes`, excerpt: machine.notes });
-  tickets.slice(0, 12).forEach((ticket, index) => sources.push({
+  tickets.filter((ticket) => ticket.machinePk === machine.pk).slice(0, 30).forEach((ticket, index) => sources.push({
     id: `T${index + 1}`, kind: "local", title: `${ticket.kind} · ${ticket.title}`,
-    excerpt: `${ticket.createdAt}\n${ticket.description}`,
+    excerpt: `Machine: ${ticket.machinePk}\nDate: ${ticket.createdAt}\n${ticket.description}`,
   }));
   return sources;
 }

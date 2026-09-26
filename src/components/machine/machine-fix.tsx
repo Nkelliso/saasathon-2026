@@ -16,20 +16,7 @@ const MachineModelViewer = dynamic(
   { ssr: false, loading: () => <div className="grid h-full place-items-center"><LoaderCircle className="size-5 animate-spin text-fg-muted" /></div> },
 );
 
-type Ticket = { id: string; machinePk: string; kind: string; title: string; description: string; createdAt: string };
 type Message = DiagnosisMessage & { sources?: DiagnosisSource[]; failed?: boolean };
-const history: Record<string, Ticket[]> = {
-  "MILL-01": [
-    { id: "mill-filter", machinePk: "MILL-01", kind: "REPAIR", title: "Cabinet filter replaced", description: "Airflow restored after clearing metal fines. Keep a spare filter in Bay 02.", createdAt: "2026-09-23" },
-    { id: "mill-coolant", machinePk: "MILL-01", kind: "INFO", title: "Check coolant before the first shift", description: "Level drops during long runs. Spare coolant is beside the tool cabinet.", createdAt: "2026-09-20" },
-  ],
-  "COBOT-02": [
-    { id: "cobot-stop", machinePk: "COBOT-02", kind: "EVENT", title: "Protective stop during pick cycle", description: "Occurred after changing the gripper. Payload configuration needs review.", createdAt: "2026-09-24" },
-  ],
-  "ROBOT-03": [
-    { id: "robot-service", machinePk: "ROBOT-03", kind: "INFO", title: "Service log moved to the cell cabinet", description: "Inspection notes and spare part numbers are in the blue folder.", createdAt: "2026-09-21" },
-  ],
-};
 
 export function MachineFix({ machinePk }: { machinePk: string }) {
   const router = useRouter();
@@ -45,7 +32,8 @@ export function MachineFix({ machinePk }: { machinePk: string }) {
 function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine; machines: OrganizationMachine[] }) {
   const router = useRouter();
   const model = machineModels[machine.modelId];
-  const [tickets, setTickets] = useState<Ticket[]>(history[machine.pk] ?? []);
+  const { tickets: allTickets } = useOrganizationMachines();
+  const tickets = allTickets.filter((ticket) => ticket.machinePk === machine.pk);
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [busy, setBusy] = useState(false);
@@ -53,15 +41,7 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
   const activeRequest = useRef<AbortController | null>(null);
   const transcript = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const timeout = window.setTimeout(() => {
-      try {
-        const saved: Ticket[] = JSON.parse(localStorage.getItem("fieldnote-tickets") ?? "[]");
-        if (Array.isArray(saved)) setTickets([...saved.filter((ticket) => ticket.machinePk === machine.pk), ...(history[machine.pk] ?? [])]);
-      } catch { /* Keep the machine history if browser storage is unavailable. */ }
-    }, 0);
-    return () => { window.clearTimeout(timeout); activeRequest.current?.abort(); };
-  }, [machine.pk]);
+  useEffect(() => () => { activeRequest.current?.abort(); }, []);
 
   useEffect(() => {
     if (transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight;
@@ -83,7 +63,7 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
         body: JSON.stringify({
           machine: { pk: machine.pk, modelId: machine.modelId, notes: machine.notes },
           messages: conversation.filter((message) => !message.failed && message.text).slice(-19).map(({ role, text }) => ({ role, text })),
-          tickets: tickets.slice(0, 12),
+          tickets: tickets.slice(0, 30),
         }),
       });
       if (!response.ok) {
@@ -140,7 +120,7 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
             <div className="flex items-center justify-between gap-3"><h2 className="text-sm font-medium">Recent tickets</h2><Link href={`/ticket?machine=${encodeURIComponent(machine.pk)}`} className="flex items-center gap-1.5 text-xs text-fg-muted transition-colors hover:text-fg"><Plus className="size-3.5" strokeWidth={1.5} />Add ticket</Link></div>
             <div className="mt-3 divide-y divide-line">
               {tickets.length === 0 && <p className="py-4 text-xs leading-5 text-fg-muted">{machine.notes || "No tickets yet. Add a repair or a note for your team."}</p>}
-              {tickets.slice(0, 3).map((ticket) => <details key={ticket.id} className="group py-3"><summary className="cursor-pointer list-none"><div className="flex items-center justify-between gap-3"><p className="text-sm text-fg">{ticket.title}</p><ChevronDown className="size-3.5 shrink-0 text-fg-dim transition-transform group-open:rotate-180" /></div><p className="mt-1.5 line-clamp-2 text-xs leading-5 text-fg-muted group-open:hidden">{ticket.description}</p><p className="mt-2 font-mono text-[10px] text-fg-dim">{ticket.kind} · {new Date(ticket.createdAt).toLocaleDateString("en-GB", { day: "2-digit", month: "short", timeZone: "UTC" })}</p></summary><p className="mt-3 text-sm leading-6 text-fg-muted">{ticket.description}</p></details>)}
+              {tickets.slice(0, 3).map((ticket) => <details key={ticket.id} className="group py-3"><summary className="cursor-pointer list-none"><div className="flex items-center justify-between gap-3"><p className="text-sm text-fg">{ticket.title}</p><ChevronDown className="size-3.5 shrink-0 text-fg-dim transition-transform group-open:rotate-180" /></div><p className="mt-1.5 line-clamp-2 text-xs leading-5 text-fg-muted group-open:hidden">{ticket.summary || ticket.description}</p><p className="mt-2 font-mono text-[10px] text-fg-dim">{ticket.kind} · {new Date(ticket.createdAt).toLocaleDateString("en-GB", { day: "2-digit", month: "short", timeZone: "UTC" })}</p></summary><p className="mt-3 text-sm leading-6 text-fg-muted">{ticket.description}</p></details>)}
             </div>
           </div>
         </section>
@@ -163,4 +143,3 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
     </AppShell>
   );
 }
-

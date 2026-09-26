@@ -4,6 +4,7 @@ import { type FormEvent, useMemo, useState, useSyncExternalStore } from "react";
 import { Plus, Trash2 } from "lucide-react";
 import { motion } from "motion/react";
 import { AppShell } from "@/components/app-shell";
+import { OrganizationDocuments } from "@/components/organization/organization-documents";
 
 type Member = { id: string; name: string };
 const initialMembers: Member[] = [
@@ -79,6 +80,8 @@ export function OrganizationConsole() {
       <motion.main initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }} className="mx-auto max-w-3xl px-5 py-10 sm:px-8 sm:py-16">
         <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Kestrel Precision Machining</h1>
         <p className="mt-3 text-sm leading-6 text-fg-muted">Manage who can access your machines and shared knowledge.</p>
+
+        <OrganizationDocuments />
 
         <section aria-labelledby="members-title" className="mt-9 overflow-hidden rounded-lg border border-line bg-surface">
           <div className="flex items-center justify-between border-b border-line px-5 py-4 sm:px-6">
