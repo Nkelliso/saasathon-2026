@@ -48,7 +48,7 @@ OVERALL TASK:
 - create a (python?) script that can be ran to clear/populate the DB. (MAKE IT ROBUST.)
 - make it so it can be ran on the supabase instance, via backend key
 - It should populate it with about 20 machine-instances, including 5 instances of Tormach 1100 MX CNC machines.
-- ADDITIONALLY: Populate it with
+- ADDITIONALLY: Populate it with `tickets` at the bottom 
 
 
 
