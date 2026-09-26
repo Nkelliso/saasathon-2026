@@ -19,6 +19,13 @@ export type HeroMachineModelViewerProps = {
 
 const defaultRotation: [number, number, number] = [0, 0, 0];
 
+/** Warm React Three Fiber's GLTF cache before a model is displayed. */
+export function preloadHeroMachineModels(modelIds: MachineModelId[]) {
+  for (const modelId of modelIds) {
+    useLoader.preload(GLTFLoader, `/api/models/${modelId}`);
+  }
+}
+
 function dampAngle(
   current: number,
   target: number,
@@ -50,7 +57,7 @@ function LoadedModel({ modelId }: { modelId: MachineModelId }) {
     );
 
     const wireframeMaterial = new MeshBasicMaterial({
-      color: "#ededef",
+      color: "#ffd1a3",
       wireframe: true,
       transparent: true,
       opacity: 0.78,

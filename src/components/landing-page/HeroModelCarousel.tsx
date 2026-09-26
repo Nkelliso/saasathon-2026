@@ -14,13 +14,18 @@ const HeroMachineModelViewer = dynamic(
 );
 
 const heroModels: MachineModelId[] = [
+  "tormach-1300pl",
   "abb-irb-120",
-  "universal-robots-ur5e",
+  // "universal-robots-ur5e",
   "tormach-pcnc-1100",
+  "tormach-1100mx",
+  "tormach-15l-slant-pro",
+  "tormach-24r",
+  "tormach-770mx",
 ];
 
 const transition = { duration: 1, ease: [0.16, 1, 0.3, 1] as const };
-const cycleInterval = 8000;
+const cycleInterval = 8500;
 
 type HeroModelCarouselProps = {
   className?: string;
@@ -30,6 +35,12 @@ type HeroModelCarouselProps = {
 export function HeroModelCarousel({ className = "" }: HeroModelCarouselProps) {
   const [activeModelIndex, setActiveModelIndex] = useState(0);
   const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    void import("@/components/landing-page/HeroMachineModelViewer").then(
+      ({ preloadHeroMachineModels }) => preloadHeroMachineModels(heroModels),
+    );
+  }, []);
 
   useEffect(() => {
     if (reduceMotion) return;
