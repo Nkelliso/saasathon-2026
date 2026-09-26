@@ -150,11 +150,17 @@ This is where users go if they want to fix an issue with a machine.
 
 Vertical split down the middle, page divided into two halves.
 
-Top-left: has a small floating dropdown UI where you can select the machine type.
+Top-left: has a clear, small floating dropdown UI where you can select the machine type.
 Contains a whitelist of all machines within the org.
 
-Left-side: Has a 3d-model pane showing the machine.
-If the 
+Left-side-top: Has a 3d-model pane showing the machine.
+Left-side-bottom: has minimal ticket-reports with summaries.
+
+Right-side: contains the chat where you can say what your problem is.
+
+INTENTION:
+We want this page to be exceptionally simple and minimal. DO NOT OVERCOMPLICATE IT: Make it easy to use.
+The right-side chat should have extra padding around the edges such that attention is drawn to it.
 </machine>
 
 <org>
@@ -169,7 +175,8 @@ Adding / removing members by id.
 Ticket page:
 
 Filing docs for when something goes wrong with a machine,
-OR, filing information about 
+OR filing general information about a machine.
+Make it so you can select ticket type from dropdown.
 </ticket>
 
 <add_machine>
@@ -179,9 +186,10 @@ This is for when teams want to add a new machine to their organization.
 If the users have no machines at all, this page should open by default.
 
 Make sure to select:
-- type of machine
+- type of machine (from a whitelist)
 - unique machine id (company internal identifier)
 - and have a box at the bottom that tells a bunch of information about the machine, any recent events, etc.
+
 </add_machine>
 
 </MAIN_PAGES>

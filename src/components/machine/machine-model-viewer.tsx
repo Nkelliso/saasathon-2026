@@ -51,9 +51,15 @@ function LoadedModel({ modelId }: { modelId: MachineModelId }) {
     const center = box.getCenter(new Vector3());
     const scale = 3.2 / Math.max(size.x, size.y, size.z, 0.001);
 
-    clonedModel.position.sub(center);
     clonedModel.scale.setScalar(scale);
-    clonedModel.position.y -= (box.min.y - center.y) * scale + 1.55;
+    // Normalize manufacturer CAD exports to a common floor and visual centre.
+    // Source-space coordinates can be very large, so the centre must be scaled
+    // before it is used as the scene position.
+    clonedModel.position.set(
+      -center.x * scale,
+      -box.min.y * scale - 1.55,
+      -center.z * scale,
+    );
     clonedModel.traverse((object: Object3D) => {
       if (!(object instanceof Mesh)) return;
       object.castShadow = true;
@@ -171,7 +177,7 @@ export function MachineModelViewer({
           key={modelId}
           camera={{ position: [4.8, 3.2, 5.8], fov: 36, near: 0.05, far: 100 }}
           dpr={[1, 1.75]}
-          shadows
+          shadows="basic"
           gl={{ antialias: true, alpha: false, outputColorSpace: SRGBColorSpace }}
         >
           <Scene modelId={modelId} autoRotate={autoRotate} />
