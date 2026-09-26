@@ -1,5 +1,5 @@
 import { getSessionUser } from "@/lib/auth/session";
-import { parseDiagnosisRequest, readEvents, type DiagnosisEvent } from "@/lib/diagnosis";
+import { parseDiagnosisRequest, readEvents, scriptedDemoAnswer, type DiagnosisEvent } from "@/lib/diagnosis";
 import { retrieveSources } from "@/lib/manual-retrieval";
 import { machineModels } from "@/lib/machines";
 
@@ -20,11 +20,30 @@ export async function POST(request: Request) {
     return Response.json({ error: error instanceof SyntaxError ? "Invalid request JSON." : error instanceof Error ? error.message : "Invalid request." }, { status: 400 });
   }
   const key = process.env.OPENAI_KEY || process.env.OPENAI_API_KEY;
-  if (!key) return Response.json({ error: "Machine diagnosis is not configured. Add OPENAI_KEY to the server environment." }, { status: 503 });
   const controller = new AbortController();
   const signal = AbortSignal.any([request.signal, controller.signal, AbortSignal.timeout(110_000)]);
   try {
     const sources = await retrieveSources(input);
+    const demoAnswer = scriptedDemoAnswer(input, sources);
+    if (demoAnswer) {
+      const encoder = new TextEncoder();
+      const events: DiagnosisEvent[] = [
+        { type: "sources", sources },
+        ...demoAnswer.split(/(?<=\s)/).map((text): DiagnosisEvent => ({ type: "delta", text })),
+        { type: "done" },
+      ];
+      let index = 0;
+      const stream = new ReadableStream<Uint8Array>({
+        async pull(output) {
+          if (signal.aborted || index >= events.length) { output.close(); return; }
+          output.enqueue(encoder.encode(`data: ${JSON.stringify(events[index++])}\n\n`));
+          await new Promise((resolve) => setTimeout(resolve, 15));
+        },
+        cancel() { controller.abort(); },
+      });
+      return new Response(stream, { headers: { "Content-Type": "text/event-stream", "Cache-Control": "no-cache, no-transform", "X-Accel-Buffering": "no" } });
+    }
+    if (!key) return Response.json({ error: "Machine diagnosis is not configured. Add OPENAI_KEY to the server environment." }, { status: 503 });
     const model = machineModels[input.machine.modelId];
     const upstream = await fetch("https://api.openai.com/v1/responses", {
       method: "POST", signal, cache: "no-store",

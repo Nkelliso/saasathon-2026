@@ -12,6 +12,14 @@ export type MachineTicket = {
 export type DemoWorkspace = { version: 1; machines: OrganizationMachine[]; tickets: MachineTicket[] };
 export const demoStorageKey = "torque-demo-workspace-v1";
 
+// Fictional repair for Oli's CNC-MX-03 pitch; kept separate from the older MX-01 fixtures.
+export const johnDemoRepair: MachineTicket = {
+  id: "demo-mx03-john-air-fitting", machinePk: "CNC-MX-03", kind: "REPAIR",
+  title: "John: tool release restored by replacing air fitting", createdAt: "2026-08-27T09:00:00Z",
+  description: "John's repair last month at Plastech: CNC-MX-03's tool would not release, the supply gauge read 120 PSI, and the power drawbar clicked. John traced the fault to a restricted quick-connect air fitting on this machine's air supply. Qualified maintenance isolated the machine and depressurized the air line, replaced the fitting with the approved replacement, and restored service under the manufacturer's procedure. Ten tool-release checks passed. Result: replacing the air fitting fixed the fault. Spare approved fittings are in drawer A3. This is a fictional demo record.",
+  summary: "John replaced the restricted air fitting; ten tool-release checks passed. Same symptoms: 120 PSI and a clicking drawbar.",
+};
+
 // Fictional records from <SPOOFED_DATA> in _notes/OLI_PROMPTS.md.
 export const spoofedTickets: MachineTicket[] = [
   {
@@ -67,7 +75,7 @@ export function createDemoWorkspace(): DemoWorkspace {
     });
     return notes;
   });
-  return { version: 1, machines, tickets: sortTickets([...tickets, ...spoofedTickets.map((ticket) => ({ ...ticket }))]) };
+  return { version: 1, machines, tickets: sortTickets([...tickets, ...spoofedTickets.map((ticket) => ({ ...ticket })), { ...johnDemoRepair }]) };
 }
 
 export function sortTickets(tickets: MachineTicket[]) {
@@ -97,7 +105,11 @@ export function parseWorkspace(raw: string): DemoWorkspace {
   if (new Set(machines.map((machine) => machine.pk.toLowerCase())).size !== machines.length ||
     new Set(tickets.map((ticket) => ticket.id)).size !== tickets.length ||
     tickets.some((ticket) => !machines.some((machine) => machine.pk === ticket.machinePk))) throw new Error("Invalid demo relationships");
-  return { version: 1, machines, tickets: sortTickets(tickets) };
+  // Upgrade already-open demo browsers without discarding their machines or saved tickets.
+  const hasDemoMachine = machines.some((machine) => machine.pk === johnDemoRepair.machinePk && machine.modelId === "tormach-1100mx");
+  const upgradedTickets = hasDemoMachine && !tickets.some((ticket) => ticket.id === johnDemoRepair.id)
+    ? [...tickets, { ...johnDemoRepair }] : tickets;
+  return { version: 1, machines, tickets: sortTickets(upgradedTickets) };
 }
 
 // One-time upgrade: preserve valid user additions, fill in the expanded demo fleet.

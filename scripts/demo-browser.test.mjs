@@ -61,13 +61,41 @@ try {
   await page.getByRole("status").filter({ hasText: "Demo restored" }).waitFor();
   await page.getByRole("button", { name: "Reset demo data" }).click();
   await page.reload();
-  await page.getByText("43", { exact: true }).waitFor();
+  await page.getByText("44", { exact: true }).waitFor();
   await page.getByRole("link", { name: "Open demo machine" }).click();
-  await page.getByText("Tool stuck — restricted air fitting", { exact: true }).waitFor();
+  await page.waitForURL("**/machine/CNC-MX-03");
   assert.equal(await page.getByText("Demo test fitting replaced", { exact: true }).count(), 0);
   assert.equal(await page.locator("#active-machine option").count(), 20);
+
+  // Exercise the real local API for the scripted case; this branch makes no paid LLM call.
+  await context.unroute("**/api/diagnosis");
+  await page.getByRole("textbox", { name: "Describe the problem" }).fill("The tool won't release, but the air pressure looks fine. 120 PSI. John fixed this last month, but he's away. What should I check? The Power drawbar clicks.");
+  await page.getByRole("button", { name: "Send message" }).click();
+  await page.getByText(/Replace the restricted quick-connect air fitting/).first().waitFor();
+  await page.getByRole("button", { name: "Send message" }).locator("svg.lucide-arrow-up").waitFor();
+  const answer = await page.getByRole("log").innerText();
+  assert.match(answer, /John's repair last month/);
+  await page.screenshot({ path: ".agent/shots/oli-diagnosis-desktop.png", fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: ".agent/shots/oli-diagnosis-mobile.png", fullPage: true });
+  await page.setViewportSize({ width: 1440, height: 900 });
+
+  await page.getByRole("link", { name: "Add ticket", exact: true }).first().click();
+  await page.getByLabel("Title", { exact: true }).fill("Tool release restored — replaced air fitting");
+  await page.getByLabel("Details", { exact: true }).fill("tool didnt release, air pressure OK. solution was to replace the air fitting!");
+  await page.getByRole("button", { name: "Save ticket" }).click();
+  await page.getByRole("link", { name: /2 matching incidents/ }).waitFor();
+  await page.screenshot({ path: ".agent/shots/oli-ticket-desktop.png", fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: ".agent/shots/oli-ticket-mobile.png", fullPage: true });
+  await page.getByRole("link", { name: /2 matching incidents/ }).click();
+  await page.getByRole("button", { name: /Unread: High priority, Repeat air-fitting failure/ }).click();
+  await page.getByText("2 supporting incidents", { exact: true }).waitFor();
+  await page.screenshot({ path: ".agent/shots/oli-prevention-mobile.png", fullPage: true });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.screenshot({ path: ".agent/shots/oli-prevention-desktop.png", fullPage: true });
   assert.deepEqual(errors, []);
-  console.log("PASS: auto-seed, 20 machines / 5 MX, repair history, ticket persistence, per-machine LLM payloads, repeatable reset.");
+  console.log("PASS: demo seed, persistence, reset, real scripted diagnosis, fitting ticket and two-incident prevention report; desktop and mobile.");
 } catch (error) {
   if (page) {
     console.error("Failed page:", page.url(), await page.locator("body").innerText());

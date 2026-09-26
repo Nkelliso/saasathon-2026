@@ -14,7 +14,7 @@
         "lint": "eslint",
         "typecheck": "tsc --noEmit",
         "check": "tsc --noEmit && eslint",
-        "test:diagnosis": "tsc src/lib/diagnosis.ts src/lib/manual-retrieval.ts src/lib/demo-data.ts --outDir .agent/diagnosis-tests --module commonjs --target es2022 --strict --esModuleInterop --skipLibCheck && node --conditions=react-server --test scripts/diagnosis.test.mjs scripts/demo-data.test.mjs",
+        "test:diagnosis": "tsc src/lib/diagnosis.ts src/lib/manual-retrieval.ts src/lib/demo-data.ts src/lib/prevention-demo.ts --outDir .agent/diagnosis-tests --module commonjs --target es2022 --strict --esModuleInterop --skipLibCheck && node --conditions=react-server --test scripts/diagnosis.test.mjs scripts/demo-data.test.mjs",
         "test:demo": "node scripts/demo-browser.test.mjs"
     },
     "dependencies": {

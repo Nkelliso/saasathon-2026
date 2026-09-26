@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import diagnosis from "../.agent/diagnosis-tests/diagnosis.js";
 import retrieval from "../.agent/diagnosis-tests/manual-retrieval.js";
-const { parseDiagnosisRequest, readEvents } = diagnosis;
+const { parseDiagnosisRequest, readEvents, scriptedDemoAnswer } = diagnosis;
 const { retrieveSources } = retrieval;
 
 function request(modelId = "tormach-pcnc-1100") {
@@ -42,4 +42,25 @@ test("retrieval is grounded in the selected manual and includes supplied local c
     assert.match(sources.find((source) => source.id === "T1").excerpt, /Replaced cabinet fan/);
     assert.equal(new Set(sources.map((source) => source.id)).size, sources.length);
   }
+});
+
+test("Oli's MX-03 script gets a complete fitting repair with John's history even from an old client", async () => {
+  const input = { machine: { pk: "CNC-MX-03", modelId: "tormach-1100mx" }, tickets: [], messages: [{ role: "user", text: "The tool won't release, but the air pressure looks fine. 120 PSI. John fixed this last month, but he’s away. What should I check? The Power drawbar clicks." }] };
+  const sources = await retrieveSources(input);
+  const answer = scriptedDemoAnswer(input, sources);
+  assert.match(answer, /John's repair last month/);
+  assert.match(answer, /Replace the restricted quick-connect air fitting/);
+  assert.ok(!answer.includes("?"));
+  assert.ok(sources.some((source) => source.id.startsWith("T") && source.excerpt.includes("Ten tool-release checks passed")));
+  assert.ok(sources.filter((source) => source.kind === "manual").every((source) => !source.excerpt.includes("Demo response:")));
+  assert.equal(sources.find((source) => source.id === "D1").url, undefined);
+  for (const text of ["Tool will not release. Air pressure is normal. The drawbar clicks.", "Tool is stuck. 120 PSI. Power drawbar clicks."]) {
+    assert.equal(scriptedDemoAnswer({ ...input, messages: [{ role: "user", text }] }, sources), answer);
+  }
+  assert.equal(scriptedDemoAnswer({ ...input, machine: { ...input.machine, pk: "CNC-MX-02" } }, sources), undefined);
+  assert.equal(scriptedDemoAnswer({ ...input, machine: { ...input.machine, modelId: "tormach-pcnc-1100" } }, sources), undefined);
+  assert.equal(scriptedDemoAnswer({ ...input, messages: [{ role: "user", text: "The table is squealing" }] }, sources), undefined);
+  assert.equal(scriptedDemoAnswer({ ...input, messages: [...input.messages, { role: "assistant", text: answer }, { role: "user", text: "It still will not release" }] }, sources), undefined);
+  const otherSources = await retrieveSources({ ...input, machine: { ...input.machine, pk: "CNC-MX-02" } });
+  assert.ok(!otherSources.some((source) => source.id === "D1" || source.excerpt.includes("John's repair last month")));
 });

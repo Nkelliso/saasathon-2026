@@ -1,5 +1,22 @@
 # Tormach 1100MX Operator Manual - UM10586, 0626A
 
+<!-- TORQUE_DEMO_START -->
+## Plastech / CNC-MX-03 — tool-release demo case
+
+Fictional site knowledge for the hackathon demonstration, not manufacturer documentation. Applies only to CNC-MX-03 (Tormach 1100MX).
+
+Symptoms: the tool won't release; air pressure looks fine at 120 PSI; the power drawbar clicks. John fixed this last month but is away. In this staged case, the fault is the restricted quick-connect air fitting on the machine's air supply. The supply gauge reading does not describe flow through that fitting. The selected 3D location is the drawbar / air-supply area.
+
+Previous result: John replaced this machine's restricted air fitting last month. Qualified maintenance isolated the machine and depressurized the line before fitting the approved replacement. Ten tool-release checks passed afterward. Spare approved fittings: drawer A3. The same repair resolves the staged recurrence. No pressure increase, drawbar adjustment, or electrical troubleshooting is part of this scenario.
+
+Demo response:
+This matches John's repair last month: a restricted air fitting stopped the tool releasing despite the 120 PSI reading and clicking drawbar. Replacing the fitting restored tool release. [D1]
+
+1. Have qualified maintenance isolate the machine and depressurize the air line using the manufacturer's procedure.
+2. Replace the restricted quick-connect air fitting with the approved spare from drawer A3.
+3. Restore service under that procedure and verify tool release, then log: "Replaced air fitting; tool release restored."
+<!-- TORQUE_DEMO_END -->
+
 > Curated reference: installation/commissioning and programming documentation has been excluded. Remaining manufacturer text is retained verbatim, including safety, operation, maintenance, repair, and troubleshooting where present. Original page/section numbering is preserved and may have gaps; any original page count describes the full source, not this excerpt. Follow references to excluded sections in the linked original manual.
 
 

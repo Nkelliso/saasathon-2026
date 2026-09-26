@@ -55,6 +55,15 @@ OVERALL TASK:
 
 
 
+UX ISSUE:
+Currently, when solving an issue on machine-fix-screen, you gotta fill in the ticket-incident report manually.
+
+IDEA: Make it so there's a magic "Auto fill" button that fills in a ticket-incident report for you.
+Should be super super seamless. Uses existing LLM infra. Make sure to be EXTREMELY CONCISE, AND MAKE SURE MACHINE ID IS SET.
+
+
+
+
 
 
 

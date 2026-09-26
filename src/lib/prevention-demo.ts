@@ -1,4 +1,5 @@
-import type { MachineModelId } from "@/lib/machines";
+import type { MachineModelId } from "./machines";
+import { johnDemoRepair, type MachineTicket } from "./demo-data";
 
 // Deliberately fictional fixtures. These are not real maintenance findings or LLM output.
 export type PreventionIncident = {
@@ -108,3 +109,28 @@ export const preventionPatterns: PreventionPattern[] = [
 
 export const preventionIncidentCount = preventionPatterns.reduce((sum, pattern) => sum + pattern.incidents.length, 0);
 export const preventionDowntimeHours = preventionPatterns.reduce((sum, pattern) => sum + pattern.incidents.reduce((minutes, incident) => minutes + incident.downtimeMinutes, 0), 0) / 60;
+
+// The demo recurrence appears only after the operator logs the second fitting repair.
+export function getPreventionPatterns(tickets: MachineTicket[]): PreventionPattern[] {
+  const repair = tickets.filter((ticket) => ticket.machinePk === johnDemoRepair.machinePk &&
+    ticket.kind === "REPAIR" && ticket.id !== johnDemoRepair.id &&
+    /(?:air[ -]fitting|quick[ -]connect)/i.test(`${ticket.title} ${ticket.description}`) &&
+    /replac/i.test(`${ticket.title} ${ticket.description}`))
+    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))[0];
+  if (!repair) return preventionPatterns;
+  const pattern: PreventionPattern = {
+    id: `PRV-AIR-${repair.id.slice(0, 8)}`, createdAt: repair.createdAt, importance: "High",
+    machinePk: johnDemoRepair.machinePk, modelId: "tormach-1100mx",
+    title: "Repeat air-fitting failure on CNC-MX-03", category: "Air supply & fittings",
+    summary: "Two matching tool-release incidents on CNC-MX-03: John's repair last month and the repair just logged. Both were resolved by replacing the air fitting, despite an apparently normal air-supply reading.",
+    hypothesis: "Repeated fitting restrictions may point to contamination in the air supply or an unsuitable replacement fitting. Replacing the fitting restores operation, but the recurring cause needs a maintenance check.",
+    action: "Have maintenance inspect the air line, filtration and fitting specification during a planned stop. Add a fitting check to the service checklist and keep the approved spare in drawer A3.",
+    owner: "Maintenance + shift lead",
+    checklist: ["Compare the two failed fittings and check for contamination.", "Verify the replacement fitting against the approved specification.", "Record findings and add the air-supply check to planned maintenance."],
+    incidents: [repair, johnDemoRepair].map((ticket) => ({
+      id: ticket.id, date: new Date(ticket.createdAt).toLocaleDateString("en-GB", { day: "2-digit", month: "short", timeZone: "UTC" }),
+      title: ticket.title, note: ticket.description, downtimeMinutes: 0,
+    })),
+  };
+  return [pattern, ...preventionPatterns];
+}
