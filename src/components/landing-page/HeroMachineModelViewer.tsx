@@ -151,7 +151,7 @@ export function HeroMachineModelViewer({
     if (!viewer) return;
 
     function updateCanvasSize() {
-      const { width, height } = viewer.getBoundingClientRect();
+      const { width, height } = viewer!.getBoundingClientRect();
       if (width > 0 && height > 0) {
         canvasState.current?.setSize(width, height);
       }
