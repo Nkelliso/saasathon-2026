@@ -10,7 +10,7 @@ import "../landing-page/Hero.css";
 export default function AuthForm() {
   const copy = {
     // eyebrow: "// secure access",
-    title: "Welcome back, Guest.",
+    title: "Welcome to Torque",
     description:
       "Sign in to your facility knowledge base and pick up where the last repair ended.",
     submit: "Enter workspace",
@@ -54,7 +54,7 @@ export default function AuthForm() {
             className="mt-8 flex h-11 w-full items-center justify-center gap-2 rounded-md border border-line bg-surface-2 text-sm font-medium text-fg transition-colors hover:border-line-strong hover:bg-surface"
           >
             <Globe className="size-4" strokeWidth={1.5} />
-            Continue to Dashboard
+            Access the demo
             <ArrowRight className="size-4" strokeWidth={1.5} />
           </Link>
         </div>
