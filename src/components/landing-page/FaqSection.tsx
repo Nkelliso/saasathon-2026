@@ -38,7 +38,7 @@ export default function FaqSection() {
             Questions & Answers
           </span>
           <h2 className="mt-5 text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
-            Before it goes on the line.
+            Before it goes on the line
           </h2>
           <p className="mt-5 max-w-md text-md leading-7 text-fg-muted">
             Practical answers for operations teams evaluating Torque on a

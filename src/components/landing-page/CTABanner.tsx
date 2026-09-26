@@ -7,7 +7,7 @@ export function CTABanner() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(255,107,26,0.1),transparent_48%)]" />
       <div className="relative mx-auto max-w-3xl text-center">
         <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
-          Make the next expert answer available on every shift.
+          Make the next expert answer available on every shift
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-md leading-7 text-fg-muted">
           Torque serves as a machine operator's path of least resistance from
