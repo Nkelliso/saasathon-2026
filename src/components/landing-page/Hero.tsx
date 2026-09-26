@@ -1,33 +1,18 @@
 "use client";
 
-import { ArrowRight, LoaderCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
-import dynamic from "next/dynamic";
 import Link from "next/link";
+import { HeroModelCarousel } from "./HeroModelCarousel";
 import "./Hero.css";
 
 const transition = { duration: 0.45, ease: [0.16, 1, 0.3, 1] as const };
-
-const HeroMachineModelViewer = dynamic(
-  () =>
-    import("@/components/landing-page/HeroMachineModelViewer").then(
-      (module) => module.HeroMachineModelViewer,
-    ),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="grid h-full place-items-center">
-        <LoaderCircle className="size-5 animate-spin text-fg-muted" />
-      </div>
-    ),
-  },
-);
 
 export default function Hero() {
   return (
     <section className="hero-bg relative isolate">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[560px] bg-[radial-gradient(ellipse_at_62%_36%,rgba(255,157,0,0.25),transparent_48%)]" />
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-20 pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:pb-28 lg:pt-28">
+      <div className="mx-auto w-fit grid max-w-6xl gap-12 px-5 pb-20 pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:pb-28 lg:pt-28">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,7 +24,7 @@ export default function Hero() {
             </span>
           </div>
           <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-fg sm:text-5xl lg:text-6xl lg:leading-[0.98]">
-            Unplanned downtime <span className="text-fg-muted">sucks.</span>
+            Unplanned downtime <span className="text-fg-muted">costs.</span>
           </h1>
           <p className="mt-7 max-w-xl text-base leading-7 text-fg-muted sm:text-md">
             Instant machine diagnosis from service records, manufacturer
@@ -69,11 +54,7 @@ export default function Hero() {
           className="relative mx-auto w-full max-w-[530px]"
         >
           <div className="opacity-50">
-            <HeroMachineModelViewer
-              modelId="abb-irb-120"
-              autoRotate
-              className="h-[360px] sm:h-[430px]"
-            />
+            <HeroModelCarousel className="h-[360px] sm:h-[430px]" />
           </div>
         </motion.div>
       </div>
