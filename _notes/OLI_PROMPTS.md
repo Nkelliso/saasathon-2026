@@ -275,7 +275,7 @@ Ticket page:
 Filing docs for when something goes wrong with a machine,
 OR, filing information about a machine in general.
 
-Just populates the DB entry.
+This just populates the DB entry.
 </ticket>
 
 
