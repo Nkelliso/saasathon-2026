@@ -1,0 +1,30 @@
+.hero-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-line) 42%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-line) 42%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 32px 32px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 8%,
+    black 88%,
+    transparent
+  );
+}
+
+.hero-bg {
+  background: #802000;
+  background: linear-gradient(
+    320deg,
+    rgba(128, 32, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}

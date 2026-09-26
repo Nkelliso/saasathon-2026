@@ -29,6 +29,7 @@
         "three": "^0.186.1"
     },
     "devDependencies": {
+        "@playwright/test": "^1.63.0",
         "@tailwindcss/postcss": "^4",
         "@types/node": "^20",
         "@types/react": "^19",
@@ -38,5 +39,8 @@
         "playwright": "^1.63.0",
         "tailwindcss": "^4",
         "typescript": "^5"
+    },
+    "allowScripts": {
+        "unrs-resolver@1.12.2": true
     }
 }

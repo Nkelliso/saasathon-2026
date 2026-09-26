@@ -2,7 +2,7 @@
 
 @theme inline {
   --color-bg: #0a0a0b;
-  --color-surface: #111113;
+  --color-surface: #0a0a0b;
   --color-surface-2: #18181b;
   --color-line: #26262b;
   --color-line-strong: #3a3a40;
@@ -19,10 +19,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-* {
-  border-color: var(--color-line);
-}
-
 html {
   background: var(--color-bg);
 }
@@ -37,4 +33,22 @@ body {
 ::selection {
   background: var(--color-accent);
   color: #000;
+}
+
+.rotate-large-gear {
+  animation: rotate 30s linear infinite;
+}
+
+.rotate-small-gear {
+  animation: rotate 20s linear infinite reverse;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
