@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import AuthForm from "@/components/auth/AuthForm";
 
 export const metadata: Metadata = {
-  title: "Log in",
+  title: "Log In",
   description: "Access your Torque operations workspace.",
 };
 

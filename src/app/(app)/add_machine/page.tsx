@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { AddMachineConsole } from "@/components/machine/add-machine-console";
 
 export const metadata: Metadata = {
-  title: "Add machine",
+  title: "Add Machine",
   description: "Register a machine with your organisation.",
 };
 

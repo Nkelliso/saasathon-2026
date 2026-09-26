@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { MachineFix } from "@/components/machine/machine-fix";
 
 export const metadata: Metadata = {
-  title: "Machine fix",
+  title: "Machine Fix",
   description: "Inspect a machine and diagnose active faults.",
 };
 
