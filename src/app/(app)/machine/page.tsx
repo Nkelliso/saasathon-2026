@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 export default function MachinePage() {
-  return <main>Machine</main>;
+  redirect("/machine/MILL-01");
 }
