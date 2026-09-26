@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48.902962mm"
+   height="48.902958mm"
+   viewBox="0 0 48.902962 48.902958"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   sodipodi:docname="favicon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#000000"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:zoom="1.9011461"
+     inkscape:cx="43.394876"
+     inkscape:cy="107.04069"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect14"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,2.2886553,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect12"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <pattern
+       id="EMFhbasepattern"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-3.9934871,-89.859076)">
+    <path
+       id="path1"
+       style="display:inline;fill:#ffffff;stroke-width:0.869091"
+       d="m 28.444742,93.059996 c -11.736193,1.06e-4 -21.2502308,9.514144 -21.2503349,21.250334 -1.387e-4,11.73636 9.5139699,21.25068 21.2503349,21.25078 11.736539,1.5e-4 21.250922,-9.51424 21.250783,-21.25078 -9.5e-5,-0.0277 -2.45e-4,-0.0554 -4.48e-4,-0.0831 H 34.465131 c 4.81e-4,0.0277 7.71e-4,0.0554 8.69e-4,0.0831 1.69e-4,3.32554 -2.695752,6.02146 -6.021287,6.02129 -3.32536,-8e-5 -6.021007,-2.69593 -6.020839,-6.02129 7.7e-5,-3.32518 2.695653,-6.02076 6.020839,-6.02084 z"
+       inkscape:label="primary"
+       sodipodi:nodetypes="ccccccccccc" />
+    <path
+       style="display:inline;opacity:1;fill:#ff5a1f;fill-opacity:1;stroke-width:0.529167"
+       d="M 33.294541,90.344834 V 107.0855 a 2.2886553,2.2886553 45 0 0 2.288655,2.28866 H 52.393117 C 50.414903,99.777267 42.898556,92.288174 33.294541,90.344834 Z"
+       id="path12"
+       inkscape:label="accent"
+       sodipodi:nodetypes="cccc"
+       inkscape:original-d="M 33.294541,90.344834 V 109.37416 H 52.393117 C 50.414903,99.777267 42.898556,92.288174 33.294541,90.344834 Z"
+       inkscape:path-effect="#path-effect14"
+       transform="matrix(0.86909095,0,0,0.86909095,3.7237036,14.964286)" />
+    <rect
+       style="display:none;opacity:1;fill:#ffaaaa;fill-opacity:1;stroke-width:0.49469"
+       id="rect14"
+       width="270.93335"
+       height="67.733337"
+       x="4.1288948"
+       y="84.054962"
+       inkscape:label="bbox" />
+  </g>
+</svg>
