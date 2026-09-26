@@ -1,3 +1,5 @@
+import { MachineEntry } from "@/components/machine/machine-entry";
+
 export default function MachinePage() {
-  return <main>Machine</main>;
+  return <MachineEntry />;
 }

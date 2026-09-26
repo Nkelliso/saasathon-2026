@@ -1,3 +1,5 @@
+import { MachineEntry } from "@/components/machine/machine-entry";
+
 export default function HomePage() {
-  return <main>Home</main>;
+  return <MachineEntry />;
 }
