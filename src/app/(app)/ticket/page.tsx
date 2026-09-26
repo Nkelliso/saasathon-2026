@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description: "Document repairs, events, and machine-specific operational knowledge.",
 };
 
-export default function TicketPage() {
-  return <TicketConsole />;
+export default async function TicketPage({ searchParams }: { searchParams: Promise<{ machine?: string }> }) {
+  const { machine } = await searchParams;
+  return <TicketConsole initialMachine={machine} />;
 }

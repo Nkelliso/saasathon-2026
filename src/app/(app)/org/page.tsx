@@ -3,9 +3,10 @@ import { OrganizationConsole } from "@/components/organization/organization-cons
 
 export const metadata: Metadata = {
   title: "Organization",
-  description: "Manage organization members, roles, and access.",
+  description: "Manage organization members.",
 };
 
 export default function OrgPage() {
   return <OrganizationConsole />;
 }
+

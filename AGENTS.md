@@ -45,6 +45,8 @@ The local-store allows our product to build up value over time, and allows us to
 </problem_and_solution>
 
 <product>
+The product is named **Torque**. Use this name in the UI and page titles.
+
 We are essentially creating an AI powered "Machine operations knowledge base".
 
 <pragmatic_goal_for_hackathon>
@@ -135,7 +137,7 @@ Basic login + register page.
 </login_register_page>
 
 <MAIN_PAGES>
-All main-pages have a sidebar on the right, visible at all times.
+All main-pages have a sidebar on the LEFT, visible at all times.
 Sidebar tabs:
 - machine_fix
 - add-ticket tab
@@ -150,17 +152,17 @@ This is where users go if they want to fix an issue with a machine.
 
 Vertical split down the middle, page divided into two halves.
 
-Top-left: has a clear, small floating dropdown UI where you can select the machine type.
+Far top-right: has a clear, small floating dropdown UI where you can select the machine type, aligned to the right edge of the model pane.
 Contains a whitelist of all machines within the org.
 
-Left-side-top: Has a 3d-model pane showing the machine.
-Left-side-bottom: has minimal ticket-reports with summaries.
+Right-side-top: Has a 3d-model pane showing the machine.
+Right-side-bottom: has minimal ticket-reports with summaries.
 
-Right-side: contains the chat where you can say what your problem is.
+Left-side: contains the chat where you can say what your problem is.
 
 INTENTION:
 We want this page to be exceptionally simple and minimal. DO NOT OVERCOMPLICATE IT: Make it easy to use.
-The right-side chat should have extra padding around the edges such that attention is drawn to it.
+The left-side chat should have extra padding around the edges such that attention is drawn to it.
 </machine>
 
 <org>
@@ -217,7 +219,7 @@ Vibe: the HMI screen of an expensive machine, designed by Linear/Vercel. Dark, p
 - Cards: `bg-surface border border-line rounded-lg`. Buttons/inputs `rounded-md`. Borders, not shadows (only exception: orange glow on primary CTA). No `rounded-2xl+` or pill containers.
 - Signature details: faint 32px grid background fading at edges (hero, empty states); L-shaped corner crop marks on hero/feature panels.
 - Generous space: sections `py-24`+, `max-w-6xl`. Dense data inside panels, air outside.
-- App shell: 240px `surface` sidebar + top bar with mono breadcrumb. ⌘K palette feel.
+- App shell: 240px `surface` sidebar on the LEFT. No top bar or breadcrumb; page content starts directly beside the sidebar.
 
 ## Components
 - Primary button: `bg-accent text-black font-medium`, glow on hover. Secondary: `bg-surface-2 border-line`, hover `border-line-strong`. Ghost: `text-fg-muted hover:text-fg`.

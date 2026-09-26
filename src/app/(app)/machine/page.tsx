@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { MachineEntry } from "@/components/machine/machine-entry";
 
 export default function MachinePage() {
-  redirect("/machine/MILL-01");
+  return <MachineEntry />;
 }
