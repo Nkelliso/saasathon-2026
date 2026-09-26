@@ -61,6 +61,35 @@ body {
   color: #000;
 }
 
+.auth-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-line) 42%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-line) 42%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 32px 32px;
+}
+
+.auth-signal-field {
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-accent) 15%, transparent), transparent 22%),
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-line-strong) 35%, transparent) 1px, transparent 1px);
+  background-size: auto, 16px 16px;
+  mask-image: radial-gradient(circle at center, black, transparent 66%);
+}
+
+.auth-scan-line {
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--color-accent) 45%, transparent);
+  animation: auth-scan 5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
 .rotate-large-gear {
   animation: rotate 30s linear infinite;
 }
@@ -77,4 +106,10 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+@keyframes auth-scan {
+  0%, 100% { transform: translateY(-14vh); opacity: 0; }
+  15%, 75% { opacity: 0.75; }
+  88% { transform: translateY(58vh); opacity: 0; }
 }

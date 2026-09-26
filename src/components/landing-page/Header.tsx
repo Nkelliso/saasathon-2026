@@ -38,7 +38,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/query"
+            href="/login"
             className="hidden px-3 py-2 text-sm text-fg-muted transition-colors hover:text-fg sm:inline-flex"
           >
             Log in
