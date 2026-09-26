@@ -153,3 +153,16 @@ All repairs assume proper power and air isolation before maintenance. The source
 
 </TICKET_EXAMPLES>
 
+
+<PREVENTION_EXAMPLE>
+### Prevention: Missed lubrication could cause major damage
+
+- **Clues in the tickets:** "Didn't pump the oiler — thought it was automatic." Later: "Table squealing again; restarted and kept running."
+- **Possible user error:** Operators may be skipping manual lubrication and continuing to run despite warning signs. Maintenance must also rule out an oil-system fault.
+- **Risk:** Running dry could permanently damage the slideways and ball screws, requiring a major rebuild.
+- **Prevention:** Flag for urgent maintenance review before further operation. Verify oil delivery and inspect for damage; add the correct lubrication routine to operator training and the shift checklist.
+
+**Manual basis:** The manual-oiler version requires lubrication at startup and every four operating hours, plus checks that oil reaches the moving surfaces. [Tormach maintenance guidance](https://knowledgebase.tormach.com/1100mx/1100mx-maintenance).
+
+**Demo line:** "Torque spotted a possible training mistake: skipped lubrication. It flags it before the machine suffers major damage."
+</PREVENTION_EXAMPLE>
