@@ -1,5 +1,8 @@
 # ABB IRB 120 Product Manual
 
+> Curated reference: installation/commissioning and programming documentation has been excluded. Remaining manufacturer text is retained verbatim, including safety, operation, maintenance, repair, and troubleshooting where present. Original page/section numbering is preserved and may have gaps; any original page count describes the full source, not this excerpt. Follow references to excluded sections in the linked original manual.
+
+
 Source: [https://library.e.abb.com/public/35c8d30aebad4d13b945a1943e354ac5/3HAC035728%20PM%20IRB%20120-en.pdf](https://library.e.abb.com/public/35c8d30aebad4d13b945a1943e354ac5/3HAC035728%20PM%20IRB%20120-en.pdf)
 
 Converted from official manufacturer PDF documentation.
@@ -39,173 +42,6 @@ Additional copies of this manual may be obtained from ABB. Original instructions
 © Copyright 2009-2022 ABB. All rights reserved. Specifications subject to change without notice. 
 
 **Table of contents** 
-
-## **Table of contents** 
-
-|Over<br>|view of<br>|this manual ...................................................................................................................<br>|9<br>|
-|---|---|---|---|
-|Prod|uct doc|umentation ....................................................................................................................|15|
-|How|to read|the product manual ......................................................................................................|17|
-|**1**<br>**Safe**|**ty**||**19**|
-|1.1|Safety|information .............................................................................................<br>|19|
-||1.1.1|Limitation of liability .................................................................................|19|
-||1.1.2<br>|Requirements on personnel ......................................................................<br>|20|
-|1.2|Safety<br>|signals and symbols .................................................................................<br>|21<br>|
-||1.2.1|Safety signals in the manual ......................................................................|21|
-||1.2.2<br>|<br>Safety symbols on manipulator labels .........................................................<br>|23<br>|
-|1.3|Robot|stopping functions ....................................................................................|29|
-|1.4|Safety|during installation and commissioning .........................................................|30|
-|1.5|Safety|during operation ......................................................................................|33|
-|1.6|Safety|during maintenance and repair ...................................................................|34|
-||1.6.1|Safety during maintenance and repair .........................................................|34|
-||1.6.2|Emergency release of the robot axes ..........................................................|37|
-||1.6.3|Brake testing ..........................................................................................|38|
-|1.7|Safety|<br>during troubleshooting ..............................................................................|39|
-|1.8|Safety|during decommissioning ...........................................................................|40|
-|**2**<br>**Insta**|**llation**|**and commissioning**|**41**|
-|2.1|Introd|uction to installation and commissioning .......................................................|41|
-|2.2|<br>Unpac|<br>king .......................................................................................................|42|
-||2.2.1|Pre-installation procedure .........................................................................|42|
-||2.2.2|Working range and type of motion ..............................................................|46|
-||2.2.3|<br>Risk of tipping/stability .............................................................................|48|
-||2.2.4|<br>The unit is sensitive to ESD .......................................................................|49|
-|2.3|On-sit<br>|e installation ............................................................................................<br>|50<br>|
-||2.3.1|Brief installation procedure .......................................................................|50|
-||2.3.2|<br>Test run after installation, maintenance, or repair ..........................................|51|
-||2.3.3|<br>Lifting the robot ......................................................................................|52|
-|||<br>2.3.3.1<br>Lifting the robot with roundslings ....................................................<br>|52<br>|
-||2.3.4|Manually releasing the brakes ...................................................................|55|
-||2.3.5|<br>Orienting and securing the robot ...............................................................|59|
-||2.3.6|<br>Fitting equipment on robot ........................................................................|61|
-||2.3.7|Setting the system parameters for a suspended or tilted robot .........................|64|
-||2.3.8|<br>Loads fitted to the robot, stopping time and braking distances .........................|69|
-|2.4|Restri|<br>cting the working range ..............................................................................|70|
-||<br>2.4.1|<br>Axes with restricted working range .............................................................|70|
-||2.4.2|Mechanically restricting the working range ...................................................|71|
-|2.5|Makin|<br>g robot ready for operation ..........................................................................|73|
-||<br>2.5.1|<br>Additional installation procedure, Clean Room ..............................................|73|
-|26|Electri|cal connections|74|
-|.|<br>2.6.1|........................................................................................<br>Robot cabling and connection points ..........................................................|74|
-||2.6.2|<br>Customer connections on the robot ............................................................|76|
-|2.7|Start o|f robot in cold environments ......................................................................|79|
-|2.8|Test ru|n after installation, maintenance, or repair ....................................................|80|
-|**3**<br>**Main**|**tenanc**|**e**|**81**|
-|3.1|Introd|uction ......................................................................................................|81|
-|3.2|Mainte|nance schedule .......................................................................................|82|
-||3.2.1|Specification of maintenance intervals ........................................................|82|
-||3.2.2<br>|Maintenance schedule .............................................................................<br>|83<br>|
-|3.3|Inspec|tion activities ...........................................................................................|85|
-||<br>3.3.1|<br>Inspecting the robot cabling .....................................................................|85|
-
-
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-5 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**Table of contents** 
-
-||3.3.2<br>|Inspecting mechanical stops ....................................................................<br>|86<br>|
-|---|---|---|---|
-||3.3.3|Inspecting dampers .................................................................................|89|
-||334|<br>Iti tii blt|91|
-||..|nspecng mng es ............................................................................||
-||3.3.5<br>|Inspecting plastic covers ..........................................................................<br>|97<br>|
-||3.3.6<br>|Inspecting information labels .....................................................................<br>|99<br>|
-|3.4|Replac|ement/changing activities ..........................................................................|101|
-||<br>3.4.1<br>|<br>Type of lubrication in gearboxes ................................................................<br>|101<br>|
-||3.4.2<br>|Replacing the battery pack ........................................................................<br>|103<br>|
-|3.5|Cleani|ng activities .............................................................................................|106|
-||<br>3.5.1|<br>Cleaning the IRB 120 ...............................................................................|106|
-|**4**<br>**Rep**|**air**||**109**|
-|4.1|Introd|uction ......................................................................................................|109|
-|4.2|Gener|al procedures ...........................................................................................|110|
-||<br>4.2.1|<br>Mounting instructions for sealings ..............................................................|110|
-||4.2.2|<br>Cut the paint or surface on the robot before replacing parts ............................|113|
-|4.3|Cable|harness ..................................................................................................|115|
-||4.3.1|Removing the cable harness .....................................................................|115|
-||4.3.2|<br>Refitting the cable harness ........................................................................|129|
-||4.3.3|<br>Replacing the Encoder Interface board ........................................................|143|
-|4.4|Plastic|covers ...................................................................................................|146|
-||<br>4.4.1|<br>Replacing plastic covers ...........................................................................|146|
-|4.5|Upper|<br>arm .......................................................................................................|150|
-||4.5.1<br>|Replacing the upper arm ..........................................................................<br>|150<br>|
-|4.6|Lower|arm .......................................................................................................|159|
-||4.6.1|Replacing the lower arm ...........................................................................|159|
-|4.7|Motors|<br>and motors with gearboxes .......................................................................|164|
-||4.7.1|Replacing axis-1 motor with gearbox ..........................................................|164|
-||4.7.2|<br>Replacing axis-2 motor with gearbox ..........................................................|185|
-||4.7.3|<br>Replacing axis-3 motor with gearbox ..........................................................|197|
-||4.7.4<br>|Replacing motor axis 4, with gearbox ..........................................................<br>|205<br>|
-||4.7.5|Replacing motor axis 5 .............................................................................|206|
-||4.7.6|<br>Replacing motor axis 6 .............................................................................|212|
-|4.8|Gearb|<br>oxes .......................................................................................................|213|
-||481|Replacing gearbox axis 1|213|
-||..<br>4.8.2|..........................................................................<br>Replacing gearbox axis 2 ..........................................................................|214|
-||4.8.3|<br>Replacing gearbox axis 3 ..........................................................................|215|
-||4.8.4<br>|Replacing gearbox axis 4 ..........................................................................<br>|216<br>|
-||4.8.5|Replacing gearbox axis 5 ..........................................................................|217|
-||4.8.6|<br>Replacing gearbox axis 6 ..........................................................................|218|
-|**5**<br>**Cali**|**bration**||**219**|
-|5.1|Introd|uction to calibration ...................................................................................|219|
-||5.1.1<br>|Introduction and calibration terminology ......................................................<br>|219<br>|
-||5.1.2|Calibration methods .................................................................................|220|
-||5.1.3|When to calibrate ...................................................................................|221|
-|5.2|Synch|ronization marks and axis movement directions .............................................|222|
-||5.2.1|Synchronization marks and synchronization position for axes .........................|222|
-||5.2.2|<br>Calibration movement directions for all axes ................................................|224|
-|5.3|Updati|ng revolution counters ...............................................................................|225|
-||<br>531|<br>Updating revolution counters on IRC5 robots|225|
-|5.4|..<br>Calibr|...............................................<br>ating with Axis Calibration method...............................................................|229|
-||<br>5.4.1|<br>Description of Axis Calibration ..................................................................|229|
-||5.4.2|<br>Axis Calibration - Running the calibration procedure ......................................|231|
-|5.5<br>|Calibr<br>|ating with manual calibration method ............................................................<br>|234<br>|
-|5.6|Verifyi|ng the calibration ......................................................................................|240|
-|5.7|<br>Check|<br>ing the synchronization position ..................................................................|241|
-
-
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-6 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**Table of contents** 
-
-|**6**<br>**Dec**|**ommissioning**|**243**|
-|---|---|---|
-|6.1|Introduction to decommissioning .........................................................................|243|
-|6.2|Environmental information ..................................................................................|244|
-|6.3|Scrapping of robot .............................................................................................|246|
-|**7**<br>**Refe**|**rence information**|**247**|
-|7.1|Introduction ......................................................................................................|247|
-|7.2|Applicable standards .........................................................................................|248|
-|7.3|Unit conversion .................................................................................................|249|
-|7.4|Screw joints ....................................................................................................|250|
-|7.5|Weight specifications .........................................................................................|251|
-|7.6|Standard toolkit ................................................................................................|252|
-|7.7|Special tools ....................................................................................................|253|
-|7.8|Lifting equipment and lifting instructions ................................................................|254|
-|**8**<br>**Spar**|**eparts**|**255**|
-|8.1|Spare part lists and illustrations ...........................................................................|255|
-|**9**<br>**Circ**|**uit diagrams**|**257**|
-|9.1|Circuit diagrams ................................................................................................|257|
-|**Index**||**259**|
-
-
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-7 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-This page is intentionally left blank 
-
-**Overview of this manual** 
 
 ## **Overview of this manual** 
 
@@ -1277,22 +1113,6 @@ Product manual - IRB 120 3HAC035728-001 Revision: W
 
 © Copyright 2009-2022 ABB. All rights reserved. 
 
-**2 Installation and commissioning** 
-
-2.1 Introduction to installation and commissioning 
-
-## **2 Installation and commissioning** 
-
-### **2.1 Introduction to installation and commissioning** 
-
-#### **General** 
-
-This chapter contains assembly instructions and information for installing the IRB 120 at the working site. 
-
-See also the product manual for the robot controller. 
-
-The installation must be done by qualified installation personnel in accordance with the safety requirements set forth in the applicable national and regional standards and regulations. 
-
 #### **Safety information** 
 
 Before any installation work is commenced, all safety information must be observed. There are general safety aspects that must be read through, as well as more specific safety information that describes the danger and safety risks when performing the procedures. Read the chapter _Safety on page19_ before performing any installation work. 
@@ -1310,48 +1130,6 @@ Product manual - IRB 120 3HAC035728-001 Revision: W
 41 
 
 © Copyright 2009-2022 ABB. All rights reserved. 
-
-**2 Installation and commissioning** 
-
-#### 2.2.1 Pre-installation procedure 
-
-### **2.2 Unpacking** 
-
-### **2.2.1 Pre-installation procedure** 
-
-#### **Introduction** 
-
-This section is intended for use when unpacking and installing the robot for the first time. It also contains information useful during later re-installation of the robot. 
-
-#### **Prerequisites for installation personnel** 
-
-Installation personnel working with an ABB product must: 
-
-- be trained by ABB and have the required knowledge of mechanical and electrical installation/maintenance/repair work 
-
-- conform to all national and local codes. 
-
-#### **Checking the pre-requisites for installation** 
-
-##### **Action** 
-
-- 1 Make a visual inspection of the packaging and make sure that nothing is damaged. 2 Remove the packaging. 3 Check for any visible transport damage. **Note** 
-
-Stop unpacking and contact ABB if transport damages are found. 
-
-- 4 Clean the unit with a lint-free cloth, if necessary. 5 Make sure that the lifting accessory used (if required) is suitable to handle the weight of the robot as specified in: _Weight, robot on page 42_ 
-
-- 6 If the robot is not installed directly, it must be stored as described in: _Storage conditions, robot on page 45_ 
-
-- 7 Make sure that the expected operating environment of the robot conforms to the specifications as described in: _Operating conditions, robot on page 45_ 
-
-- 8 Before taking the robot to its installation site, make sure that the site conforms to: • _Loads on foundation, robot on page 43_ • _Protection classes, robot on page 45_ • _Requirements, foundation on page 44_ 
-
-- 9 Before moving the robot, please observe the stability of the robot: _Risk of tipping/stability on page 48_ 
-
-- 10 When these prerequisites are met, the robot can be taken to its installation site as described in section: _On-site installation on page 50_ 
-
-- 11 Install required equipment, if any. 
 
 #### **Weight, robot** 
 
@@ -1691,43 +1469,6 @@ Product manual - IRB 120 3HAC035728-001 Revision: W
 
 © Copyright 2009-2022 ABB. All rights reserved. 
 
-**2 Installation and commissioning** 
-
-#### 2.3.1 Brief installation procedure 
-
-### **2.3 On-site installation** 
-
-### **2.3.1 Brief installation procedure** 
-
-#### **Introduction** 
-
-This procedure is a brief guide when installing the robot for the first time. Also see _Pre-installation procedure on page 42_ . 
-
-#### **First installation** 
-
-Use these procedures to install the IRB 120. 
-
-||**Action**|**Note**||
-|---|---|---|---|
-|1|Transport the manipulator to its intended location.|||
-|2|Install the valid platform or prepare the foundation<br>for the manipulator.|||
-|3|Lift and secure the manipulator to the plat-<br>form/foundation.|See_L_<br>See_O_<br>_bot on_|_ifting the robot on page 52_.<br>_rienting and securing the ro-_<br>_page 59_.|
-|4|Connect the manipulator to the controller.|See<br>•<br>•|_Product manual - IRC5_<br>_Product manual - IRC5_<br>_Compact_|
-|5|Configure the safety settings.|See<br>•<br>•|_Product manual - IRC5_<br>_Product manual - IRC5_<br>_Compact_|
-|6|How to start and run the robot is described in the<br>product manual for the controller.|See<br>•<br>•|_Product manual - IRC5_<br>_Product manual - IRC5_<br>_Compact_|
-|7|Install required equipment, if any.|||
-|8|**DANGER**<br>Make sure all safety requirements are met when<br>performing the first test run.|||
-
-
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-50 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**2 Installation and commissioning** 
-
 #### 2.3.2 Test run after installation, maintenance, or repair 
 
 ### **2.3.2 Test run after installation, maintenance, or repair** 
@@ -1967,35 +1708,6 @@ Product manual - IRB 120 3HAC035728-001 Revision: W
 
 **2 Installation and commissioning** 
 
-#### 2.3.5 Orienting and securing the robot 
-
-### **2.3.5 Orienting and securing the robot** 
-
-#### **Introduction** 
-
-This section details how to orient and secure the robot to the foundation or base plate in order to run the robot safely. The requirements made on the foundation are shown in sections: 
-
-- _Loads on foundation, robot on page 43_ 
-
-- _Requirements, foundation on page 44_ . 
-
-#### **Hole configuration, base** 
-
-The illustration shows the hole configuration used when securing the robot. 
-
-
-
-<!-- Start of picture text -->
- 59<br>A<br> 75   75<br>0.5<br>E<br>+0.018  59<br>E<br>2x 6 H8 0<br>0.15 B 4x 12<br>4x14.3<br>E-E<br>12<br> 75   81  22<br>4x<br>4x<br> 81   75<br><!-- End of picture text -->
-
-xx0900000162 
-
-|A|Holes for attachment screws (4 pcs)|
-|---|---|
-|B|Holes for pins (2 pcs)|
-
-
-
 #### **Specification, attachment screws and pins** 
 
 The table specifies the type of securing screws and washers to be used to secure the robot directly to the foundation. It also specifies the type of pins to be used. 
@@ -2017,58 +1729,6 @@ Product manual - IRB 120 3HAC035728-001 Revision: W
 59 
 
 © Copyright 2009-2022 ABB. All rights reserved. 
-
-**2 Installation and commissioning** 
-
-#### 2.3.5 Orienting and securing the robot _Continued_ 
-
-##### Level surface requirements 
-
-
-
-xx0900000643 
-
-#### **Orienting and securing the robot** 
-
-Use this procedure to orient and secure the robot. 
-
-||**Action**|**Information**|
-|---|---|---|
-|1|Make sure the installation site for the robot con-<br>forms to the specifications in section:<br>•<br>_Pre-installation procedure on page 42_.||
-|2|Prepare the installation site with attachment<br>holes.|The hole configuration of the base<br>is shown in the figure in:<br>•<br>_Hole configuration, base on_<br>_page 59_|
-|3|**CAUTION**<br>The robot weighs 25 kg. All lifting equipment<br>must be sized accordingly!||
-|4|**CAUTION**<br>When the robot is put down after being lifted or<br>transported, there is a risk of it tipping, if not<br>properly secured.||
-|5|Lift the robot to its installation site.|How to lift the robot is described in<br>section:<br>•<br>_Lifting the robot with round-_<br>_slings on page 52_|
-|6|Fit two_pins_to the holes in the base.|2 pcs, D6x20<br>ISO 2338-6 m6x30 - A1|
-|7|Guide the robot gently, using the attachment<br>screws while lowering it into its mounting posi-<br>tion.|Make sure the robot base is cor-<br>rectly fitted onto the pins.|
-|8|Fit the_securing screws_and_washers_in the attach-<br>ment holes of the base.|Screws: M10x25, quality: 8.8-A3F|
-|9|Tighten the bolts in a criss-cross pattern to en-<br>sure that the base is not distorted.|Tightening torque:<br>35 Nm|
-
-
-
-#### **Securing robot on a mounting plate** 
-
-When bolting a mounting plate or frame to a concrete floor, follow the general instructions for expansion-shell bolts. 
-
-Screw joints must be able to withstand the stress loads defined in section _Loads on foundation, robot on page 43_ . 
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-60 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**2 Installation and commissioning** 
-
-#### 2.3.6 Fitting equipment on robot 
-
-### **2.3.6 Fitting equipment on robot** 
-
-#### **Introduction** 
-
-The robot features mounting holes for additional equipment. 
-
-Access to any of the following mounting holes may be obstructed by any additional cabling, equipment, etc., fitted by the robot user. Make sure the required mounting holes are accessible when planning the robot cell. 
 
 #### **Note** 
 
@@ -2097,44 +1757,6 @@ Product manual - IRB 120 3HAC035728-001 Revision: W
 
 © Copyright 2009-2022 ABB. All rights reserved. 
 
-**2 Installation and commissioning** 
-
-#### 2.3.6 Fitting equipment on robot _Continued_ 
-
-#### **Fitting equipment on base and upper arm** 
-
-The illustration shows the fitting holes available for fitting extra equipment on the base and upper arm of the robot. 
-
-
-
-<!-- Start of picture text -->
-C<br>D<br>B<br>2xM4 8<br>A<br>2xM4 8<br>25±0.15<br>xx0900000203<br>A Load area base, max load 0.5 kg (on each side)<br>B Load area upper arm, max load 0.3 kg<br>C Max. 172 mm<br>D Max. radius 75 mm<br>187<br>±0.15<br>25<br>53<br><!-- End of picture text -->
-
-**NOTE!** Fitting holes at the base of the robot are placed on each side. 
-
-_Continues on next page_ 
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-62 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**2 Installation and commissioning** 
-
-2.3.6 Fitting equipment on robot _Continued_ 
-
-#### **Fitting equipment on mounting flange** 
-
-The illustration shows the mechanical interface for the mounting flange. 
-
-
-
-<!-- Start of picture text -->
-+0.012<br>4xM5 8 5 H7 0 7<br>0.25 0.04<br>F<br>F<br>F-F<br>20H7 +<br>00,02 40<br> 31,5  6<br> 45°<br>°4X90<br><!-- End of picture text -->
-
-xx0900000261 
-
 #### **Fastener quality** 
 
 When fitting tools on the tool flange, only use screws with quality 12.9. For other equipment use suitable screws and tightening torque for your application. 
@@ -2147,45 +1769,6 @@ Product manual - IRB 120 3HAC035728-001 Revision: W
 
 **2 Installation and commissioning** 
 
-#### 2.3.7 Setting the system parameters for a suspended or tilted robot 
-
-### **2.3.7 Setting the system parameters for a suspended or tilted robot** 
-
-#### **General** 
-
-The robot is configured for mounting parallel to the floor, without tilting, on delivery. The method for mounting the robot in a suspended (upside down) or tilted position is basically the same as for floor mounting, but the system parameters that describe the mounting angle (how the robot is oriented relative to the gravity) must be re-defined. 
-
-#### **Note** 
-
-With suspended installation, make sure that the gantry or corresponding structure is rigid enough to prevent unacceptable vibrations and deflections, so that optimum performance can be achieved. 
-
-#### **Note** 
-
-The allowed mounting positions are described in the product specification for the robot. The requirements on the foundation are described in _Requirements, foundation on page 44_ . 
-
-#### **The x-direction in the base coordinate system** 
-
-If the robot is wall mounted or mounted in a tilted position, it is important that the x-direction of the robot base coordinate system points downwards, as shown in the following figure. 
-
-
-
-<!-- Start of picture text -->
-Z<br>Z<br>Y<br>Y<br>+X<br>+X<br><!-- End of picture text -->
-
-xx1400000737 
-
-_Continues on next page_ 
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-64 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**2 Installation and commissioning** 
-
-#### 2.3.7 Setting the system parameters for a suspended or tilted robot _Continued_ 
-
 #### **System parameters** 
 
 #### **Note** 
@@ -2197,138 +1780,6 @@ The mounting angle must be configured correctly in the system parameters so that
 - Lower path performance and path accuracy. 
 
 - Some functions will not work properly, for example _Load Identification_ and _Collision detection_ . 
-
-#### Gravity Beta 
-
-If the robot is mounted upside down or on a wall (rotated around the y-axis), then the robot base frame and the system parameter _Gravity Beta_ must be redefined. _Gravity Beta_ should then be π (+3.141593) if the robot is mounted upside down (suspended), or ±π/2 (±1.570796) if mounted on a wall. 
-
-The _Gravity Beta_ is a positive rotation direction around the y-axis in the base coordinate system. The value is set in radians. 
-
-#### Gravity Alpha 
-
-If the robot is mounted on a wall (rotated around the x-axis), then the robot base frame and the system parameter _Gravity Alpha_ must be redefined. The value of _Gravity Alpha_ should then be ±π/2 (±1.570796). 
-
-The _Gravity Alpha_ is a positive rotation direction around the x-axis in the base coordinate system. The value is set in radians. 
-
-#### **Note** 
-
-The system parameter _Gravity Alpha_ is not supported for all robot types. It is not supported for IRB 140, IRB 1410, IRB 1600ID, IRB 2400, IRB 4400, IRB 6400R, IRB 6400 (except for IRB 6400 200/2.5 and IRB 6400 200/2.8), IRB 6600, IRB 6650, IRB 6650S and IRB 7600 (except for IRB 7600 325/3.1). 
-
-If the robot does not support _Gravity Alpha_ , then use _Gravity Beta_ along with the recalibration of axis 1 to define the rotation of the robot around the x-axis. 
-
-#### **Note** 
-
-The parameter is supported for all robots on track when the system parameter _7 axes high performance motion_ is set, see _Technical reference manual - System parameters_ . 
-
-Gamma Rotation 
-
-_Gamma Rotation_ defines the orientation of the robot foot on the travel carriage (track motion). 
-
-_Continues on next page_ 
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-65 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**2 Installation and commissioning** 
-
-#### 2.3.7 Setting the system parameters for a suspended or tilted robot _Continued_ 
-
-#### **Mounting angles and values** 
-
-The parameter _Gravity Beta_ (or _Gravity Alpha_ ) specifies the mounting angle of the robot in radians. It is calculated in the following way. 
-
-`Gravity Beta = A° x 3.141593/180 = B radians` , where `A` is the mounting angle in degrees and `B` is the mounting angle in radians. 
-
-|**Example of position**|**Mounting angle (A°)**|**Gravity Beta**|
-|---|---|---|
-|Floor mounted|0°|0.000000 (Default)|
-|Wall mounting|90°|1.570796|
-|Suspended mounting|180°|3.141593|
-
-
-
-Examples of mounting angles tilted around the Y axis ( _Gravity Beta_ ) 
-
-
-
-xx1000000126 
-
-|Pos 1|Floor mounted|
-|---|---|
-|Pos 2|Mounting angle 45° (Tilted)|
-|Pos 3|Mounting angle 90° (Wall)|
-|Pos 4|Mounting angle 180° (Suspended)|
-
-
-
-_Continues on next page_ 
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-66 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**2 Installation and commissioning** 
-
-#### 2.3.7 Setting the system parameters for a suspended or tilted robot _Continued_ 
-
-Examples of mounting angles tilted around the X axis ( _Gravity Alpha_ ) 
-
-
-
-<!-- Start of picture text -->
--<br><!-- End of picture text -->
-
-xx1500000532 
-
-|**Pos**|**Mounting angle**|**Gravity Alpha**|
-|---|---|---|
-|1|0° (Floor mounted)|0|
-|2|45° (Tilted)|0.785398|
-|3|90° (Wall)|1.570796|
-|4|-90° (Wall)|-1.570796|
-
-
-
-#### **Note** 
-
-For suspended robots (180°), it is recommended to use _Gravity Beta_ instead of _Gravity Alpha_ . 
-
-#### **Defining the parameter in RobotWare** 
-
-The value of the system parameters that define the mounting angle must be redefined when changing the mounting angle of the robot. The parameters belong to the type _Robot_ , in the topic _Motion_ . 
-
-How to calculate a new value is detailed in _Mounting angles and values on page66_ . 
-
-_Continues on next page_ 
-
-Product manual - IRB 120 
-
-67 
-
-3HAC035728-001 Revision: W 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**2 Installation and commissioning** 
-
-#### 2.3.7 Setting the system parameters for a suspended or tilted robot _Continued_ 
-
-The system parameters are described in _Technical reference manual - System parameters_ . 
-
-The system parameters are configured in RobotStudio or on the FlexPendant. 
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-68 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**2 Installation and commissioning** 
 
 2.3.8 Loads fitted to the robot, stopping time and braking distances 
 
@@ -2432,14 +1883,6 @@ Product manual - IRB 120 3HAC035728-001 Revision: W
 
 © Copyright 2009-2022 ABB. All rights reserved. 
 
-**2 Installation and commissioning** 
-
-#### 2.5.1 Additional installation procedure, Clean Room 
-
-### **2.5 Making robot ready for operation** 
-
-### **2.5.1 Additional installation procedure, Clean Room** 
-
 #### **General** 
 
 Robots with protection type Clean Room are specially designed to work in a clean room environment. 
@@ -2462,10 +1905,6 @@ According to **IPA test result** , the robot IRB 120 is suitable for use in Clea
 
 
 
-#### **Preparations before commissioning a Clean Room robot** 
-
-During transport and handling of a Clean Room robot, it is likely that the robot has been contaminated with particles of different kinds. Therefore the robot must be carefully cleaned before installation. 
-
 Do not apply force on the plastic covers when lifting the robot! This may result in damage or cracks in the paint around the plastic cover. 
 
 Product manual - IRB 120 3HAC035728-001 Revision: W 
@@ -2481,10 +1920,6 @@ Product manual - IRB 120 3HAC035728-001 Revision: W
 ### **2.6 Electrical connections** 
 
 ### **2.6.1 Robot cabling and connection points** 
-
-#### **Introduction** 
-
-Connect the robot and the controller to each other after securing them to the foundation. The lists specify which cables to use for each respective application. 
 
 #### **Connection point locations** 
 
@@ -7893,66 +7328,6 @@ Product manual - IRB 120 3HAC035728-001 Revision: W
 Product manual - IRB 120 3HAC035728-001 Revision: W 
 
 258 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**Index** 
-
-## **Index** 
-
-**A** allergenic material, 30 aluminum disposal, 244 ambient humidity operation, 45 storage, 45 ambient temperature operation, 45 storage, 45 assembly instructions, 41 assessment of hazards and risks, 30 Axis Calibration, 229 calibration tool article number, 231 overview of method, 229 procedure on FlexPendant, 231 protective cover and protection plug, 231 
-
-**B** batteries disposal, 244 battery pack replacing, interval, 83 brake release, 55 brakes testing function, 38 buttons for brake release, 55 **C** cabinet lock, 31 calibrating robot, 229 roughly, 225 calibrating robot, 229 calibration rough, 225 standard type, 220 verification, 240 when to calibrate, 221 calibration manuals, 220 calibration marks, 222 calibration position jogging to, 241 scales, 222 calibration scales, 222 carbon dioxide extinguisher, 31 cast iron disposal, 244 cleaning, 106 climbing on robot, 34 Cold environments, 79 copper disposal, 244 
-
-#### **D** 
-
-damage to mechanical stop, 86 direction of axes, 224 **E** environmental information, 244 ESD damage elimination, 49 sensitive equipment, 49 
-
-**F** fire extinguishing, 31 FlexPendant jogging to calibration position, 241 MoveAbsJ instruction, 241 updating revolution counters, 226 foundation requirements, 44 **G** gearboxes location of, 101 Gravity Alpha, 65 Gravity Beta, 65 grease, 34 disposal, 244 
-
-**H** hanging installed hanging, 30 hazard levels, 21 hazardous material, 244 height installed at a height, 30 hot surfaces, 34 HRA, 30 humidity operation, 45 storage, 45 
-
-**I** inspecting mechanical stop, 86 robot cabling, 85 timing belts, 91 installation procedure, 50 instructions for assembly, 41 integrator responsibility, 30 
-
-#### **L** 
-
-labels robot, 23 lifting accessory, 251 limitation of liability, 19 Lithium disposal, 244 loads on foundation, 43 lock and tag, 31 lubricants, 34 lubrication amount in gearboxes, 101 type of lubrication, 101 
-
-#### **M** 
-
-manually releasing brakes, 55 mechanical stop location, 86 MoveAbsJ instruction, 241 
-
-**N** national regulations, 30 negative directions, axes, 224 neodymium disposal, 244 nodular iron disposal, 244 
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-259 
-
-© Copyright 2009-2022 ABB. All rights reserved. 
-
-**Index** 
-
-#### **O** 
-
-oil, 34 amount in gearboxes, 101 disposal, 244 type of oil, 101 operating conditions, 45 original spare parts, 19 
-
-#### **P** 
-
-pedestal installed on pedestal, 30 personnel requirements, 20 plastic disposal, 244 positive directions, axes, 224 PPE, 20 product standards, 248 protection classes, 45 protection type, 45 protective equipment, 20 protective wear, 20 
-
-**R** recycling, 244 regional regulations, 30 release brakes, 37 replacements, report, 109 report replacements, 109 requirements on foundation, 44 responsibility and validity, 19 revolution counters storing on FlexPendant, 226 updating, 225 risk of burns, 34 risk of tipping, 48 robot labels, 23 protection class, 45 protection types, 45 symbols, 23 robot cabling inspecting, 85 rubber disposal, 244 
-
-#### **S** 
-
-safety brake testing, 38 ESD, 49 fire extinguishing, 31 release robot axes, 37 signals, 21 signals in manual, 21 symbols, 21 symbols on robot, 23 test run, 51, 80 safety devices, 31 safety hazard hydraulic system, 32 pneumatic system, 32 safety signals 
-
-in manual, 21 safety standards, 248 scales on robot, 222 screw joints, 250 securing, robot, 59 signals safety, 21 special tools, 253 speed adjusting, 79 stability, 48 standards, 248 EN IEC, 248 EN ISO, 248 start of robot in cold environments, 79 steel disposal, 244 storage conditions, 45 suspended mounting, 64 symbols safety, 21 synchronization position, 225 sync marks, 222 system integrator requirements, 30 system parameter Gravity Alpha, 65 Gravity Beta, 65 
-
-**T** temperatures operation, 45 storage, 45 testing brakes, 38 timing belts inspecting, 91 tools for service, 253 torques on foundation, 43 troubleshooting safety, 39 **U** upcycling, 244 updating revolution counters, 225 users requirements, 20 **V** validity and responsibility, 19 velocity adjusting, 79 verifying calibration, 240 **W** wall mounting, 64 weight, 42 robot, 53 **Z** zero position checking, 241 
-
-Product manual - IRB 120 3HAC035728-001 Revision: W 
-
-260 
 
 © Copyright 2009-2022 ABB. All rights reserved. 
 

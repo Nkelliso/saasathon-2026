@@ -1,5 +1,8 @@
 # Universal Robots UR5e User Manual
 
+> Curated reference: installation/commissioning and programming documentation has been excluded. Remaining manufacturer text is retained verbatim, including safety, operation, maintenance, repair, and troubleshooting where present. Original page/section numbering is preserved and may have gaps; any original page count describes the full source, not this excerpt. Follow references to excluded sections in the linked original manual.
+
+
 Source: [https://www.universal-robots.com/manuals/EN/PDF/SW5_19/user-manual-UR5e-PDF_online/710-965-00_UR5e_User_Manual_en_Global.pdf](https://www.universal-robots.com/manuals/EN/PDF/SW5_19/user-manual-UR5e-PDF_online/710-965-00_UR5e_User_Manual_en_Global.pdf)
 
 Converted from official manufacturer PDF documentation.
@@ -39,190 +42,6 @@ UR5e
 UR5e 
 
 User Manual 
-
-
-
-## Contents 
-
-|1. Liability and Intended Use|11|
-|---|---|
-|1.1. Limitation of Liability|11|
-|1.2. Intended Use|11|
-|2. Your Robot|13|
-|2.1. Technical Specifications UR5e|17|
-|2.2. Maximum Payload|18|
-|2.3. Stopping Time and Stopping Distance|19|
-|2.4. PolyScope Overview|26|
-|2.4.1. Icons/Tabs On PolyScope|27|
-|3. Safety|29|
-|3.1. General|29|
-|3.2. Safety Message Types|30|
-|3.3. General Warnings and Cautions|31|
-|3.4. Integration and Responsibility|33|
-|3.5. Stop Categories|33|
-|4. Risk Assessment|34|
-|4.1. Pinch Hazard|36|
-|5. Lifting and Handling|38|
-|5.1. Control Box and Teach Pendant|38|
-|5.2. Robot Arm|38|
-|6. Assembly|39|
-|6.1. Workspace and Operating Space|40|
-|6.2. Dimensioning the Stand|41|
-|6.3. Mounting Description|43|
-|6.3.1. Singularity Prevention|44|
-|6.3.2. Fixed and Movable Installation|45|
-|6.4. Securing the Robot Arm|46|
-|6.5. Control Box Clearance|48|
-|6.6. Robot Connections: Base Flange Cable|49|
-|6.7. Robot Connections: Robot Cable|49|
-|6.8. Mains Connections|51|
-|7. First Boot|53|
-|7.1. Freedrive|56|
-|7.1.1. Freedrive Panel|58|
-|8. Installation|60|
-
-
-
-User Manual 
-
-UR5e 
-
-
-
-|8.1. Electrical Warnings and Cautions|60|
-|---|---|
-|8.2. Safety I/O|62|
-|8.2.1. I/O Signals|66|
-|8.2.2. I/O Setup|69|
-|8.3. Control Box Connection Ports|72|
-|8.3.1. Ethernet|73|
-|8.4. Controller I/O|74|
-|8.5. Teach Pendant with 3-Position Enabling Device|76|
-|8.5.1. 3PE Teach Pendant Installation|78|
-|8.5.2. 3PE Teach Pendant Button Functions|80|
-|8.5.3. Using the 3PE Buttons|82|
-|8.5.4. Teach Pendant Storage|83|
-|8.6. Three Position Enabling Device|84|
-|8.7. End Effector Integration|85|
-|8.7.1. Tool I/O|86|
-|8.7.2. General Purpose Analog I/O|88|
-|8.7.3. General Purpose Digital I/O|90|
-|8.7.4. Remote ON/OFF control|91|
-|8.7.5. Securing Tool|92|
-|8.7.6. Tool I/O Installation Specifications|93|
-|8.7.7. Tool Power Supply|94|
-|8.7.8. Tool Digital Outputs|95|
-|8.7.9. Tool Digital Inputs|96|
-|8.7.10. Tool Analogue Inputs|96|
-|8.7.11. Tool Communication I/O|97|
-|9. Commissioning|98|
-|10. First Time Use|99|
-|10.1. Quick System Start-up|99|
-|10.2. Safety-related Functions and Interfaces|100|
-|10.2.1. Configurable Safety Functions|101|
-|10.2.2. Safety Functions|105|
-|10.2.3. Safety Parameter Set|106|
-|10.3. Software Safety Configuration|108|
-|10.3.1. Setting a Software Safety Password|110|
-|10.3.2. Changing the Software Safety Configuration|111|
-|10.3.3. Applying a New Software Safety Configuration|112|
-|10.3.4. Safety Configuration without Teach Pendant|114|
-|10.3.5. Software Safety Modes|115|
-|10.3.6. Software Safety Limits|115|
-|10.3.7. Safe Home Position|120|
-
-
-
-UR5e 
-
-User Manual 
-
-
-
-|10.4. Software Safety Restrictions|122|
-|---|---|
-|10.4.1. Tool Direction Restriction|128|
-|10.4.2. Tool Position Restriction|130|
-|10.5. The First Program|134|
-|10.5.1. Run Tab|136|
-|10.5.2. Move Robot into Position|140|
-|10.5.3. Using the Program Tab|141|
-|10.5.4. Program Tree Toolbar|144|
-|10.5.5. Using Selected Program Nodes|145|
-|10.5.6. Using Basic Program Nodes|146|
-|10.5.7. Basic Program Nodes: Move|146|
-|10.5.8. Basic Program Nodes: Waypoints|149|
-|10.5.9. Set Payload|150|
-|10.5.10. Payload|152|
-|10.5.11. Mounting|155|
-|10.5.12. Using the I/O Tab|157|
-|10.5.13. Analog Input: Communication Interface|158|
-|10.5.14. Digital Output|158|
-|10.5.15. Using the Move Tab|159|
-|10.5.16. Pose Editor|162|
-|10.5.17. I/O Interface Control|164|
-|10.6. UR Connect|164|
-|11. Cybersecurity Threat Assessment|166|
-|11.1. General Cybersecurity|166|
-|11.2. Cybersecurity Requirements|166|
-|11.3. Cybersecurity Hardening Guidelines|168|
-|11.4. Passwords|169|
-|11.5. Password Settings|169|
-|11.6. Administrator Password|170|
-|11.7. Operational Password|171|
-|12. Communication Networks|172|
-|12.1. Fieldbus|172|
-|12.2. MODBUS|173|
-|12.3. EtherNet/IP|177|
-|12.4. PROFINET|177|
-|12.5. PROFIsafe|178|
-|13. Emergency Events|182|
-|13.1. Emergency Stop|182|
-|13.2. Movement Without Drive Power|183|
-|13.3. Modes|184|
-
-
-
-User Manual 
-
-UR5e 
-
-
-
-|13.3.1. Recovery Mode|186|
-|---|---|
-|13.3.2. Backdrive|186|
-|14. Transportation|191|
-|15. Maintenance and Repair|193|
-|15.1. Testing Stopping Performance|194|
-|15.2. Robot Arm Cleaning and Inspection|194|
-|15.3. Log Tab|199|
-|15.4. Program and Installation Manager|202|
-|15.5. Accessing Robot Data|204|
-|16. Disposal and Environment|206|
-|17. Declarations and Certificates (original EN)|208|
-|18. Declarations and Certificates|210|
-|19. Safety Functions Table|212|
-|19.1. Table 1a|219|
-|19.2. Table 2|220|
-|20. Certifications|224|
-|21. Certificates|226|
-
-
-
-UR5e 
-
-User Manual 
-
-
-
-10 
-
-User Manual 
-
-UR5e 
-
-1. Liability and Intended Use 
 
 
 
@@ -1184,26 +1003,6 @@ UR5e
 
 
 
-## 6. Assembly 
-
-###### Description 
-
-Install and power on the robot arm and Control Box to start using PolyScope. 
-
-Assemble the You have to assemble the robot arm, Control Box and Teach Pendant to be able to robot continue. 
-
-1. Unpack the robot arm and the Control Box. 
-
-2. Mount the robot arm on a sturdy, vibration-free surface. 
-
-Verify the surface can withstand at least 10 times the full torque of the base joint and at least 5 times the weight of the robot arm. 
-
-3. Place the Control Box on its Foot. 
-
-4. Connect the robot cable to the robot arm and the Control Box. 
-
-5. Plug in the mains, or main power cable, of the Control Box. 
-
 ###### WARNING 
 
 Failure to secure the robot arm to a sturdy surface can lead to injury caused by the robot falling. 
@@ -1340,28 +1139,6 @@ Users have the option to incorporate added safety margins, factoring in the foll
 
 - Prioritize safety by implementing adequate measures to prevent the tipping of movable platforms at all times. 
 
-### 6.3. Mounting Description 
-
-###### Description 
-
-|Robot arm<br>(Base)|Mounted with four 8.8 strength, 8.5 mm bolts and four M8 mounting holes<br>at the base.|
-|---|---|
-|Tool (Tool<br>Flange)|Uses four M6 thread holes for attaching a tool to the robot. The M6 bolts<br>shall be tightened with 8 Nm, strength class 8.8. For accurate tool<br>repositioning, use apin in the Ø6 holeprovided.|
-|Control<br>Box|The Control Box can be hung on a wall or placed on the ground.|
-|Teach<br>Pendant|The Teach Pendant is wall mounted or placed onto the Control Box.<br>Verify the cable does not cause tripping hazard. You can buy extra<br>brackets for mounting the Control Box and Teach Pendant.|
-
-
-
-43 
-
-UR5e 
-
-User Manual 
-
-6. Assembly 
-
-
-
 ###### Warning: IP rating 
 
 ###### CAUTION 
@@ -1400,34 +1177,6 @@ UR5e
 
 
 
-#### 6.3.2. Fixed and Movable Installation 
-
-Description Whether the robot arm is fixed (mounted to a stand, wall or floor) or in a movable installation (linear axis, push cart, or mobile robot base), it must be installed securely to ensure stability through all motions. 
-
-45 
-
-UR5e 
-
-User Manual 
-
-6. Assembly 
-
-
-
-### 6.4. Securing the Robot Arm 
-
-
-
-<!-- Start of picture text -->
-Description<br><!-- End of picture text -->
-
-
-
-<!-- Start of picture text -->
-Surface on which the robot is fitted<br>0.05<br>4 x  8.4<br> 120<br>+0.030<br>8 FG8 +0.008 8.5 min.<br>+0.024<br>8  FG8 +0.006 X 10  8.5 min.<br> 45°<br> 2x 5 ±1<br>132<br> 10<br><!-- End of picture text -->
-
-Dimensions and hole pattern for mounting the robot. 
-
 ###### To power down the robot arm 
 
 
@@ -1444,34 +1193,6 @@ Unexpected start-up and/or movement can lead to injury
 2. Unplug the mains cable / power cord from the wall socket. 
 
 3. Allow 30 seconds for the robot to discharge any stored energy. 
-
-###### To secure the robot arm 
-
-1. Place the robot arm on the surface on which it is to be mounted. The surface must be even and clean. 
-
-2. Tighten the four 8.8 strength, M8 bolts to a torque of 20 Nm. (Torque values have been updated SW 5.18. Earlier printed version will show different values) 
-
-3. If accurate re-mounting of the robot is required, use the Ø8 mm. hole and Ø8x13 mm. slot with corresponding ISO 2338 Ø8 h6 positioning pins in the mounting plate. 
-
-46 
-
-User Manual 
-
-UR5e 
-
-6. Assembly 
-
-
-
-47 
-
-UR5e 
-
-User Manual 
-
-6. Assembly 
-
-
 
 ### 6.5. Control Box Clearance 
 
@@ -1503,10 +1224,6 @@ Description
 
 This subsection describes the connection for a robot arm configured with a Base Flange Cable connector. 
 
-Base Flange Cable connector 
-
-The Base Flange Cable connector establishes the robot connection by connecting the robot arm to the Control Box. The Robot Cable connects to the Base Flange Cable connector on one end, and to the Control Box connector on the other end. You can lock each connector when robot connection is established. 
-
 ###### CAUTION 
 
 The maximum robot connection from the robot arm to the Control Box is 6 m. Improper robot connection can result in loss of power to the robot arm. 
@@ -1533,16 +1250,6 @@ User Manual
 
 
 
-###### Connect arm and Control box 
-
-Establish the robot connection by connecting the robot arm to the Control Box with the Robot Cable. 
-
-Plug and lock the cable from the robot into the connector at the bottom of the Control Box (see illustration below). Twist the connector twice to ensure it is properly locked before turning on the robot arm. 
-
-You can turn the connector to the right to make it easier to lock after the cable is plugged in. 
-
-
-
 ###### CAUTION 
 
 Improper robot connection can result in loss of power to the robot arm. 
@@ -1563,21 +1270,11 @@ UR5e
 
 ### 6.8. Mains Connections 
 
-###### Description 
-
-The mains cable from the Control Box has a standard IEC plug at the end. Connect a country specific mains plug, or cable, to the IEC plug. 
-
 ###### NOTICE 
 
 - IEC 61000-6-4:Chapter 1 scope: “This part of IEC 61000 for emission requirement applies to electrical and electronic equipment intended for use within the environment of existing at industrial (see 3.1.12) locations.” 
 
 - IEC 61000-6-4:Chapter 3.1.12 industrial location: “Locations characterized by a separate power network, supplied from a high- or medium-voltage transformer, dedicated for the supply of the installation” 
-
-###### Mains 
-
-###### connections 
-
-To power the robot, the Control Box shall be connected to the mains via the supplied power cord. The IEC C13 connecter on the power cord connects to the IEC C14 appliance inlet at the bottom of the Control Box. 
 
 ###### NOTICE 
 
@@ -1640,20 +1337,6 @@ UR5e
 
 
 
-## 7. First Boot 
-
-Description The first boot is the initial sequence of actions you can take with the robot after assembly. This initial sequence requires you to: 
-
-- Start the robot 
-
-- Insert the serial number 
-
-- Intialize the robot arm 
-
-- Power down the robot 
-
-While the robot arm is powered on you can use Freedrive to move the robot. 
-
 ###### CAUTION 
 
 Failure to verify the payload and installation before starting up the robot arm can lead to injury to personnel and/or property damage. 
@@ -1703,30 +1386,6 @@ User Manual
 - If the mounting is verified, tap Start to release all joint brakes and the robot arm is ready for normal operation. 
 
 Robot arm start up is accompanied by sound and slight movements as joint brakes are released. 
-
-Insert serial When you install your robot for the first time, you need to configure serial number on the number control box to match the robot arm. during first This procedure is also required when you re-install the software on the control box, such as boot when receiving a software update. 
-
-When you boot the robot for the first time, please follow these steps: 
-
-1. Select the correct robot arm size. 
-
-2. Select the correct control box. 
-
-3. Add the serial number as it is written on the robot arm. 
-
-4. End with the OK button. 
-
-
-
-54 
-
-User Manual 
-
-UR5e 
-
-7. First Boot 
-
-
 
 Turning the control box on/off 
 
@@ -1891,10 +1550,6 @@ User Manual
 
 
 
-## 8. Installation 
-
-Description Installing the robot can require the configuration and use of input and output signals (I/Os). These different types of I/Os and their uses are described in the following sections. 
-
 ### 8.1. Electrical Warnings and Cautions 
 
 Warnings Observe the following warnings for all the interface groups, including when you design and install an application. 
@@ -2020,57 +1675,6 @@ The illustration below shows: the time between pulses on a channel (32ms), the p
 
 
 
-To enable OSSD for Safety Output 
-
-1. In the Header, tap Installation and select Safety . 
-
-2. Under Safety , select I/O . 
-
-3. On the I/O screen, under Output Signal, select the desired OSSD checkbox. You must assign the output signal to enable the OSSD checkboxes. 
-
-###### Default safety configuration 
-
-The robot is delivered with a default configuration, which enables operation without any additional safety equipment (see illustration below). 
-
-
-
-<!-- Start of picture text -->
-Safety<br>24V<br>EI0<br>24V<br>EI1<br>24V<br>SI0<br>24V<br>SI1<br>Emergency Stop<br>Safeguard Stop<br><!-- End of picture text -->
-
-###### Connecting emergency stop buttons 
-
-Most applications require one or more extra emergency stop buttons. The illustration below shows how one or more emergency stop buttons can be connected. 
-
-
-
-<!-- Start of picture text -->
-Safety Safety<br>24V 24V<br>EI0 EI0<br>24V 24V<br>EI1 EI1<br>24V 24V<br>SI0 SI0<br>24V 24V<br>SI1 SI1<br>Emergency Stop Emergency Stop<br>Safeguard Stop Safeguard Stop<br><!-- End of picture text -->
-
-63 
-
-UR5e 
-
-User Manual 
-
-8. Installation 
-
-
-
-###### Sharing the Emergency Stop with other machines 
-
-You can set up a shared emergency stop function between the robot and other machines by configuring the following I/O functions via the GUI. The Robot Emergency Stop Input cannot be used for sharing purposes. If more than two UR robots or other machines need to be connected, a safety PLC must be used to control the emergency stop signals. 
-
-- Configurable input pair: External emergency stop. 
-
-- Configurable output pair: System emergency stop. 
-
-The illustration below shows how two UR robots share their emergency stop functions. In this example the configured I/Os used are CI0-CI1 and CO0-CO1. 
-
-
-
-<!-- Start of picture text -->
-Configurable Inputs Configurable Outputs Configurable Inputs Configurable Outputs<br>24V 24V 0V 0V 24V 24V 0V 0V<br>CI0 CI4 CO0 CO4 A B CI0 CI4 CO0 CO4<br>24V 24V 0V 0V 24V 24V 0V 0V<br>CI1 CI5 CO1 CO5 CI1 CI5 CO1 CO5<br>24V 24V 0V 0V 24V 24V 0V 0V<br>CI2 CI6 CO2 CO6 CI2 CI6 CO2 CO6<br>24V 24V 0V 0V 24V 24V 0V 0V<br>CI3 CI7 CO3 CO7 CI3 CI7 CO3 CO7<br><!-- End of picture text -->
-
 ###### Safeguard stop with automatic resume 
 
 This configuration is only intended for applications where the operator cannot go through the door and close it behind him. The configurable I/O is used to setup a reset button outside the door to reactivate robot motion. The robot resumes movement automatically when the signal is re-established. 
@@ -2186,41 +1790,9 @@ UR5e
 
 
 
-#### 8.2.2. I/O Setup 
-
-###### Description 
-
-Use the I/O Setup screen to define I/O signals and configure actions with the I/O tab control. The types of I/O signals are listed under Input and Output . You can use a fieldbus, for example, Profinet and EtherNet/IP, to access the general purpose registers. 
-
-If you enable the Tool Communication Interface (TCI), the tool analog input becomes unavailable. 
-
-
-
 ###### NOTICE 
 
 When starting programs from an I/O or fieldbus input, the robot can begin movement from the position it has, there will not be any manual movement to the first waypoint via PolyScope required. 
-
-I/O Signal To limit the number of signals listed under Input and Output , use the View drop-down menu Type to change the displayed content based on signal type. 
-
-###### Assigning User-defined Names 
-
-You can name the Input and Output signals to easily identify the ones being used. 
-
-1. Select the desired signal. 
-
-2. Tap the text field to type a name for the signal. 
-
-3. To reset the name to default, tap Clear . 
-
-You must provide a user-defined name for a general purpose register to make it available in the program (i.e., for a Wait command or the conditional expression of an If command). The Wait and If commands are described in (Wait) and (If), respectively. You can find named general purpose registers in the Input or Output selector on the Expression Editor screen. 
-
-69 
-
-UR5e 
-
-User Manual 
-
-
 
 ###### I/O Actions and I/O Tab Control 
 
@@ -2338,12 +1910,6 @@ The Ethernet interface can be used for:
 
 - Remote access and control. 
 
-To connect the Ethernet cable by passing it through the hole at the base of the Control Box, and plugging it into the Ethernet port on the underside of the bracket. 
-
-Replace the cap at the base of the Control Box with an appropriate cable gland to connect the cable to the Ethernet port. 
-
-
-
 The electrical specifications are shown in the table below. 
 
 |Parameter|Min|Typ<br>Max|Unit|
@@ -2408,19 +1974,6 @@ The word configurable is used for I/O configured as either safetyrelated I/O or 
 Install the robot according to the electrical specifications which are the same for all three inputs. 
 
 It is possible to power the digital I/O from an internal 24V power supply or from an external power source by configuring the terminal block called Power . This block consists of four terminals. The upper two (PWR and GND) are 24V and ground from the internal 24V supply. The lower two terminals (24V and 0V) in the block are the 24V input to supply the I/O. The default configuration uses the internal power supply (see below). 
-
-###### Power supply 
-
-If more current is needed, connect an external power supply as shown below. 
-
-
-
-<!-- Start of picture text -->
-Power Power<br>PWR PWR<br>GND GND<br>24V 24V<br>0V 0V<br><!-- End of picture text -->
-
-This example illustrates the default configuration using the internal power supply 
-
-This example illustrates the default configuration with an external power supply for more current. 
 
 The electrical specifications for both the internal and external power supply are shown below. 
 
@@ -2515,58 +2068,11 @@ User Manual
 
 
 
-#### 8.5.1. 3PE Teach Pendant Installation 
-
-##### **Hardware Installation** 
-
-To remove a Teach Pendant 
-
 ###### NOTICE 
 
 Replacing the Teach Pendant can result in the system reporting a fault on start-up. 
 
 - Always select the correct configuration for the type of Teach Pendant. 
-
-To remove the standard Teach Pendant: 
-
-1. Power down the control box and disconnect the main power cable from the power source. 
-
-2. Remove and discard the two cable ties used for mounting the Teach Pendant cables. 
-
-3. Press in the clips on both sides of the Teach Pendant plug as illustrated, and pull down to disconnect from the Teach Pendant port. 
-
-4. Fully open/loosen the plastic grommet at the bottom of the control box and remove the Teach Pendant plug and cable. 
-
-5. Gently remove the Teach Pendant cable and Teach Pendant. 
-
-
-
-
-
-<!-- Start of picture text -->
-1 Clips 2 Plastic grommet<br><!-- End of picture text -->
-
-78 
-
-User Manual 
-
-UR5e 
-
-1 Cable ties 
-
-
-
-
-
-###### To install a 3PE Teach Pendant 
-
-1. Place the Teach Pendant plug and cable in through the bottom of the control box and fully close/tighten the plastic grommet. 
-
-2. Push the Teach Pendant plug into the Teach Pendant port to connect. 
-
-3. Use two new cable ties to mount the Teach Pendant cables. 
-
-4. Connect the main power cable to the power source and power on the control box. 
 
 There is always a length of cable with the Teach Pendant that can present a tripping hazard if it is not stored properly. 
 
@@ -2579,28 +2085,6 @@ UR5e
 User Manual 
 
 
-
-##### **New Software Installation** 
-
-To configure the 
-
-3PE TP software 
-
-1. On PolyScope, in the Header, tap Installation and select Safety . 
-
-
-
-2. Tap Hardware and unlock the options on the Select available hardware screen. A password is required to unlock this screen. 
-
-
-
-3. In the Teach Pendant drop-down list, select 3PE Enabled . 
-
-4. Tap Apply to restart the system. PolyScope continues to run. 
-
-5. Tap Confirm Safety Configuration to complete the 3PE Teach Pendant software installation. 
-
-6. As the robot restarts and initializes, light-press the 3PE button and tap Start on PolyScope. 
 
 8.5.2. 3PE Teach Pendant Button Functions 
 
@@ -2738,13 +2222,6 @@ The Control Box supports the following enabling device configurations:
 
 - External Three-Position device and 3PE Teach Pendant 
 
-The illustration below shows how to connect a Three-Position Enabling device. 
-
-
-
-<!-- Start of picture text -->
-Configurable Inputs 3-Position Switch<br>24V 24V<br>CI0 CI4<br>24V 24V<br>CI1 CI5<br>24V 24V<br>CI2 CI6<br>24V 24V<br>CI3 CI7<br><!-- End of picture text -->
-
 Note: The two input channels for the Three-Position Enabling Device input have a disagreement tolerance of 1 second. 
 
 ###### NOTICE 
@@ -2753,38 +2230,7 @@ The UR robot safety system does not support multiple external ThreePosition Enab
 
 ###### Operational Using a Three-Position Enabling device requires the use of an Operational Mode switch. Mode Switch 
 
-The illustration below shows an Operational Mode switch. 
-
-
-
-<!-- Start of picture text -->
-Configurable Inputs<br>Operational mode Switch<br>24V 24V<br>CI0 CI4<br>24V 24V<br>CI1 CI5<br>24V 24V<br>CI2 CI6<br>24V 24V<br>CI3 CI7<br><!-- End of picture text -->
-
-84 
-
-User Manual 
-
-UR5e 
-
-
-
-### 8.7. End Effector Integration 
-
 Description The end effector can also be referred to as the tool and the workpiece in this manual. 
-
-###### NOTICE 
-
-UR provides documentation for the end effector to be integrated with the robot arm. 
-
-- Refer to the documentation specific to the end effector/tool/workpiece for mounting and connection. 
-
-85 
-
-UR5e 
-
-User Manual 
-
-
 
 #### 8.7.1. Tool I/O 
 
@@ -2822,10 +2268,6 @@ Tool Cable Adapter
 The Tool Cable Adapter is the electronic accessory that allows compatibility between the tool I/O and e-Series tools. 
 
 
-
-- 1 Connects to the tool/end effector. 
-
-- 2 Connects to the robot. 
 
 ###### WARNING 
 
@@ -2908,19 +2350,6 @@ UR5e
 
 
 
-
-
-<!-- Start of picture text -->
-Analog Analog AGAnalog<br>Output and AI0AG AI0AG<br>AG AI1<br>Analog AI1AG AG<br>Input AO0AG AO0AG<br>AO1 AO1<br>PWRPower Power<br>GND PWR<br>24V GND<br>0V 24V<br>0V<br>This example illustrates controlling a<br>This example illustrates connecting an<br>conveyor belt with an analog speed control<br>analog sensor.<br>input.<br>Analog Inputs<br>Analog Inputs<br>Analog Outputs Analog Outputs<br><!-- End of picture text -->
-
-89 
-
-UR5e 
-
-User Manual 
-
-
-
 #### 8.7.3. General Purpose Digital I/O 
 
 Description The Startup screen contains settings for automatically loading and starting a default program, and for auto-initializing the Robot arm during power up. 
@@ -2932,30 +2361,6 @@ This section describes the general purpose 24V I/O (Gray terminals) and the conf
 The general purpose I/O can be used to drive equipment like pneumatic relays directly or for communication with other PLC systems. All Digital Outputs can be disabled automatically when program execution is stopped, see part Part II PolyScope Manual. 
 
 In this mode, the output is always low when a program is not running. Examples are shown in the following subsections. 
-
-These examples use regular Digital Outputs but any configurable outputs could also have be used if they are not configured to perform a safety function. 
-
-
-
-<!-- Start of picture text -->
-Digital Inputs<br>Digital Outputs 24V 24V<br>0V 0V LOAD DI0 DI4<br>DO0 DO4<br>24V 24V<br>0V 0V<br>DI1 DI5<br>DO1 DO5<br>0V 0V 24V 24V<br>DO2 DO6 DI2 DI6<br>0V 0V 24V 24V<br>DO3 DO7 DI3 DI7<br>This example shows how a load is controlled This example shows how a simple<br>from a Digital Outputs when connected. button is connected to a Digital Input.<br><!-- End of picture text -->
-
-Communication with other machines or PLCs 
-
-You can use the digital I/O to communicate with other equipment if a common GND (0V) is established and if the machine uses PNP technology, see below. 
-
-
-
-<!-- Start of picture text -->
-Digital Inputs Digital Outputs Digital Inputs Digital Outputs<br>24V 24V 0V 0V 24V 24V 0V 0V<br>24VDI0 24VDI4 DO00V DO40V A B 24VDI0 24VDI4 DO00V DO40V<br>DI1 DI5 DO1 DO5 DI1 DI5 DO1 DO5<br>24V 24V 0V 0V 24V 24V 0V 0V<br>DI2 DI6 DO2 DO6 DI2 DI6 DO2 DO6<br>24V 24V 0V 0V 24V 24V 0V 0V<br>DI3 DI7 DO3 DO7 DI3 DI7 DO3 DO7<br><!-- End of picture text -->
-
-90 
-
-User Manual 
-
-UR5e 
-
-
 
 #### 8.7.4. Remote ON/OFF control 
 
@@ -2982,11 +2387,6 @@ Remote The remote ON/OFF control provides a auxiliary 12V supply, kept active wh
 
 
 
-
-
-<!-- Start of picture text -->
-Remote Remote<br>12V 12V<br>GND GND<br>ON ON<br>OFF OFF<br>This example illustrates connecting a remote This example illustrates connecting a remote<br>ON  button. OFF  button.<br><!-- End of picture text -->
-
 ###### CAUTION 
 
 Maintaining a press and hold on the power button switches the Control Box OFF without saving. 
@@ -3002,16 +2402,6 @@ UR5e
 User Manual 
 
 
-
-#### 8.7.5. Securing Tool 
-
-Description The tool or workpiece is mounted to the tool output flange (ISO) at the tip of the robot. 
-
-
-
-Dimensions and hole pattern of the tool flange. All measurements are in millimeters. 
-
-Tool flange The tool output flange (ISO 9409-1) is where the tool is mounted at the tip of the robot. It is recommended to use a radially slotted hole for the positioning pin to avoid over-constraining, while keeping precise position. 
 
 ###### CAUTION 
 
@@ -3066,20 +2456,6 @@ User Manual
 #### 8.7.7. Tool Power Supply 
 
 Description Access Tool I/O in the Installation Tab to set the internal power supply to 0V, 12V or 24V. 
-
-
-
-###### Dual Pin Power Supply 
-
-- In Dual Pin Power mode, the output current can be increased as listed in Tool I/O. 
-
-   1. In the Header, tap Installation . 
-
-   2. In the list on the left, tap General . 
-
-   3. Tap Tool IO and select Dual Pin Power . 
-
-   4. Connect the wires Power (gray) to TO0 (blue) and Ground (red) to TO1 (pink). 
 
 
 
@@ -3165,13 +2541,6 @@ Table The Digital Inputs are implemented as PNP with weak pull-down resistors. T
 
 
 
-Using the This example illustrates connecting a simple button. Tool Digital Inputs 
-
-
-
-<!-- Start of picture text -->
-POWER<br>TI0<br><!-- End of picture text -->
-
 #### 8.7.10. Tool Analogue Inputs 
 
 Description Tool Analogue Input are non-differential and can be set to either voltage (0-10V) or current (4-20mA) on the I/O tab. The electrical specifications are shown below. 
@@ -3203,26 +2572,6 @@ UR5e
 ###### CAUTION 
 
 Analog Inputs are not protected against over voltage in current mode. Exceeding the limit in the electrical specification can cause permanent damage to the input. 
-
-Using Tool Analog Inputs, Nondifferential 
-
-This example shows an analog sensor connection with a non-differential output. The sensor output can be either current or voltage, as long as the input mode of that Analog Input is set to the same on the I/O tab. 
-
-Note: You can check that a sensor with voltage output can drive the internal resistance of the tool, or the measurement might be invalid. 
-
-
-
-<!-- Start of picture text -->
-POWER<br>AI8AI2<br>GND<br><!-- End of picture text -->
-
-###### Using Tool Analog Inputs, differential 
-
-This example shows an analog sensor connection with a differential output. Connecting the negative output part to GND (0V), works in the same way as a non-differential sensor. 
-
-
-
-<!-- Start of picture text -->
-POWER<br>AI2AI8<br>GND<br><!-- End of picture text -->
 
 #### 8.7.11. Tool Communication I/O 
 
@@ -3318,10 +2667,6 @@ This is how you quickly start up the robot.
 8. In the Payload field, in Active Payload , verify the payload mass. You can also verify the mounting position is correct, in the Robot field. 
 
 9. Tap the Start button, for the robot to release its brake system. The robot vibrates and makes clicking sounds indicating it is ready to be programmed. 
-
-###### NOTICE 
-
-Learn to program your Universal Robots robot on <u>www.universalrobots.com/academy/</u> 
 
 99 
 
@@ -4292,40 +3637,6 @@ User Manual
 
 
 
-### 10.5. The First Program 
-
-Description A program is a list of commands telling the robot what to do. For most tasks, programming is done entirely using the PolyScope software. PolyScope allows you to teach the robot arm how to move using a series of waypoints to set up a path for the robot arm to follow. 
-
-Use the Move tab to move the Robot Arm to a desired position, or teach the position by pulling the Robot Arm into place while holding down the Freedrive button at the top of the Teach Pendant. 
-
-You can create a program can to send I/O signals to other machines at certain points in the robot’s path, and perform commands like if…then and loop , based on variables and I/O signals. 
-
-134 
-
-User Manual 
-
-UR5e 
-
-
-
-###### To create a simple program 
-
-1. On PolyScope, in the Header File Path , tap New... and select Program . 
-
-2. Under Basic, tap Waypoint to add a waypoint to the program tree. A default MoveJ is also added to the program tree. 
-
-3. Select the new waypoint and in the Command tab, tap Waypoint . 
-
-4. On the Move Tool screen, move the robot arm by pressing the move arrows. You can also move the robot arm by holding down the Freedrive button and pulling the Robot Arm into desired positions. 
-
-5. Once the robot arm is in position, press OK and the new waypoint displays as Waypoint_1. 
-
-6. Follow steps 2 to 5 to create Waypoint_2. 
-
-7. Select Waypoint_2 and press the Move Up arrow until it is above Waypoint_1 to change the order of the movements. 
-
-8. Stand clear, hold on to the emergency stop button and in the PolyScope Footer, press Play button for the Robot Arm to move between Waypoint_1 and Waypoint_2. Congratulations! You have now produced your first robot program that moves the Robot Arm between the two given waypoints. 
-
 ###### NOTICE 
 
 1. Do not drive the robot into itself or anything else as this may cause damage to the robot. 
@@ -4519,363 +3830,11 @@ UR5e
 
 
 
-#### 10.5.3. Using the Program Tab 
-
-Description The Program tab is the where you create and edit robot programs. There are two main areas: 
-
-- The left side contains the program nodes you can add to your robot program. You can use the Basic, Advanced and Template dropdowns to the very left. 
-
-- The right side contains the configuration of the program nodes you can add to your program. 
-
-You can use Command, Graphics and Variables options. 
-
-
-
-141 
-
-UR5e 
-
-User Manual 
-
-
-
-- Program Tree The program tree is built as you add program nodes to your program. You can use the Command tab to configure the functionality of the added program nodes. 
-
-
-
-Adding • You cannot run an empty program tree or a program containing incorrectly program configured program nodes. nodes • Incorrectly configured programs nodes are higlighted in yellow. 
-
-- Incorrectly configured programs nodes are higlighted in yellow. 
-
-- Correctly configured program nodes are highlighted in white. 
-
-142 
-
-User Manual 
-
-UR5e 
-
-
-
-###### Program Execution Indication 
-
-Robot programs often become quite long, so order to be able to see the flow of the robot program, you can look at what program node is active. 
-
-
-
-When the program is running, the program node currently being executed is indicated by a small icon next to that node. 
-
-The path of execution is highlighted with blue arrow 
-
-
-
-Tapping the icon at the corner of the program allows it to track the command being executed 
-
-Search Button 
-
-You can also search for a specific command/program node. This is useful when you have a long program with many different program nodes. 
-
-143 
-
-UR5e 
-
-User Manual 
-
-
-
-#### 10.5.4. Program Tree Toolbar 
-
-Description You can work with the program nodes that have been added to the program tree by using the icons in the bottom of the program tree. 
-
-Icons in Use the toolbar at the base of the Program Tree to modify the Program Tree. the Program Tree toolbar 
-
-|Undo & Redo|&|undo and redo changes to commands.|
-|---|---|---|
-|Move Up &<br>Move Down|&|changes the position of a node.|
-|Cut||cuts a node and allows it to be used for other<br>actions (e.g., paste it on other place on the<br>Program Tree).|
-|Copy||copies a node and allows it to be used for other<br>actions (e.g., paste it on other place on the<br>Program Tree).|
-|Paste||pastes a node that was previously cut or copied.|
-|Delete||removes a node from the Program Tree.|
-|Suppress||suppresses specific nodes on the Program Tree.|
-|Search Button||search in the Program Tree. Tap the<br>icon<br>to exit search.|
-
-
-
-144 
-
-User Manual 
-
-UR5e 
-
-
-
-#### 10.5.5. Using Selected Program Nodes 
-
-###### Description 
-
-You can start your robot program from any program node in the program tree. This is useful when you are testing your program. 
-
-When the robot is in Manual Mode (see Operational Modes), you can allow a program to start from a selected node or you can start the entire program from the beginning. 
-
-###### Play From Selection 
-
-The Play button in the Footer provides options for how to start the program. In the image below, the Play button is selected and Play from Selection is displayed. 
-
-
-
-- You can start a program only from a node in the robot Program tree. The Play from Selection stops if a program cannot be run from a selected node. 
-
-The program also stops and displays an error message if an unassigned variable in encountered while playing a program from selected node. 
-
-- You can use Play from Selection in a subprogram. The program execution halts when the subprogram ends. 
-
-- You cannot use Play from Selection with a thread because threads always start from the beginning. 
-
-To play a program from a selected node 
-
-1. In the Program tree, select a node. 
-
-2. In the Footer, tap Play . 
-
-3. Select Play from Selection to run a program from a node in the program tree. 
-
-Example 
-
-You can start a stopped program again from a specific node. 
-
-145 
-
-UR5e 
-
-User Manual 
-
-
-
-#### 10.5.6. Using Basic Program Nodes 
-
-###### Description 
-
-Basic program nodes are used to create simple robot applications. Some basic program nodes are also used to organize your robot program and create comments in your robot program. This can be quite useful, if it is large robot program. 
-
-#### 10.5.7. Basic Program Nodes: Move 
-
-###### Description 
-
-The Move command allows the robot to move from point A to point B. How the robot moves is important to the task the robot is performing. 
-
-
-
-When you add a Move to your program tree, the Move pane appears to the right of the screen. 
-
-The Movecommand controls the robot's motion via waypoints. 
-
-Waypoints are automatically added when you add Move commands to a program. 
-
-<u>Read more about Waypoints.</u> 
-
-You can also use Moves to set acceleration and speed for the robot arm's movement between waypoints. 
-
-The robot moves using four Move commands. See the Move command types below: 
-
-###### MoveJ 
-
-The MoveJ command creates a movement from point A to point B that is optimal for the robot. 
-
-The movement may not be a direct line between A and B, but optimal for the start position of the joints and the end position of the joints. 
-
-146 
-
-User Manual 
-
-UR5e 
-
-
-
-Add a MoveJ command 
-
-1. In your robot program, select the place where you wish to add a Move. 
-
-2. Under Basic, tap Move to add a waypoint to the robot program together with a Move node. 
-
-3. Select the move node. 
-
-4. Select the MoveJ in the drop-down menu. 
-
-###### Detail 
-
-MoveJ makes movements that are calculated in the robot arm joint space. Joints are controlled to finish their movements at the same time. This movement type results in a curved path for the tool to follow. The shared parameters that apply to this movement type are the maximum joint speed and joint acceleration, specified in deg/s and deg/s<sup>2</sup> , respectively. If it is desired to have the robot arm move fast between waypoints, disregarding the path of the tool between those waypoints, this movement type is the preferable choice. 
-
-###### MoveL 
-
-The MoveL command creates a movement that is a direct line from point A and point B. 
-
-###### Add a MoveL command 
-
-1. In your Robot Program, select the place where you wish to add a Move. 
-
-2. Under Basic, tap Move to add a waypoint to the robot program together with a Move node. 
-
-3. Select the move node. 
-
-4. Select the MoveL from the drop-down menu. 
-
-###### Detail 
-
-MoveL moves the Tool Center Point (TCP) linearly between waypoints. This means that each joint performs a more complicated motion to keep the tool on a straight line path. The shared parameters that can be set for this movement type are the desired tool speed and tool acceleration specified in mm/s and mm/s<sup>2</sup> , respectively, and also a feature. 
-
-###### MoveP 
-
-###### Add a MoveP command 
-
-The MoveP command creates a movement with a constant speed between the waypoints. Blend between waypoints is enabled to ensure constant speed. (See Blending). 
-
-1. In your Robot Program, select the place where you wish to add a Move. 
-
-2. Under Basic, tap Move to add a waypoint to the robot program together with the Move node. 
-
-3. Select the move node. 
-
-4. Select the MoveP from the drop-down menu. 
-
-###### Detail 
-
-MoveP moves the tool linearly with constant speed with circular blends, and is intended for some process operations, like gluing or dispensing. The size of the blend radius is by default a shared value between all the waypoints. A smaller value will make the path turn sharper whereas a higher value will make the path smoother. While the robot arm is moving through the waypoints with constant speed, the robot control box cannot wait for either an I/O operation or an operator action. Doing so might stop the robot arm’s motion, or cause a robot stop. 
-
-147 
-
-UR5e 
-
-User Manual 
-
-
-
-###### MoveCircle 
-
-###### Add a MoveCircle 
-
-command 
-
-The MoveCircle command creates a circular movement, by creating a half circle. You can only add CircleMove via a MoveP command. 
-
-1. In your Robot Program, select the place where you wish to add a Move. 
-
-2. Under Basic, tap Move . 
-
-A waypoint is added to the robot program together with the Move node. 
-
-3. Select the move node. 
-
-4. Select the MoveP from the drop-down menu. 
-
-5. Tap Add circle move 
-
-6. Select the orientation mode. 
-
-###### Detail 
-
-The robot starts the circular movement from its current position, or start point, and moves through a ViaPoint specified on the circular arc, to an EndPoint that completes the circular movement. 
-
-A mode is used to calculate tool orientation, through the circular arc. The mode can be: 
-
-- Fixed: only the start point is used to define the tool orientation. 
-
-- Unconstrained: the start point transforms to the EndPoint to define tool orientation. 
-
-
-
-148 
-
-User Manual 
-
-UR5e 
-
-
-
-#### 10.5.8. Basic Program Nodes: Waypoints 
-
-###### Description 
-
-Waypoints are one of the most central parts of a robot program, telling the robot arm where to go one movement at a time. 
-
-Add Waypoints 
-
-A waypoint accompanies a Move, so adding a Move is required for the first waypoint. 
-
-Add a waypoint to a robot program 
-
-1. In your Robot Program, select the place where you wish to add a Move. 
-
-2. Under Basic, tap Move . 
-
-   - A waypoint is added to the robot program together with the Move node. 
-
-
-
-149 
-
-UR5e 
-
-User Manual 
-
-
-
-Add additional waypoints to a Move or Waypoint 
-
-1. In your Robot Program, select a Move node or Waypoint node. 
-
-2. Under Basic, tap Waypoint . 
-
-The additional waypoint is added in the Move node. This waypoint is part of the Move command. 
-
-
-
-The additional waypoint is added under the waypoint that you selected in the robot program. 
-
-Detail Using a waypoint means applying the taught relationship between the feature and the TCP from the Move command. The relationship between the feature and the TCP, applied to the current selected feature, achieves the desired TCP location. The robot calculates how to position the arm to allow the current active TCP to reach the desired TCP position. 
-
 #### 10.5.9. Set Payload 
 
 Description The Set Payload command allows you to configure the payload for the robot. Payload is the combined weight of everything attached to the robot tool flange. When to use: 
 
 - When adjusting the payload weight to prevent the robot from triggering a robot stop. A correctly configured payload weight ensures optimal robot movement. Setting the payload correctly ensures optimal motion performance and avoids robot stops. 
-
-- When setting up the payload for use in a pick and place program, using a gripper. 
-
-150 
-
-User Manual 
-
-UR5e 
-
-
-
-###### Set Payload 
-
-Use the Set Payload command 
-
-1. In your robot program, select the place or node where you wish to add a Set command. 
-
-2. Under Basic, tap Set Payload . 
-
-3. Use the drop-down, under Select Payload . 
-
-   - a. Select one of the payloads already configured. 
-
-   - b. Or, use the drop-down to configure a new payload by selecting Custom Payload and completing the mass and CoG fields. 
-
-
-
-###### Tip 
-
-###### Use tip 
-
-You can also use the Set Now button to set the values on the node as the active payload. 
-
-Remember to always update your payload when making any changes to the configuration of the robot program. 
-
-Example: Set In a pick and place program, you would create a default payload in the installation. Then Payload you add a Set Payload when picking up an object. You would update the payload after the gripper closes, but before starting to move. 
-
-Additionally, you would use the Set Payload after the object has been released. 
 
 Payload Transition Time 
 
@@ -4998,20 +3957,6 @@ An advanced dynamics model gives the Robot arm smooth and precise motions, as we
 ###### WARNING 
 
 Failure to mount the Robot’s arm correctly may result in frequent robot stops, and/or the Robot arm will move when pressing the Freedrive button. 
-
-If the Robot arm is mounted on a flat table or floor, no change is needed on this screen. However, if the Robot arm is ceiling mounted , wall mounted , or mounted at an angle , this needs to be adjusted using the buttons. 
-
-The buttons on the right side of the screen are for setting the angle of the Robot arm’s mounting. The top three right side buttons set the angle to ceiling (180<sup>∘</sup> ), wall (90<sup>∘</sup> ), floor (0<sup>∘</sup> ). The Tilt buttons set an arbitrary angle. 
-
-155 
-
-UR5e 
-
-User Manual 
-
-
-
-The buttons on the lower part of the screen are used to rotate the mounting of the Robot arm to match the actual mounting. 
 
 ###### WARNING 
 
@@ -5266,36 +4211,6 @@ I/O Interface Control
 ###### NOTICE 
 
 If a URCap controls an end-effector, such as a gripper, then the URCap requires control of the Tool IO Interface. Select the URCap in the list, to allow it to control the Tool IO Interface. 
-
-### 10.6. UR Connect 
-
-Description The URCap UR Connect comes pre-installed with 5.19 PolyScope 5 software. To ensure correct operation, there are some additional prerequisites that must be installed. 
-
-Please refer to the URCap documentation for additional information. <u>UR Connect Installation and User Guide</u> 
-
-Go here for more information about the product: <u>https://www.universalrobots.com/optimization-services/ur-connect/</u> 
-
-164 
-
-User Manual 
-
-UR5e 
-
-
-
-###### Install UR Connect 
-
-To install the UR Connect, please follow the steps below: 
-
-1. Go to the Installation tab. 
-
-2. Hit the tab URCaps in the left side of the screen. 
-
-3. Hit Install to start installation the prerequisites. 
-
-4. Follow the steps on the screen. 
-
-Activate UR The UR Connect URCap needs to be paired with myUR to send data to MyUR. Connect Please refer to the MyUR documentation on the UR Connect for further information. 
 
 ###### UR Connect URCap Update 
 
@@ -5609,50 +4524,9 @@ UR5e
 
 ### 12.2. MODBUS 
 
-Description 
-
-Here, the MODBUS client (master) signals can be set up. Connections to MODBUS servers (or slaves) on specified IP addresses can be created with input/output signals (registers or digital). Each signal has a unique name so it can be used in programs. 
-
-
-
 Refresh Push this button to refresh all MODBUS connections. Refreshing disconnects all modbus units, and connects them back again. All statistics are cleared. 
 
-Add unit Push this button to add a new MODBUS unit. 
-
-Delete unit Push this button to delete the MODBUS unit and all signals on that unit. 
-
-Set unit IP Here the IP address of the MODBUS unit is shown. Press the button to change it. 
-
 Sequential Available only when Show Advanced Options selected. Selecting this checkbox forces the mode modbus client to wait for a response before sending the next request. This mode is required by some fieldbus units. Turning this option on may help when there are multiple signals, and increasing request frequency results in signal disconnects. The actual signal frequency may be lower than requested when multiple signals are defined in sequential mode. Actual signal frequency can be observed in signal statistics. The signal indicator turns yellow if the actual signal frequency is less than half of the value selected from the Frequency drop-down list. 
-
-Add signal Push this button to add a signal to the corresponding MODBUS unit. 
-
-Delete signal 
-
-Push this button to delete a MODBUS signal from the corresponding MODBUS unit. 
-
-173 
-
-UR5e 
-
-User Manual 
-
-12. Communication Networks 
-
-
-
-|Set<br>sig<br>nal|Use this drop down men<br>Available types are:|u to choose the signal type.|
-|---|---|---|
-|type|Digital input|A digital input (coil) is a one-bit quantity which is read from the<br>MODBUS unit on the coil specified in the address field of the signal.<br>Function code 0x02(Read Discrete Inputs)is used.|
-||Digital output|A digital output (coil) is a one-bit quantity which can be set to either<br>high or low. Before the value of this output has been set by the user,<br>the value is read from the remote MODBUS unit. This means that<br>function code 0x01 (Read Coils) is used. When the output has been<br>set by a robot program or by pressing theset signal valuebutton,<br>the function code 0x05(Write Single Coil)is used onwards.|
-||Register input|A register input is a 16-bit quantity read from the address specified<br>in the address field. The function code 0x04 (Read Input Registers)<br>is used.|
-||Register output|A register output is a 16-bit quantity which can be set by the user.<br>Before the value of the register has been set, the value of it is read<br>from the remote MODBUS unit. This means that function code 0x03<br>(Read Holding Registers) is used. When the output has been set by<br>a robot program or by specifying a signal value in theset signal<br>valuefield, function code 0x06 (Write Single Register) is used to set<br>the value on the remote MODBUS unit.|
-
-
-
-Set signal This field shows the address on the remote MODBUS server. Use the on-screen keypad to address choose a different address. Valid addresses depends on the manufacturer and configuration of the remote MODBUS unit. 
-
-Set signal Using the on-screen keyboard, the user can give the signal a name. This name is used when name the signal is used in programs. 
 
 Signal value 
 
@@ -5846,31 +4720,7 @@ UR5e
 
 
 
-###### Configuring PROFIsafe 
-
-Configuring PROFIsafe relates to programming the safety PLC, but requires minimal robot setup. 
-
-1. Connect the robot to a trusted network that accesses a safety compliant PLC. 
-
-2. On PolyScope, in the Header, tap Installation . 
-
-3. Tap Safety, select PROFIsafe and configure as needed. 
-
-
-
-###### Enabling PROFIsafe 
-
-1. Enter the robot safety password and tap Unlock . 
-
-2. Use the switch button to enable PROFIsafe. 
-
-3. Enter a source address and destination address into the corresponding boxes. These addresses are arbitrary numbers used by the robot and the safety PLC to identify each other. 
-
-4. You can switch the Control Operational Mode to the ON position if you want PROFIsafe to control the robot operational mode. 
-
 Only one source can control the operational mode of the robot. Therefore other sources of mode selection are disabled when operational mode selection via PROFIsafe is enabled. 
-
-The robot is now setup to communicate with a safety PLC. 
 
 You cannot release the robot's brakes if the PLC is not responding or if it is misconfigured. 
 
@@ -6674,48 +5524,6 @@ To load an installat ion
 4. Select Set Installation to set installation for the current Program. 
 
 5. In the File Path, verify that the desired installation name is displayed. 
-
-###### To create a new program 
-
-1. In the Program and Installation Manager, tap New... and select Program. 
-
-2. On the Program screen, configure your new program as desired. 
-
-3. In the Program and Installation Manager, tap Save... and select Save All or Save Program As... 
-
-4. On the Save Program As screen, assign a file name and tap Save. 
-
-5. In the File Path, verify that the new program name is displayed. 
-
-
-
-###### To create a new installation 
-
-Save your installation for use after powering down the robot. 
-
-1. In the Program and Installation Manager, tap New... and select Installation. 
-
-2. Tap Confirm Safety Configuration. 
-
-3. On the Installation screen, configure your new installation as desired. 
-
-4. In the Program and Installation Manager, tap Save... and select Save Installation As... 
-
-5. On the Save Robot Installation screen, assign a file name and tap Save. 
-
-6. Select Set Installation to set installation for the current Program. 
-
-7. In File Path, verify that the new installation name is displayed. 
-
-203 
-
-UR5e 
-
-User Manual 
-
-15. Maintenance and Repair 
-
-
 
 ###### To use the save options 
 

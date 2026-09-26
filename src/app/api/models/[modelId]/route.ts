@@ -1,15 +1,11 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { isMachineModelId } from "@/lib/machines";
+import { isMachineModelId, machineModels } from "@/lib/machines";
 
 export const dynamic = "force-static";
 
 export async function generateStaticParams() {
-  return [
-    { modelId: "tormach-pcnc-1100" },
-    { modelId: "universal-robots-ur5e" },
-    { modelId: "abb-irb-120" },
-  ];
+  return Object.keys(machineModels).map((modelId) => ({ modelId }));
 }
 
 export async function GET(

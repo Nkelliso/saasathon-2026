@@ -1,0 +1,105 @@
+{
+  "machine_id": "tormach-pcnc-1100",
+  "original_sha256": "20dcd8b096ad8df8402be2fd81b0e872ad69a09bbf7ea00a06866aa4a1e63b20",
+  "exclusions": [
+    {
+      "start_line": 266,
+      "end_line": 789,
+      "reason": "Remove full-source contents navigation containing excluded installation and programming chapters."
+    },
+    {
+      "start_line": 867,
+      "end_line": 872,
+      "reason": "Remove site-planning introduction; retain environmental, clearance and electrical operating requirements below."
+    },
+    {
+      "start_line": 905,
+      "end_line": 916,
+      "reason": "Initial plug selection and installation guidance."
+    },
+    {
+      "start_line": 927,
+      "end_line": 1121,
+      "reason": "Site electrical conversion options and initial receiving, uncrating and assembly procedures (2.2.5 and 3.1-3.3.4)."
+    },
+    {
+      "start_line": 1126,
+      "end_line": 1129,
+      "reason": "Initial removal from delivery pallet (3.3.5.1); preserve qualified-lifting warning and generic lifting methods."
+    },
+    {
+      "start_line": 1164,
+      "end_line": 1209,
+      "reason": "Initial moving-kit/stand/tray/controller installation (3.3.5.4-3.3.8); preserve controller connector reference."
+    },
+    {
+      "start_line": 1267,
+      "end_line": 1353,
+      "reason": "Controller hookup procedure and installation of stand, machine arm, USB bulkhead, oiler and coolant add-ons (3.3.8-3.4)."
+    },
+    {
+      "start_line": 1437,
+      "end_line": 1438,
+      "reason": "Initial controller configuration heading; retain unattended-operation warning immediately following."
+    },
+    {
+      "start_line": 1441,
+      "end_line": 1450,
+      "reason": "First-boot machine selection and initial installation-validation preamble/shipping-block step."
+    },
+    {
+      "start_line": 1927,
+      "end_line": 1940,
+      "reason": "First-part programming tutorial introduction; retain safe homing/reference procedure 5.1.1."
+    },
+    {
+      "start_line": 1961,
+      "end_line": 2248,
+      "reason": "First-part tutorial workpiece/tool preparation, offsets examples, inch/metric programming and authored G-code (5.1.2-5.1.8)."
+    },
+    {
+      "start_line": 2708,
+      "end_line": 2791,
+      "reason": "G-code authoring/editing with text editor and conversational programming (6.4.3)."
+    },
+    {
+      "start_line": 2842,
+      "end_line": 2865,
+      "reason": "Conversational programming suggestions and accessory commissioning toggles (6.5.6, 6.5.7.1-.2); retain enclosure safety interlock section."
+    },
+    {
+      "start_line": 2876,
+      "end_line": 2879,
+      "reason": "Injection molder accessory commissioning toggle (6.5.7.4)."
+    },
+    {
+      "start_line": 2908,
+      "end_line": 2911,
+      "reason": "USB I/O accessory commissioning toggle (6.5.7.7)."
+    },
+    {
+      "start_line": 3136,
+      "end_line": 3726,
+      "reason": "Conversational program generation, feeds/speeds generation and face/profile/pocket/drill/tap/thread/engrave/DXF programming (6.7)."
+    },
+    {
+      "start_line": 3829,
+      "end_line": 6563,
+      "reason": "Complete chapter 7: programming definitions, G-code language, G/M code reference, canned cycles, parameters, expressions and subroutines."
+    }
+  ],
+  "retained_scope": [
+    "All general, operational and electrical safety preface text.",
+    "Operating envelope and power/grounding/noise requirements; controller connector identification; E-stop, reset, power cycling, switch/spindle/axis diagnostics and controller administration.",
+    "Chapter 4 operation and chapter 6 operating interface except authoring/conversational subsections; probing, offsets, backups and diagnostic ADMIN commands.",
+    "Chapter 8 accessory identification/specifications and probe/tool-setter calibration; all chapter 9 maintenance, chapter 10 troubleshooting and chapter 11 diagrams/parts."
+  ],
+  "review_notes": [
+    "Retain 3.5-3.6 and 3.7.1-3.8 despite their installation chapter placement: they provide safe power sequencing, ongoing functional checks, loose-wire troubleshooting and reusable controller settings.",
+    "Retain 5.1.1 safe homing, soft-limit and E-stop re-reference instructions even though embedded in first-part tutorial.",
+    "Keep existing-program loading, cycle start/stop, restart-line operation and MDI controls; these are operating reference, not G-code authoring instruction.",
+    "Chapter 8 is primarily an accessory catalogue with compatibility/pressure limits and calibration, not accessory installation steps; installation procedures in 3.4 are excluded.",
+    "Diagnostic motion-test G-code in chapter 10 is retained in full with its precautions. Source paragraphs are not rewritten.",
+    "Retain qualified transport/lifting warning and lifting-bar/from-below techniques from 3.3.5 for later transport/service; exclude uncrating and initial placement on stand."
+  ]
+}

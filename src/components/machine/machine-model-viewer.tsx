@@ -218,6 +218,13 @@ function materialKind(
     return originalColor < 0xa0a0a0 ? "charcoal" : "aluminum";
   }
 
+  if (modelId.startsWith("tormach-")) {
+    if (originalColor < 0x505050) return "charcoal";
+    if (originalColor > 0xd8d8d8) return "white";
+    if ((originalColor & 0xff) - ((originalColor >> 16) & 0xff) > 20) return "blue";
+    return "aluminum";
+  }
+
   if (index === 15 || index < 2) return "charcoal";
   if (relativeSize > 0.07) return "orange";
   return index % 5 === 0 || index > 82 ? "steel" : "charcoal";
