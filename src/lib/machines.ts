@@ -19,7 +19,7 @@ export const machineModels = {
 export type MachineModelId = keyof typeof machineModels;
 
 export function isMachineModelId(value: string): value is MachineModelId {
-  return value in machineModels;
+  return Object.hasOwn(machineModels, value);
 }
 
 export const organizationMachines = [

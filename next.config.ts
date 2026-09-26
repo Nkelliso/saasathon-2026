@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  outputFileTracingIncludes: {
+    "/api/diagnosis": ["./src/machines/*/manual.md"],
+  },
 };
 
 export default nextConfig;

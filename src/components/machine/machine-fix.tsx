@@ -8,6 +8,7 @@ import { ArrowUp, ChevronDown, LoaderCircle, Plus } from "lucide-react";
 import { motion } from "motion/react";
 import { AppShell } from "@/components/app-shell";
 import { machineModels } from "@/lib/machines";
+import { readEvents, type DiagnosisEvent, type DiagnosisMessage, type DiagnosisSource } from "@/lib/diagnosis";
 import { useOrganizationMachines, type OrganizationMachine } from "@/lib/organization-machines";
 
 const MachineModelViewer = dynamic(
@@ -16,7 +17,7 @@ const MachineModelViewer = dynamic(
 );
 
 type Ticket = { id: string; machinePk: string; kind: string; title: string; description: string; createdAt: string };
-type Message = { role: "user" | "assistant"; text: string };
+type Message = DiagnosisMessage & { sources?: DiagnosisSource[]; failed?: boolean };
 const history: Record<string, Ticket[]> = {
   "MILL-01": [
     { id: "mill-filter", machinePk: "MILL-01", kind: "REPAIR", title: "Cabinet filter replaced", description: "Airflow restored after clearing metal fines. Keep a spare filter in Bay 02.", createdAt: "2026-09-23" },
@@ -48,7 +49,8 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [busy, setBusy] = useState(false);
-  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [error, setError] = useState("");
+  const activeRequest = useRef<AbortController | null>(null);
   const transcript = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,37 +60,60 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
         if (Array.isArray(saved)) setTickets([...saved.filter((ticket) => ticket.machinePk === machine.pk), ...(history[machine.pk] ?? [])]);
       } catch { /* Keep the machine history if browser storage is unavailable. */ }
     }, 0);
-    return () => { window.clearTimeout(timeout); if (timer.current) clearInterval(timer.current); };
+    return () => { window.clearTimeout(timeout); activeRequest.current?.abort(); };
   }, [machine.pk]);
 
   useEffect(() => {
     if (transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight;
   }, [messages]);
 
-  function submit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const question = query.trim();
-    if (!question || busy) return;
+  async function send(question: string, previous: Message[]) {
+    if (!question || activeRequest.current) return;
+    const controller = new AbortController();
+    activeRequest.current = controller;
+    const conversation: Message[] = [...previous, { role: "user", text: question }];
     setQuery("");
     setBusy(true);
-    setMessages((current) => [...current, { role: "user", text: question }, { role: "assistant", text: "" }]);
-    let answer = `What exact alarm code appears on ${machine.pk}, and what happened just before it stopped? Include any recent tooling or setup changes so we can narrow down the cause.`;
-    if (machine.pk === "MILL-01" && /fan|filter|air|warm|spindle|heat/i.test(question)) {
-      answer = "Your team's last repair notes a blocked cabinet filter. That may be relevant, but it does not confirm the cause of this fault.\n\nRecord the exact drive alarm and when it appears. Before opening the cabinet, have an authorized technician isolate power using the machine's lockout procedure.\n\nWas the fan noise present before the spindle stopped?";
-    } else if (machine.pk === "COBOT-02" && /stop|grip|payload|pick/i.test(question)) {
-      answer = "The latest site note reports a protective stop after a gripper change. Check whether the configured tool and payload match the current setup.\n\nKeep the cell clear and record the complete stop message before attempting a restart. Do not bypass the protective stop.\n\nDid this start immediately after the gripper change?";
-    }
-    const words = answer.split(" ");
-    let count = 0;
-    timer.current = setInterval(() => {
-      count += 3;
-      const text = words.slice(0, count).join(" ");
-      setMessages((current) => [...current.slice(0, -1), { role: "assistant", text }]);
-      if (count >= words.length) {
-        if (timer.current) clearInterval(timer.current);
-        setBusy(false);
+    setError("");
+    setMessages([...conversation, { role: "assistant", text: "" }]);
+    const updateAnswer = (update: Partial<Message>) => setMessages((current) => [...current.slice(0, -1), { ...current[current.length - 1], ...update }]);
+    try {
+      const response = await fetch("/api/diagnosis", {
+        method: "POST", signal: controller.signal, headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          machine: { pk: machine.pk, modelId: machine.modelId, notes: machine.notes },
+          messages: conversation.filter((message) => !message.failed && message.text).slice(-19).map(({ role, text }) => ({ role, text })),
+          tickets: tickets.slice(0, 12),
+        }),
+      });
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || "Could not start the diagnosis. Please try again.");
       }
-    }, 38);
+      if (!response.body) throw new Error("No response received. Please try again.");
+      let text = "";
+      let completed = false;
+      for await (const event of readEvents<DiagnosisEvent>(response.body)) {
+        if (event.type === "sources") updateAnswer({ sources: event.sources });
+        if (event.type === "delta") { text += event.text; updateAnswer({ text }); }
+        if (event.type === "error") throw new Error(event.message);
+        if (event.type === "done") completed = true;
+      }
+      if (!completed) throw new Error("The connection was interrupted. Please retry your question.");
+    } catch (error) {
+      if (!controller.signal.aborted) {
+        updateAnswer({ failed: true });
+        setError(error instanceof Error ? error.message : "Could not connect. Please try again.");
+      }
+    } finally {
+      if (!controller.signal.aborted) setBusy(false);
+      activeRequest.current = null;
+    }
+  }
+
+  function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    void send(query.trim(), messages);
   }
 
   return (
@@ -122,10 +147,15 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
         <motion.section initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }} className="order-2 flex min-h-[420px] min-w-0 flex-col px-5 py-9 sm:px-10 lg:order-1 lg:h-dvh lg:px-10 lg:py-12 xl:px-14" aria-label="Machine help">
           <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Describe the situation:</h1>
           <div ref={transcript} role="log" aria-label="Conversation" aria-live="polite" className="mt-8 flex-1 space-y-6 overflow-y-auto pb-6 lg:min-h-0">
-            {messages.map((message, index) => <div key={index} className={message.role === "user" ? "ml-5 rounded-lg border border-line bg-surface p-4 text-sm leading-6" : "text-sm leading-6"}><p className="whitespace-pre-wrap text-fg-muted">{message.text || "Checking machine notes…"}</p></div>)}
+            {messages.map((message, index) => <div key={index} className={message.role === "user" ? "ml-5 rounded-lg border border-line bg-surface p-4 text-sm leading-6" : "text-sm leading-6"}>
+              {message.role === "assistant" && <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.12em] text-info">{message.failed ? "Response interrupted" : "Torque · Machine knowledge"}</p>}
+              <p className="whitespace-pre-wrap text-fg-muted">{message.text || (message.failed ? "No diagnosis received." : "Searching the manual and machine notes…")}</p>
+              {!!message.sources?.length && <details className="mt-3 text-xs text-fg-muted"><summary className="cursor-pointer font-mono text-[10px] uppercase tracking-wide">Retrieved sources · {message.sources.length}</summary><div className="mt-2 space-y-2">{message.sources.map((source) => <details key={source.id} className="rounded-md border border-line bg-surface p-2"><summary className={`cursor-pointer ${source.kind === "manual" ? "text-info" : "text-accent"}`}>[{source.id}] {source.title}</summary><p className="mt-2 max-h-40 overflow-y-auto whitespace-pre-wrap leading-5">{source.excerpt}</p>{source.url && <a href={source.url} target="_blank" rel="noreferrer" className="mt-2 inline-block text-info underline">Open manufacturer manual</a>}</details>)}</div></details>}
+            </div>)}
           </div>
+          {error && <div role="alert" className="mb-3 rounded-md border border-line bg-surface p-3 text-sm text-fg-muted"><p>{error}</p><button type="button" disabled={busy} onClick={() => { const question = messages.at(-2); if (question?.role === "user") void send(question.text, messages.slice(0, -2)); }} className="mt-2 text-fg underline disabled:opacity-40">Retry question</button></div>}
           <form onSubmit={submit} className="rounded-lg border border-line bg-surface p-3 transition-colors focus-within:border-accent focus-within:ring-2 focus-within:ring-accent-dim">
-            <textarea aria-label="Describe the problem" value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }} rows={3} placeholder="Describe the problem or paste an error code…" className="w-full resize-none bg-transparent p-1 text-sm leading-6 text-fg outline-none placeholder:text-fg-dim" />
+            <textarea aria-label="Describe the problem" maxLength={12000} value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }} rows={3} placeholder="Describe the problem or paste an error code…" className="w-full resize-none bg-transparent p-1 text-sm leading-6 text-fg outline-none placeholder:text-fg-dim" />
             <div className="mt-2 flex items-center justify-between gap-2"><span className="font-mono text-[10px] text-fg-dim">{machine.pk}</span><button type="submit" aria-label="Send message" disabled={!query.trim() || busy} className="grid size-9 place-items-center rounded-md bg-accent text-black transition-opacity hover:opacity-90 disabled:opacity-35">{busy ? <LoaderCircle className="size-4 animate-spin" strokeWidth={1.5} /> : <ArrowUp className="size-4" strokeWidth={1.5} />}</button></div>
           </form>
         </motion.section>

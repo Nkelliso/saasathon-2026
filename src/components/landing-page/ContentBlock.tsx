@@ -17,7 +17,7 @@ export default function ContentBlock() {
       <section id="system" className="mx-auto max-w-6xl px-5 py-24 lg:px-8 lg:py-32">
         <div className="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.15em] text-accent">// 01 / Diagnose</p>
+            <p className="font-mono text-xs uppercase tracking-[0.15em] text-accent">{"// 01 / Diagnose"}</p>
             <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">From alarm to action, in one workspace.</h2>
             <p className="mt-5 max-w-md text-sm leading-7 text-fg-muted">Machine KB turns distributed knowledge into a direct answer for the person standing in front of the machine.</p>
             <Link href="/query" className="mt-7 inline-flex items-center gap-2 text-sm text-fg transition-colors hover:text-accent">Open the diagnostic console <ArrowRight className="size-4" strokeWidth={1.5} /></Link>
@@ -53,7 +53,7 @@ export default function ContentBlock() {
             <div className="mt-5 flex items-center gap-2 border-t border-line pt-4 font-mono text-[10px] uppercase tracking-[0.12em] text-fg-muted"><ShieldCheck className="size-3.5 text-ok" strokeWidth={1.5} />Answer grounded in 2 verified sources</div>
           </div>
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.15em] text-accent">// 02 / Knowledge network</p>
+            <p className="font-mono text-xs uppercase tracking-[0.15em] text-accent">{"// 02 / Knowledge network"}</p>
             <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">Useful on day one. Smarter after every repair.</h2>
             <p className="mt-5 max-w-xl text-sm leading-7 text-fg-muted">Every answer combines the shared technical record for a machine family with the details only your site knows. The result is specific enough to trust at the point of failure.</p>
             <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line">

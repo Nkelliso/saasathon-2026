@@ -13,7 +13,8 @@
         "start": "next start",
         "lint": "eslint",
         "typecheck": "tsc --noEmit",
-        "check": "tsc --noEmit && eslint"
+        "check": "tsc --noEmit && eslint",
+        "test:diagnosis": "tsc src/lib/diagnosis.ts src/lib/manual-retrieval.ts --outDir .agent/diagnosis-tests --module commonjs --target es2022 --strict --esModuleInterop --skipLibCheck && node --conditions=react-server --test scripts/diagnosis.test.mjs"
     },
     "dependencies": {
         "@react-three/fiber": "^9.8.1",

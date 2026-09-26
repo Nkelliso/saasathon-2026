@@ -118,6 +118,9 @@ Use these IDs consistently in application data and asset paths. Add future machi
 For LLMs, we use openrouter, and we have an OPENROUTER_KEY defined in the `.env` file.
 
 (Use a weak model to start with; doesn't need to be perfect, our examples for the pitch will be cherry picked.)
+
+For the response in the machine-fix page, we should add an actual LLM + RAG pipeline.
+Use gemini-flash model with 
 </llms>
 
 </tech_stack>
