@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
@@ -9,6 +9,7 @@ import { machineModels } from "@/lib/machines";
 import { useOrganizationMachines } from "@/lib/organization-machines";
 import { saveMachineTicket, useDemoWorkspace } from "@/lib/demo-workspace";
 import { getPreventionPatterns } from "@/lib/prevention-demo";
+import { parseTicketDraft, ticketDraftKey, type TicketDraft } from "@/lib/ticket-draft";
 
 const kinds = {
   REPAIR: { label: "Repair", placeholder: "What went wrong, what fixed it, and how did you check it?" },
@@ -20,13 +21,30 @@ type TicketKind = keyof typeof kinds;
 const inputClass = "w-full rounded-md border border-line bg-surface-2 px-3.5 text-sm text-fg outline-none transition-colors placeholder:text-fg-dim hover:border-line-strong focus:border-accent focus:ring-2 focus:ring-accent-dim";
 const labelClass = "mb-2 block text-sm font-medium text-fg";
 
-export function TicketConsole({ initialMachine = "" }: { initialMachine?: string }) {
+const subscribeToDraft = () => () => {};
+
+export function TicketConsole({ initialMachine = "", draftId }: { initialMachine?: string; draftId?: string }) {
+  const stored = useSyncExternalStore(subscribeToDraft, () => {
+    try { return draftId ? sessionStorage.getItem(ticketDraftKey(draftId)) ?? "" : ""; } catch { return ""; }
+  }, () => null);
+  if (draftId && stored === null) return <AppShell><p className="p-8 text-sm text-fg-muted">Loading ticket…</p></AppShell>;
+  let draft: TicketDraft | undefined;
+  try {
+    if (stored) {
+      const parsed = parseTicketDraft(JSON.parse(stored));
+      if (parsed.machinePk === initialMachine) draft = parsed;
+    }
+  } catch { /* Show an editable blank form if the tab's draft is unavailable. */ }
+  return <TicketForm initialMachine={initialMachine} draft={draft} draftId={draftId} />;
+}
+
+function TicketForm({ initialMachine, draft, draftId }: { initialMachine: string; draft?: TicketDraft; draftId?: string }) {
   const { machines, ready } = useOrganizationMachines();
-  const [kind, setKind] = useState<TicketKind>("REPAIR");
-  const [selectedMachine, setSelectedMachine] = useState(initialMachine);
-  const machinePk = machines.some((machine) => machine.pk === selectedMachine) ? selectedMachine : machines[0]?.pk ?? "";
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [kind, setKind] = useState<TicketKind>(draft?.kind ?? "REPAIR");
+  const [selectedMachine, setSelectedMachine] = useState(draft?.machinePk ?? initialMachine);
+  const machinePk = machines.some((machine) => machine.pk === selectedMachine) ? selectedMachine : selectedMachine ? "" : machines[0]?.pk ?? "";
+  const [title, setTitle] = useState(draft?.title ?? "");
+  const [description, setDescription] = useState(draft?.description ?? "");
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
   const workspace = useDemoWorkspace();
@@ -38,6 +56,7 @@ export function TicketConsole({ initialMachine = "" }: { initialMachine?: string
     try {
       const ticket = { id: crypto.randomUUID(), machinePk, kind, title: title.trim(), description: description.trim(), createdAt: new Date().toISOString() };
       saveMachineTicket(ticket);
+      if (draftId) { try { sessionStorage.removeItem(ticketDraftKey(draftId)); } catch { /* Saving the ticket already succeeded. */ } }
       setSaved(true);
       setError("");
     } catch {
@@ -66,11 +85,14 @@ export function TicketConsole({ initialMachine = "" }: { initialMachine?: string
             </section>
           ) : (
             <form onSubmit={submit} className="mt-8 space-y-6">
+              {draftId && <p role="status" className={`rounded-md border border-line bg-surface px-3.5 py-3 text-xs ${draft ? "text-info" : "text-fg-muted"}`}>{draft ? "Auto-filled from your conversation. Review and save." : "Draft unavailable in this tab. Enter the incident details below."}</p>}
+              {ready && selectedMachine && !machinePk && <p role="alert" className="text-sm text-fg-muted">The original machine is unavailable. Select a machine before saving.</p>}
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="block min-w-0">
                   <span className={labelClass}>Machine</span>
                   <span className="relative block">
                     <select aria-label="Machine" value={machinePk} onChange={(event) => setSelectedMachine(event.target.value)} className={`${inputClass} h-12 appearance-none pr-9 font-mono text-xs`}>
+                      {!machinePk && <option value="" disabled>Select machine</option>}
                       {machines.map((machine) => <option key={machine.pk} value={machine.pk}>{machine.pk} · {machineModels[machine.modelId].model}</option>)}
                     </select>
                     <ChevronDown className="pointer-events-none absolute right-3 top-4 size-4 text-fg-muted" strokeWidth={1.5} />
@@ -92,7 +114,7 @@ export function TicketConsole({ initialMachine = "" }: { initialMachine?: string
               </label>
               <label className="block">
                 <span className={labelClass}>Details</span>
-                <textarea required maxLength={12000} value={description} onChange={(event) => setDescription(event.target.value)} rows={7} placeholder={kinds[kind].placeholder} className={`${inputClass} min-h-44 resize-y py-3 leading-6`} />
+                <textarea aria-label="Details" required maxLength={12000} value={description} onChange={(event) => setDescription(event.target.value)} rows={7} placeholder={kinds[kind].placeholder} className={`${inputClass} min-h-44 resize-y py-3 leading-6`} />
               </label>
               {error && <p role="alert" className="text-sm text-fg">{error}</p>}
               <div className="flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5">
