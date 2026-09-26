@@ -1,3 +1,4 @@
+import BackgroundGears from "@/components/graphics/BackgroundGears";
 import ContentBlock from "@/components/landing-page/ContentBlock";
 import Footer from "@/components/landing-page/Footer";
 import Header from "@/components/landing-page/Header";
@@ -9,6 +10,7 @@ export default function Page() {
     <>
       <Header />
       <Hero />
+      <BackgroundGears />
       <StatsBanner />
       <ContentBlock />
       <Footer />

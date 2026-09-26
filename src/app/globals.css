@@ -41,10 +41,24 @@ body {
 
 .hero-grid {
   background-image:
-    linear-gradient(to right, color-mix(in srgb, var(--color-line) 42%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--color-line) 42%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-line) 42%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-line) 42%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 32px 32px;
-  mask-image: linear-gradient(to bottom, transparent, black 8%, black 88%, transparent);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 8%,
+    black 88%,
+    transparent
+  );
 }
 
 .scan-line {
@@ -53,7 +67,35 @@ body {
 }
 
 @keyframes scan {
-  0%, 100% { transform: translateY(0); opacity: 0; }
-  12%, 72% { opacity: 1; }
-  86% { transform: translateY(290px); opacity: 0; }
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  12%,
+  72% {
+    opacity: 1;
+  }
+  86% {
+    transform: translateY(290px);
+    opacity: 0;
+  }
+}
+
+.rotate-large-gear {
+  animation: rotate 30s linear infinite;
+}
+
+.rotate-small-gear {
+  animation: rotate 20s linear infinite reverse;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
