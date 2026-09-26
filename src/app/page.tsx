@@ -10,9 +10,9 @@ export default function Page() {
     <>
       <Header />
       <Hero />
-      <BackgroundGears />
+      {/* <BackgroundGears />
       <StatsBanner />
-      <ContentBlock />
+      <ContentBlock /> */}
       <Footer />
     </>
   );
