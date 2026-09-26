@@ -11,6 +11,8 @@ export type PreventionIncident = {
 
 export type PreventionPattern = {
   id: string;
+  createdAt: string;
+  importance: "High" | "Medium" | "Low";
   machinePk: string;
   modelId: MachineModelId;
   title: string;
@@ -26,12 +28,14 @@ export type PreventionPattern = {
 export const preventionPatterns: PreventionPattern[] = [
   {
     id: "PRV-001",
+    createdAt: "2026-09-26T08:30:00Z",
+    importance: "High",
     machinePk: "MILL-01",
     modelId: "tormach-pcnc-1100",
-    title: "Same jam. Five separate repairs.",
+    title: "Recurring chip jams after setup changes",
     category: "Setup & handover",
     summary: "Five chip-clearance interruptions on MILL-01 in 14 days. Each ticket records a cleanup and restart, but the issue keeps returning.",
-    hypothesis: "Four incidents followed a job change. A missing chip-clearance check during setup could be contributing to the repeat jams. The reports suggest a process gap; they do not establish operator error or rule out a mechanical fault.",
+    hypothesis: "Four jams followed a job change. A missing chip-clearance check may be contributing; the cause is unconfirmed.",
     action: "Ask the shift lead and maintenance team to review the job-change checklist and inspect the chip-clearance setup before the next production run.",
     owner: "Shift lead + maintenance",
     checklist: ["Compare the setup checklist with the approved operating procedure.", "Have maintenance assess the recurring obstruction and possible equipment causes.", "Record the agreed check in the shift handover and monitor the next five job changes."],
@@ -45,12 +49,14 @@ export const preventionPatterns: PreventionPattern[] = [
   },
   {
     id: "PRV-002",
+    createdAt: "2026-09-26T10:15:00Z",
+    importance: "Medium",
     machinePk: "COBOT-02",
     modelId: "universal-robots-ur5e",
-    title: "Protective stops follow changeovers.",
+    title: "Protective stops after tooling changes",
     category: "Configuration review",
     summary: "Four protective stops on COBOT-02 followed a gripper or part change. Restarting the cell resolved the immediate interruption, but the pattern returned.",
-    hypothesis: "Payload and tool configuration may not be consistently reviewed at changeover. The timing suggests a setup mismatch, although contact, tooling, or another fault could also explain these stops.",
+    hypothesis: "Tool or payload settings may be missed during changeover. A setup mismatch is possible, but unconfirmed.",
     action: "Have the robotics technician review the approved tool and payload configuration for each job, and investigate the stop logs before the next changeover.",
     owner: "Robotics technician",
     checklist: ["Compare the four stop reports with the recorded tooling changes.", "Ask a qualified technician to verify configuration against the approved setup.", "Add the verified setup to the changeover checklist; retain all protective functions."],
@@ -63,12 +69,14 @@ export const preventionPatterns: PreventionPattern[] = [
   },
   {
     id: "PRV-003",
+    createdAt: "2026-09-25T16:45:00Z",
+    importance: "Low",
     machinePk: "ROBOT-03",
     modelId: "abb-irb-120",
-    title: "Pick-position drift keeps returning.",
+    title: "Repeated pick-position drift at station A",
     category: "Fixture inspection",
     summary: "Three pick-position deviations on ROBOT-03 were corrected with local adjustments. All three reports mention the same fixture station.",
-    hypothesis: "Fixture movement or wear could be contributing to the recurring offset. Repeated adjustments may be treating the symptom; calibration and part variation still need to be checked.",
+    hypothesis: "Fixture movement or wear may be causing the recurring offset. Position adjustments could be masking the cause.",
     action: "Ask the cell engineer to inspect the fixture and review the recorded offsets before making further position adjustments.",
     owner: "Cell engineer",
     checklist: ["Compare the affected fixture and part references across the incident reports.", "Have the cell engineer inspect fixture condition and assess calibration.", "Document the confirmed cause and track subsequent batches for recurrence."],
