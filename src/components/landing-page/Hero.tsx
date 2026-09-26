@@ -27,9 +27,10 @@ export default function Hero() {
             Unplanned downtime <span className="text-fg-muted">costs</span>
           </h1>
           <p className="mt-7 max-w-xl text-base leading-7 text-fg-muted sm:text-md">
-            Torque keeps your machinery operational with instant machine
-            diagnosis from service records, manufacturer manuals, and the
-            knowledge your team builds on the floor.
+            <b>But it doesn't have to.</b> Torque keeps your production line
+            operational with instant machine diagnosis from service records,
+            manufacturer manuals, and the knowledge your team builds on the
+            floor.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link
