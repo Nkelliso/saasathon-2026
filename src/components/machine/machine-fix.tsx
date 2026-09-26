@@ -4,12 +4,13 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { ArrowUp, ChevronDown, LoaderCircle, Plus } from "lucide-react";
+import { ArrowUp, ChevronDown, FileText, LoaderCircle, Plus } from "lucide-react";
 import { motion } from "motion/react";
 import { AppShell } from "@/components/app-shell";
 import { machineModels } from "@/lib/machines";
 import { readEvents, type DiagnosisEvent, type DiagnosisMessage, type DiagnosisSource } from "@/lib/diagnosis";
 import { useOrganizationMachines, type OrganizationMachine } from "@/lib/organization-machines";
+import { parseTicketDraft, ticketDraftKey } from "@/lib/ticket-draft";
 
 const MachineModelViewer = dynamic(
   () => import("@/components/machine/machine-model-viewer").then((module) => module.MachineModelViewer),
@@ -38,17 +39,20 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
   const [messages, setMessages] = useState<Message[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [drafting, setDrafting] = useState(false);
+  const [draftError, setDraftError] = useState("");
+  const draftRequest = useRef<AbortController | null>(null);
   const activeRequest = useRef<AbortController | null>(null);
   const transcript = useRef<HTMLDivElement>(null);
 
-  useEffect(() => () => { activeRequest.current?.abort(); }, []);
+  useEffect(() => () => { activeRequest.current?.abort(); draftRequest.current?.abort(); }, []);
 
   useEffect(() => {
     if (transcript.current) transcript.current.scrollTop = transcript.current.scrollHeight;
   }, [messages]);
 
   async function send(question: string, previous: Message[]) {
-    if (!question || activeRequest.current) return;
+    if (!question || activeRequest.current || draftRequest.current) return;
     const controller = new AbortController();
     activeRequest.current = controller;
     const conversation: Message[] = [...previous, { role: "user", text: question }];
@@ -96,6 +100,31 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
     void send(query.trim(), messages);
   }
 
+  async function autoFill() {
+    if (busy || draftRequest.current) return;
+    const controller = new AbortController();
+    draftRequest.current = controller;
+    setDrafting(true);
+    setDraftError("");
+    try {
+      const response = await fetch("/api/ticket-draft", {
+        method: "POST", signal: controller.signal, headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ machine: { pk: machine.pk, modelId: machine.modelId }, messages: messages.filter((message) => !message.failed && message.text).slice(-40).map(({ role, text }) => ({ role, text })) }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "Could not draft the ticket. Please try again.");
+      const draft = parseTicketDraft({ ...data, machinePk: machine.pk });
+      const id = crypto.randomUUID();
+      sessionStorage.setItem(ticketDraftKey(id), JSON.stringify(draft));
+      router.push(`/ticket?machine=${encodeURIComponent(machine.pk)}&draft=${id}`);
+    } catch (error) {
+      if (!controller.signal.aborted) setDraftError(error instanceof Error ? error.message : "Could not draft the ticket. Please try again.");
+    } finally {
+      if (!controller.signal.aborted) setDrafting(false);
+      draftRequest.current = null;
+    }
+  }
+
   return (
     <AppShell>
       <main className="grid min-h-dvh lg:grid-cols-2">
@@ -133,10 +162,19 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
               {!!message.sources?.length && <details className="mt-3 text-xs text-fg-muted"><summary className="cursor-pointer font-mono text-[10px] uppercase tracking-wide">Retrieved sources · {message.sources.length}</summary><div className="mt-2 space-y-2">{message.sources.map((source) => <details key={source.id} className="rounded-md border border-line bg-surface p-2"><summary className={`cursor-pointer ${source.kind === "manual" ? "text-info" : "text-accent"}`}>[{source.id}] {source.title}</summary><p className="mt-2 max-h-40 overflow-y-auto whitespace-pre-wrap leading-5">{source.excerpt}</p>{source.url && <a href={source.url} target="_blank" rel="noreferrer" className="mt-2 inline-block text-info underline">Open manufacturer manual</a>}</details>)}</div></details>}
             </div>)}
           </div>
+          {messages.some((message) => message.role === "user") && <div className="mb-4 rounded-md border border-line bg-surface px-3 py-2.5">
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-xs text-fg-muted">Incident report</span>
+              <button type="button" onClick={() => void autoFill()} disabled={busy || drafting} className="inline-flex min-h-9 items-center gap-2 rounded-md border border-line bg-surface-2 px-3 text-xs font-medium text-fg transition-colors hover:border-line-strong disabled:opacity-40">
+                {drafting ? <LoaderCircle className="size-4 animate-spin text-info" strokeWidth={1.5} /> : <FileText className="size-4 text-info" strokeWidth={1.5} />}{drafting ? "Filling…" : "Auto fill"}
+              </button>
+            </div>
+            {draftError && <p role="alert" className="mt-2 text-xs text-fg-muted">{draftError}</p>}
+          </div>}
           {error && <div role="alert" className="mb-3 rounded-md border border-line bg-surface p-3 text-sm text-fg-muted"><p>{error}</p><button type="button" disabled={busy} onClick={() => { const question = messages.at(-2); if (question?.role === "user") void send(question.text, messages.slice(0, -2)); }} className="mt-2 text-fg underline disabled:opacity-40">Retry question</button></div>}
           <form onSubmit={submit} className="rounded-lg border border-line bg-surface p-3 transition-colors focus-within:border-accent focus-within:ring-2 focus-within:ring-accent-dim">
             <textarea aria-label="Describe the problem" maxLength={12000} value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }} rows={3} placeholder="Describe the problem or paste an error code…" className="w-full resize-none bg-transparent p-1 text-sm leading-6 text-fg outline-none placeholder:text-fg-dim" />
-            <div className="mt-2 flex items-center justify-between gap-2"><span className="font-mono text-[10px] text-fg-dim">{machine.pk}</span><button type="submit" aria-label="Send message" disabled={!query.trim() || busy} className="grid size-9 place-items-center rounded-md bg-accent text-black transition-opacity hover:opacity-90 disabled:opacity-35">{busy ? <LoaderCircle className="size-4 animate-spin" strokeWidth={1.5} /> : <ArrowUp className="size-4" strokeWidth={1.5} />}</button></div>
+            <div className="mt-2 flex items-center justify-between gap-2"><span className="font-mono text-[10px] text-fg-dim">{machine.pk}</span><button type="submit" aria-label="Send message" disabled={!query.trim() || busy || drafting} className="grid size-9 place-items-center rounded-md bg-accent text-black transition-opacity hover:opacity-90 disabled:opacity-35">{busy ? <LoaderCircle className="size-4 animate-spin" strokeWidth={1.5} /> : <ArrowUp className="size-4" strokeWidth={1.5} />}</button></div>
           </form>
         </motion.section>
       </main>
