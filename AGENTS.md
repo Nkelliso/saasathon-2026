@@ -140,6 +140,7 @@ Basic login + register page.
 All main-pages have a sidebar on the LEFT, visible at all times.
 Sidebar tabs:
 - machine_fix
+- Prevention (`/prevention`)
 - add-ticket tab
 - add-machine tab
 - organization_tab
@@ -180,6 +181,12 @@ Filing docs for when something goes wrong with a machine,
 OR filing general information about a machine.
 Make it so you can select ticket type from dropdown.
 </ticket>
+
+<prevention>
+The Prevention page (`/prevention`) uses AI to spot recurring issues across a company's machine tickets and file prevention tickets with possible causes and recommended checks. The goal is to turn repeated repairs into lessons that prevent future breakdowns and downtime.
+More importantly: It serves as a way to diagnose issues *before they happen.*
+For the hackathon, all data and analysis are spoofed for the demo.
+</prevention>
 
 <add_machine>
 Add machine page:

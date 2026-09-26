@@ -3,10 +3,11 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Building2, Factory, FilePlus2, Plus, Wrench } from "lucide-react";
+import { Building2, Factory, FilePlus2, Plus, ShieldCheck, Wrench } from "lucide-react";
 
 const navigation = [
   { label: "Machine fix", href: "/machine", icon: Wrench },
+  { label: "Prevention", href: "/prevention", icon: ShieldCheck },
   { label: "Add ticket", href: "/ticket", icon: FilePlus2 },
   { label: "Add machine", href: "/add_machine", icon: Plus },
   { label: "Organization", href: "/org", icon: Building2 },
