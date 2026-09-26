@@ -29,11 +29,6 @@ const history: Record<string, Ticket[]> = {
     { id: "robot-service", machinePk: "ROBOT-03", kind: "INFO", title: "Service log moved to the cell cabinet", description: "Inspection notes and spare part numbers are in the blue folder.", createdAt: "2026-09-21" },
   ],
 };
-const manuals = {
-  "tormach-pcnc-1100": "https://tormach.com/media/asset/u/m/um10349_pcnc1100_manual_0520a_web.pdf",
-  "universal-robots-ur5e": "https://www.universal-robots.com/manuals/EN/PDF/SW5_19/user-manual-UR5e-PDF_online/710-965-00_UR5e_User_Manual_en_Global.pdf",
-  "abb-irb-120": "https://library.e.abb.com/public/35c8d30aebad4d13b945a1943e354ac5/3HAC035728%20PM%20IRB%20120-en.pdf",
-};
 
 export function MachineFix({ machinePk }: { machinePk: string }) {
   const router = useRouter();
@@ -102,12 +97,13 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
         <section className="contents min-w-0 border-line lg:order-2 lg:block lg:border-l" aria-label="Machine and recent tickets">
           <div className="relative h-[290px] border-b border-line sm:h-[390px] lg:h-[54vh] lg:min-h-[350px]">
             <MachineModelViewer modelId={machine.modelId} className="absolute inset-0 h-full w-full" showGizmo={false} autoRotate />
-            <div className="absolute right-4 top-5 w-64 max-w-[calc(100%-2rem)] sm:right-6">
-              <div className="relative sm:w-64">
-                <select aria-label="Active machine" value={machine.pk} onChange={(event) => router.push(`/machine/${encodeURIComponent(event.target.value)}`)} className="h-11 w-full appearance-none truncate rounded-md border border-line bg-surface px-3 pr-9 font-mono text-xs text-fg outline-none transition-colors hover:border-line-strong focus:border-accent focus:ring-2 focus:ring-accent-dim">
+            <div className="absolute left-4 top-5 w-80 max-w-[calc(100%-2rem)] sm:left-6 sm:max-w-[calc(100%-3rem)]">
+              <label htmlFor="active-machine" className="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-accent">Select machine</label>
+              <div className="relative">
+                <select id="active-machine" aria-label="Active machine" value={machine.pk} onChange={(event) => router.push(`/machine/${encodeURIComponent(event.target.value)}`)} className="h-14 w-full cursor-pointer appearance-none truncate rounded-md border-2 border-accent/70! bg-surface px-4 pr-12 font-mono text-sm font-medium text-fg outline-none transition-colors hover:border-accent! hover:bg-surface-2 focus:border-accent! focus:ring-2 focus:ring-accent-dim sm:text-base">
                   {machines.map((item) => <option key={item.pk} value={item.pk}>{item.pk} · {machineModels[item.modelId].model}</option>)}
                 </select>
-                <ChevronDown className="pointer-events-none absolute right-3 top-3.5 size-4 text-fg-muted" strokeWidth={1.5} />
+                <ChevronDown className="pointer-events-none absolute right-4 top-1/2 size-5 -translate-y-1/2 text-accent" strokeWidth={1.5} />
               </div>
             </div>
             <div className="pointer-events-none absolute inset-x-5 bottom-5 flex items-end justify-between gap-3 sm:inset-x-6">
@@ -126,7 +122,7 @@ function MachineWorkspace({ machine, machines }: { machine: OrganizationMachine;
         <motion.section initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }} className="order-2 flex min-h-[420px] min-w-0 flex-col px-5 py-9 sm:px-10 lg:order-1 lg:h-dvh lg:px-10 lg:py-12 xl:px-14" aria-label="Machine help">
           <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Describe the situation:</h1>
           <div ref={transcript} role="log" aria-label="Conversation" aria-live="polite" className="mt-8 flex-1 space-y-6 overflow-y-auto pb-6 lg:min-h-0">
-            {messages.map((message, index) => <div key={index} className={message.role === "user" ? "ml-5 rounded-lg border border-line bg-surface p-4 text-sm leading-6" : "text-sm leading-6"}>{message.role === "assistant" && <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.1em] text-accent">Team notes · Demo response</p>}<p className="whitespace-pre-wrap text-fg-muted">{message.text || "Checking machine notes…"}</p>{message.role === "assistant" && !busy && <a href={manuals[machine.modelId]} target="_blank" rel="noreferrer" className="mt-3 inline-flex rounded-md border border-line px-2 py-1 font-mono text-[10px] text-info hover:border-line-strong">Open {model.model} manual ↗</a>}</div>)}
+            {messages.map((message, index) => <div key={index} className={message.role === "user" ? "ml-5 rounded-lg border border-line bg-surface p-4 text-sm leading-6" : "text-sm leading-6"}><p className="whitespace-pre-wrap text-fg-muted">{message.text || "Checking machine notes…"}</p></div>)}
           </div>
           <form onSubmit={submit} className="rounded-lg border border-line bg-surface p-3 transition-colors focus-within:border-accent focus-within:ring-2 focus-within:ring-accent-dim">
             <textarea aria-label="Describe the problem" value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }} rows={3} placeholder="Describe the problem or paste an error code…" className="w-full resize-none bg-transparent p-1 text-sm leading-6 text-fg outline-none placeholder:text-fg-dim" />
