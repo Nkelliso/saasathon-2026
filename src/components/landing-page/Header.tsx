@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assets/logo.svg";
-import { ArrowUpRight, Hexagon } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-// const navigation = [
-//   { label: "How it works", href: "#system" },
-//   { label: "Knowledge network", href: "#knowledge" },
-//   { label: "Coverage", href: "#coverage" },
-// ];
+const navigation = [
+  { label: "Why Torque", href: "#roi" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
+];
 
 export default function Header() {
   return (
@@ -21,7 +21,7 @@ export default function Header() {
           <Image src={logo} alt={""} className="h-8 w-32" />
         </Link>
 
-        {/* <nav
+        <nav
           className="hidden items-center gap-7 md:flex"
           aria-label="Primary navigation"
         >
@@ -34,7 +34,7 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-        </nav> */}
+        </nav>
 
         <div className="flex items-center gap-2">
           <Link

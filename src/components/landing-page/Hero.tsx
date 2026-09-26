@@ -1,11 +1,27 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, LoaderCircle } from "lucide-react";
 import { motion } from "motion/react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import "./Hero.css";
 
 const transition = { duration: 0.45, ease: [0.16, 1, 0.3, 1] as const };
+
+const HeroMachineModelViewer = dynamic(
+  () =>
+    import("@/components/landing-page/HeroMachineModelViewer").then(
+      (module) => module.HeroMachineModelViewer,
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="grid h-full place-items-center">
+        <LoaderCircle className="size-5 animate-spin text-fg-muted" />
+      </div>
+    ),
+  },
+);
 
 export default function Hero() {
   return (
@@ -22,27 +38,27 @@ export default function Hero() {
               Operational Intelligence
             </span>
           </div>
-          <h1 className="max-w-3xl text-5xl font-semibold tracking-[-0.045em] text-fg sm:text-6xl lg:text-7xl lg:leading-[0.98]">
-            Keep the line <span className="text-fg-muted">moving.</span>
+          <h1 className="max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-fg sm:text-5xl lg:text-6xl lg:leading-[0.98]">
+            Unplanned downtime <span className="text-fg-muted">sucks.</span>
           </h1>
-          <p className="mt-7 max-w-xl text-base leading-7 text-fg-muted sm:text-lg">
+          <p className="mt-7 max-w-xl text-base leading-7 text-fg-muted sm:text-md">
             Instant machine diagnosis from service records, manufacturer
             manuals, and the knowledge your team builds on the floor.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link
-              href="/query"
+              href="/login"
               className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-black transition-[filter,box-shadow] hover:brightness-110 hover:shadow-[0_0_24px_rgba(255,107,26,0.25)]"
             >
-              Diagnose a machine
+              See how it works
               <ArrowRight className="size-4" strokeWidth={1.5} />
             </Link>
-            <a
-              href="#system"
+            <Link
+              href="/login"
               className="inline-flex items-center gap-2 rounded-md border border-line bg-surface px-4 py-2.5 text-sm text-fg transition-colors hover:border-line-strong"
             >
-              See the system
-            </a>
+              Log in
+            </Link>
           </div>
         </motion.div>
 
@@ -52,7 +68,13 @@ export default function Hero() {
           transition={{ ...transition, delay: 0.1 }}
           className="relative mx-auto w-full max-w-[530px]"
         >
-          PLACEHOLDER SECTION
+          <div className="opacity-50">
+            <HeroMachineModelViewer
+              modelId="abb-irb-120"
+              autoRotate
+              className="h-[360px] sm:h-[430px]"
+            />
+          </div>
         </motion.div>
       </div>
     </section>
