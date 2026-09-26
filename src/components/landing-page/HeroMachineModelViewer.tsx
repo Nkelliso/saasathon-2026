@@ -14,6 +14,8 @@ export type HeroMachineModelViewerProps = {
   rotation?: [number, number, number];
   /** Use the viewer's default continuous rotation instead of `rotation`. */
   autoRotate?: boolean;
+  /** Stops the WebGL render loop while the viewer is off-screen. */
+  isActive?: boolean;
   className?: string;
 };
 
@@ -141,6 +143,7 @@ export function HeroMachineModelViewer({
   modelId,
   rotation,
   autoRotate = false,
+  isActive = true,
   className = "",
 }: HeroMachineModelViewerProps) {
   const viewerRef = useRef<HTMLDivElement>(null);
@@ -176,6 +179,7 @@ export function HeroMachineModelViewer({
       aria-label={`3D model of ${modelId}`}
     >
       <Canvas
+        frameloop={isActive ? "always" : "never"}
         camera={{ position: [4.35, 2.9, 5.25], fov: 36, near: 0.05, far: 100 }}
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true }}
