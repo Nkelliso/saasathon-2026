@@ -26,28 +26,38 @@ ONCE YOU HAVE FOUND 5 MACHINES TO USE, Spin up 5 fresh subagents with fresh cont
 
 
 
-YOUR GOAL:
-You are taking on the role of a frontend designer and an engineer.
-You are to follow the exact style lined up in your system prompt.
-<MAIN_PAGES>
-All main-pages have a sidebar on the right, visible at all times.
-Sidebar tabs:
-- machine_fix
-- add-ticket tab
-- add-machine tab
-- organization_tab
-</MAIN_PAGES>
+TASK:
+I want to create a script to populate the DB with a bunch of mock Machines.
+Companies should have many machines of different types to use.
 
-In `src/app/(app)/**`, the routes and pages have been layed out.
+This script should be able to be ran easily such that it clears the database, and populates it with a bunch of test data robustly.
+This is exceptionally foolproof, and it means that we won't demo with bad data.
 
-Your task: Create the following page.
-Add as much detail as you can, make it feel good, smooth, and minimal.
+YOUR TASK:
+- create a (python?) script that can be ran to clear/populate the DB. (MAKE IT ROBUST.)
+- make it so it can be ran on the supabase instance, via backend key
 
-This is the page you are working on:
-{{PAGE}}
 
-TASK 0: Wire up EVERYTHING you need in the backend, when it comes to data, basic workflow, LLM flows.
-REMINDER, DOESN'T NEED TO PROPERLY WORK. Smoke + mirrors are best.
+
+
+
+
+
+TASK:
+
+
+
+
+
+
+
+<DEMO_SCRIPT>
+DEMO SCRIPT:
+
+Consider that you are a factory manager, like Dwayne, working in Plastech.
+You have a CNC machine that is working 
+
+</DEMO_SCRIPT>
 
 
 
