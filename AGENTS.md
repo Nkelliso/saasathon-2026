@@ -118,6 +118,9 @@ Use these IDs consistently in application data and asset paths. Add future machi
 For LLMs, we use openrouter, and we have an OPENROUTER_KEY defined in the `.env` file.
 
 (Use a weak model to start with; doesn't need to be perfect, our examples for the pitch will be cherry picked.)
+
+For the response in the machine-fix page, we should add an actual LLM + RAG pipeline.
+Use gemini-flash model with 
 </llms>
 
 </tech_stack>
@@ -140,6 +143,7 @@ Basic login + register page.
 All main-pages have a sidebar on the LEFT, visible at all times.
 Sidebar tabs:
 - machine_fix
+- Prevention (`/prevention`)
 - add-ticket tab
 - add-machine tab
 - organization_tab
@@ -180,6 +184,12 @@ Filing docs for when something goes wrong with a machine,
 OR filing general information about a machine.
 Make it so you can select ticket type from dropdown.
 </ticket>
+
+<prevention>
+The Prevention page (`/prevention`) uses AI to spot recurring issues across a company's machine tickets and file prevention tickets with possible causes and recommended checks. The goal is to turn repeated repairs into lessons that prevent future breakdowns and downtime.
+More importantly: It serves as a way to diagnose issues *before they happen.*
+For the hackathon, all data and analysis are spoofed for the demo.
+</prevention>
 
 <add_machine>
 Add machine page:

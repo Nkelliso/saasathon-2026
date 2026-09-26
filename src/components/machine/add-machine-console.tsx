@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { FormEvent, useState } from "react";
-import { ArrowRight, Check, ChevronDown, Plus } from "lucide-react";
+import { ArrowRight, Box, Check, ChevronDown, LoaderCircle, Plus } from "lucide-react";
 import { motion } from "motion/react";
 import { AppShell } from "@/components/app-shell";
 import { machineModels, type MachineModelId } from "@/lib/machines";
@@ -11,12 +12,15 @@ import { useOrganizationMachines, saveOrganizationMachines } from "@/lib/organiz
 
 const fieldClass = "w-full rounded-md border border-line bg-surface-2 px-3.5 text-sm text-fg outline-none transition-colors placeholder:text-fg-dim hover:border-line-strong focus:border-accent focus:ring-2 focus:ring-accent-dim";
 const machineOptions = Object.entries(machineModels);
-
-
+const MachineModelViewer = dynamic(
+  () => import("@/components/machine/machine-model-viewer").then((module) => module.MachineModelViewer),
+  { ssr: false, loading: () => <div className="grid h-full place-items-center"><LoaderCircle aria-label="Loading model" className="size-5 animate-spin text-fg-muted" /></div> },
+);
 
 export function AddMachineConsole() {
   const { machines } = useOrganizationMachines();
   const [modelId, setModelId] = useState<MachineModelId>("tormach-pcnc-1100");
+  const previewModel = machineModels[modelId];
   const [internalId, setInternalId] = useState("");
   const [notes, setNotes] = useState("");
   const [error, setError] = useState("");
@@ -43,13 +47,14 @@ export function AddMachineConsole() {
 
   return (
     <AppShell>
-      <main className="mx-auto w-full max-w-2xl px-5 py-9 sm:px-8 sm:py-14">
-        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}>
+      <motion.main initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }} className="mx-auto grid w-full max-w-[1600px] grid-cols-1 gap-8 px-5 py-9 sm:px-8 sm:py-14 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-12 xl:px-12">
+        <div className="order-1 min-w-0 lg:col-start-1 lg:row-start-1">
           <h1 className="text-3xl font-semibold tracking-tight">Add a machine</h1>
           <p className="mt-3 text-sm leading-6 text-fg-muted">Choose a model to get answers from its manuals and your team&apos;s notes.</p>
+        </div>
 
           {savedId ? (
-            <section aria-live="polite" className="mt-8 rounded-lg border border-line bg-surface p-6">
+            <section aria-live="polite" className="order-2 rounded-lg border border-line bg-surface p-6 lg:col-start-1 lg:row-start-2">
               <Check className="size-5 text-accent" strokeWidth={1.5} />
               <h2 className="mt-4 text-lg font-medium"><span className="font-mono">{savedId}</span> added</h2>
               <p className="mt-2 text-sm text-fg-muted">Your machine is ready for troubleshooting.</p>
@@ -59,8 +64,8 @@ export function AddMachineConsole() {
               <button type="button" onClick={() => { setSavedId(""); setInternalId(""); setNotes(""); }} className="mt-4 block text-sm text-fg-muted hover:text-fg">Add another machine</button>
             </section>
           ) : (
-            <form onSubmit={registerMachine} className="mt-8 space-y-6">
-              <div>
+            <form onSubmit={registerMachine} className="contents lg:col-start-1 lg:row-start-2 lg:block lg:space-y-6">
+              <div className="order-2 min-w-0">
                 <label htmlFor="machine-type" className="mb-2 block text-sm font-medium">Machine type</label>
                 <div className="relative">
                   <select id="machine-type" value={modelId} onChange={(event) => setModelId(event.target.value as MachineModelId)} className={`${fieldClass} h-12 appearance-none pr-10`}>
@@ -70,6 +75,7 @@ export function AddMachineConsole() {
                 </div>
               </div>
 
+              <div className="order-4 min-w-0 space-y-6">
               <div>
                 <label htmlFor="machine-id" className="mb-2 block text-sm font-medium">Internal machine ID</label>
                 <input id="machine-id" required maxLength={48} autoComplete="off" value={internalId} onChange={(event) => { setInternalId(event.target.value.toUpperCase()); setError(""); }} placeholder="e.g. MILL-04" aria-describedby={error ? "machine-id-error" : "machine-id-help"} aria-invalid={Boolean(error)} className={`${fieldClass} h-12 font-mono`} />
@@ -87,10 +93,24 @@ export function AddMachineConsole() {
                   <Plus className="size-4" strokeWidth={1.5} /> Add machine
                 </button>
               </div>
+              </div>
             </form>
           )}
-        </motion.div>
-      </main>
+        <section aria-label="Machine preview" className="order-3 min-w-0 overflow-hidden rounded-lg border border-line bg-surface lg:sticky lg:top-14 lg:col-start-2 lg:row-start-1 lg:row-span-2">
+          <div className="flex items-center justify-between border-b border-line px-5 py-4 font-mono text-[11px] uppercase tracking-[0.15em] text-fg-muted">
+            <span className="flex items-center gap-2"><Box className="size-4" strokeWidth={1.5} /> Machine preview</span>
+            <span>3D</span>
+          </div>
+          <MachineModelViewer modelId={modelId} showGizmo={false} className="h-72 sm:h-96 lg:h-[480px] xl:h-[540px]" />
+          <div className="border-t border-line px-5 py-5">
+            <div aria-live="polite" aria-atomic="true">
+              <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-fg-muted">{previewModel.category}</p>
+              <h2 className="mt-2 text-xl font-semibold tracking-tight">{previewModel.manufacturer} {previewModel.model}</h2>
+            </div>
+            <p className="mt-3 font-mono text-[10px] uppercase tracking-wider text-fg-dim">Drag to rotate · Pinch or scroll to zoom</p>
+          </div>
+        </section>
+      </motion.main>
     </AppShell>
   );
 }

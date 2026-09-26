@@ -1,0 +1,238 @@
+{
+  "machine_id": "universal-robots-ur5e",
+  "original_sha256": "cc51803135933126877de7023b6c4ae8844403653fc1618f7989c5b37702cad8",
+  "exclusions": [
+    {
+      "start_line": 45,
+      "end_line": 228,
+      "reason": "Remove full-source contents navigation to excluded setup and programming sections."
+    },
+    {
+      "start_line": 1187,
+      "end_line": 1206,
+      "reason": "Initial robot assembly/unpacking/hookup steps; retain sturdy-mount safety warning and workspace reference."
+    },
+    {
+      "start_line": 1343,
+      "end_line": 1364,
+      "reason": "Mounting description for initial base/tool/Control Box/pendant assembly; retain IP and stability warnings."
+    },
+    {
+      "start_line": 1403,
+      "end_line": 1430,
+      "reason": "Fixed/movable installation description and initial securing-robot mounting layout; retain safe power-down procedure."
+    },
+    {
+      "start_line": 1448,
+      "end_line": 1475,
+      "reason": "Initial securing of robot arm to mounting surface (6.4)."
+    },
+    {
+      "start_line": 1506,
+      "end_line": 1509,
+      "reason": "Initial base-flange cable hookup instructions; retain connection-length and damage cautions."
+    },
+    {
+      "start_line": 1536,
+      "end_line": 1545,
+      "reason": "Initial arm-to-Control Box cable connection procedure; retain hot-disconnect/extension cautions."
+    },
+    {
+      "start_line": 1566,
+      "end_line": 1569,
+      "reason": "Initial mains plug connection instruction; preserve electrical requirements and lockout safety."
+    },
+    {
+      "start_line": 1576,
+      "end_line": 1581,
+      "reason": "Initial mains cable hookup instruction."
+    },
+    {
+      "start_line": 1643,
+      "end_line": 1656,
+      "reason": "First-boot commissioning introduction; preserve payload/startup safety and normal start/stop operation."
+    },
+    {
+      "start_line": 1707,
+      "end_line": 1730,
+      "reason": "First-boot serial-number, robot-size and control-box provisioning."
+    },
+    {
+      "start_line": 1894,
+      "end_line": 1897,
+      "reason": "Installation chapter preamble; retain electrical hazards and safety I/O reference."
+    },
+    {
+      "start_line": 2023,
+      "end_line": 2073,
+      "reason": "OSSD enablement, default initial safety wiring and new emergency-stop wiring/shared-machine integration examples; retain OSSD behavior and safeguard-resume warnings."
+    },
+    {
+      "start_line": 2189,
+      "end_line": 2198,
+      "reason": "Initial I/O setup instructions; retain unexpected-motion notice."
+    },
+    {
+      "start_line": 2203,
+      "end_line": 2224,
+      "reason": "I/O naming and register programming setup (8.2.2)."
+    },
+    {
+      "start_line": 2341,
+      "end_line": 2346,
+      "reason": "Ethernet cable installation procedure; keep port specifications."
+    },
+    {
+      "start_line": 2412,
+      "end_line": 2424,
+      "reason": "External I/O power supply hookup examples; preserve electrical limits."
+    },
+    {
+      "start_line": 2518,
+      "end_line": 2523,
+      "reason": "3PE pendant accessory installation heading/preamble; retain replacement-configuration warning."
+    },
+    {
+      "start_line": 2530,
+      "end_line": 2570,
+      "reason": "Accessory upgrade: remove standard Teach Pendant and install 3PE Teach Pendant."
+    },
+    {
+      "start_line": 2583,
+      "end_line": 2604,
+      "reason": "New 3PE Teach Pendant software installation; retain button operation beginning 8.5.2."
+    },
+    {
+      "start_line": 2741,
+      "end_line": 2747,
+      "reason": "External enabling-device wiring diagram; retain channel-disagreement tolerance and safety notices."
+    },
+    {
+      "start_line": 2756,
+      "end_line": 2772,
+      "reason": "Operational-mode switch wiring example and end-effector integration heading."
+    },
+    {
+      "start_line": 2775,
+      "end_line": 2788,
+      "reason": "End-effector initial integration documentation navigation."
+    },
+    {
+      "start_line": 2826,
+      "end_line": 2829,
+      "reason": "Tool adapter connection steps; retain warning and pinout reference."
+    },
+    {
+      "start_line": 2911,
+      "end_line": 2923,
+      "reason": "Analog sensor/conveyor integration wiring example."
+    },
+    {
+      "start_line": 2936,
+      "end_line": 2959,
+      "reason": "Digital I/O hookup and inter-machine PLC integration examples."
+    },
+    {
+      "start_line": 2985,
+      "end_line": 2989,
+      "reason": "Remote on/off button initial wiring example; retain shutdown cautions."
+    },
+    {
+      "start_line": 3006,
+      "end_line": 3015,
+      "reason": "Initial tool mounting/flange layout; retain bolt-length and secure-tool warnings."
+    },
+    {
+      "start_line": 3072,
+      "end_line": 3085,
+      "reason": "Dual-pin tool power supply setup/wiring; retain emergency-stop power behavior."
+    },
+    {
+      "start_line": 3168,
+      "end_line": 3174,
+      "reason": "Tool digital input button hookup example."
+    },
+    {
+      "start_line": 3207,
+      "end_line": 3226,
+      "reason": "Non-differential/differential tool analog sensor connection examples; retain voltage limits and damage caution."
+    },
+    {
+      "start_line": 3322,
+      "end_line": 3325,
+      "reason": "Programming-academy navigation in startup section."
+    },
+    {
+      "start_line": 4295,
+      "end_line": 4328,
+      "reason": "First robot program tutorial and waypoint authoring steps; preserve collision/pinch warnings."
+    },
+    {
+      "start_line": 4522,
+      "end_line": 4835,
+      "reason": "Program tab authoring, program-tree editing, selected nodes and basic Move/Waypoint programming (10.5.3-10.5.8)."
+    },
+    {
+      "start_line": 4842,
+      "end_line": 4879,
+      "reason": "Set Payload program-node authoring and pick-and-place example; retain diagnostic payload explanation and transition-time motion precautions."
+    },
+    {
+      "start_line": 5002,
+      "end_line": 5015,
+      "reason": "Mounting-angle initial software configuration; retain gravity/Freedrive hazard explanation and correct-settings warning."
+    },
+    {
+      "start_line": 5270,
+      "end_line": 5299,
+      "reason": "UR Connect accessory installation, provisioning and activation; retain software update maintenance."
+    },
+    {
+      "start_line": 5612,
+      "end_line": 5617,
+      "reason": "Initial MODBUS client/server setup introduction."
+    },
+    {
+      "start_line": 5620,
+      "end_line": 5625,
+      "reason": "MODBUS unit creation/deletion/IP provisioning; retain refresh/reconnection and sequential-mode diagnostics."
+    },
+    {
+      "start_line": 5628,
+      "end_line": 5656,
+      "reason": "MODBUS signal creation/deletion/address/name programming setup; retain live signal values and connection error reference."
+    },
+    {
+      "start_line": 5849,
+      "end_line": 5870,
+      "reason": "PROFIsafe PLC integration configuration/enablement; retain mode-ownership and unresponsive-PLC brake behavior."
+    },
+    {
+      "start_line": 5873,
+      "end_line": 5874,
+      "reason": "Completed initial PROFIsafe setup statement."
+    },
+    {
+      "start_line": 6678,
+      "end_line": 6719,
+      "reason": "New program and new installation-file authoring procedures (15.4); retain existing program/install loading and backup/save reference."
+    }
+  ],
+  "retained_scope": [
+    "Safety/intended use/risk assessment; operating specifications, loads, clearances, startup/power-down and Freedrive.",
+    "Electrical precautions, I/O limits/pinouts, safety I/O semantics, 3PE operation and safety validation after modifications.",
+    "Software safety functions/configuration/restrictions, operator Run/Move screens, payload measurement/calibration and manual positioning.",
+    "Cybersecurity, network failure/diagnostic reference, emergency/recovery/backdrive, transportation, maintenance/repair, logs, existing-file restore/save and robot data.",
+    "Disposal, declarations and safety-function/certification reference."
+  ],
+  "review_notes": [
+    "Chapter 9 Commissioning is retained because it consists of safety validation tests explicitly required after modifications as well as before first use; no initial setup sequence is present.",
+    "Safety configuration and safety-plane limits are retained as safety material; robot program authoring in 10.5 is excluded.",
+    "Keep routine Run tab and Move tab/pose-editor manual positioning, with safety-boundary behavior, because operators need these after faults.",
+    "Retain payload measurement and transition-time guidance to diagnose unwanted stops or jumps; exclude payload program-node authoring.",
+    "Retain I/O electrical limits, fuse ratings, connector warnings and network error codes needed for maintenance; remove initial integration hookup examples.",
+    "Installation files in 15.4 are saved configuration artifacts: retain loading/restoring existing settings and saving backups, exclude creating new installations/programs.",
+    "Keep UR Connect updating as software maintenance while removing new accessory installation/activation. Manufacturer paragraphs retained verbatim.",
+    "Retain the complete MODBUS diagnostic-counter table (including polling tuning and script function names) to preserve table integrity and troubleshooting context; this is not a program-authoring tutorial."
+  ]
+}

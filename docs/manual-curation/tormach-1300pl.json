@@ -1,0 +1,121 @@
+{
+  "machine_id": "tormach-1300pl",
+  "original_sha256": "998ca778d01dd32fdb1a48328b13d9bcd417ebd769c8422dc707e3f0faa9f247",
+  "exclusions": [
+    {
+      "start_line": 58,
+      "end_line": 88,
+      "reason": "Delivery inspection before installation"
+    },
+    {
+      "start_line": 197,
+      "end_line": 1104,
+      "reason": "Original full contents references excluded chapters"
+    },
+    {
+      "start_line": 1961,
+      "end_line": 3143,
+      "reason": "Chapter 4 assembly, connections, installation verification and controller commissioning"
+    },
+    {
+      "start_line": 3512,
+      "end_line": 3513,
+      "reason": "Stale conversational subsection contents entry"
+    },
+    {
+      "start_line": 3647,
+      "end_line": 3665,
+      "reason": "Conversational DXF program creation tab"
+    },
+    {
+      "start_line": 3813,
+      "end_line": 3815,
+      "reason": "G-code editing keyboard shortcut"
+    },
+    {
+      "start_line": 3823,
+      "end_line": 3825,
+      "reason": "Conversational programming keyboard shortcut"
+    },
+    {
+      "start_line": 3977,
+      "end_line": 3978,
+      "reason": "Stale G-code editing contents entry"
+    },
+    {
+      "start_line": 3981,
+      "end_line": 3982,
+      "reason": "Stale DXF program generation contents entry"
+    },
+    {
+      "start_line": 4070,
+      "end_line": 4087,
+      "reason": "G-code text editing instructions"
+    },
+    {
+      "start_line": 4285,
+      "end_line": 4486,
+      "reason": "DXF to G-code creation and shape templates"
+    },
+    {
+      "start_line": 5005,
+      "end_line": 5094,
+      "reason": "Camera G/M-code programming instructions and examples"
+    },
+    {
+      "start_line": 5874,
+      "end_line": 5891,
+      "reason": "Writing G-code with AutoFS tutorial; material selection and presets retained"
+    },
+    {
+      "start_line": 5951,
+      "end_line": 5982,
+      "reason": "G-code numbered parameters and G10 cycle-counter programming; ADMIN counter monitoring/reset retained"
+    },
+    {
+      "start_line": 6203,
+      "end_line": 6204,
+      "reason": "Stale CAD/CAM contents entry"
+    },
+    {
+      "start_line": 6207,
+      "end_line": 6208,
+      "reason": "Stale first-cut tutorial contents entry"
+    },
+    {
+      "start_line": 6305,
+      "end_line": 6372,
+      "reason": "CAD/CAM program creation and post-processor tutorial"
+    },
+    {
+      "start_line": 6420,
+      "end_line": 6549,
+      "reason": "First-cut test program and G-code breakdown tutorial"
+    },
+    {
+      "start_line": 6565,
+      "end_line": 6582,
+      "reason": "Writing G-code with AutoFS tutorial; material selection and presets retained"
+    },
+    {
+      "start_line": 6627,
+      "end_line": 9478,
+      "reason": "Chapter 9 programming including G/M codes and advanced programming"
+    }
+  ],
+  "retained_scope": [
+    "Manufacturer attribution, safety and machine specifications",
+    "Ongoing operating limits and machine controls",
+    "Maintenance, repairs and troubleshooting",
+    "Diagnostic commands, diagrams, parts lists and electrical reference"
+  ],
+  "review_notes": [
+    "Site electrical, air supply and plasma compatibility requirements retained as ongoing operating limits; full machine installation chapter excluded.",
+    "Torch sensing, height control, arc checking, operating offsets and material presets retained.",
+    "AutoFS code-writing blocks excluded while runtime material-picker and custom preset instructions retained.",
+    "ADMIN diagnostics, software update/rollback maintenance and E-stop recordings retained.",
+    "Demo source pages 169, 172 and 175 retained verbatim.",
+    "Reviewed full chapter outlines and embedded programming sections. Original manufacturer text is unchanged outside recorded exclusions; partial-page labels are retained.",
+    "Retained the short G-code test in servo/backfeed-clamp troubleshooting on PDF page 178: it is an explicit diagnostic procedure with its continuous-motion warning, not a programming tutorial."
+  ]
+}
