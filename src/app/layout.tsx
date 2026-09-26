@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Machine Knowledge Base",
-    template: "%s | Machine Knowledge Base",
+    default: "Torque",
+    template: "%s | Torque",
   },
   description: "AI-powered operations knowledge for industrial machinery.",
 };
